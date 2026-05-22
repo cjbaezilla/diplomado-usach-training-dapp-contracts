@@ -12,6 +12,10 @@ Actualmente, el proyecto cuenta con el siguiente contrato base:
     *   **Control de Acceso (`Ownable`):** Gestión de propiedad para restringir funciones críticas al propietario.
     *   **Firmas sin Gas (`ERC20Permit`):** Soporte para aprobaciones mediante firmas (EIP-712), mejorando la experiencia del usuario.
 
+## 🎓 Herramientas Educativas (CLI)
+
+*   **`commands/hashing-edu.js`**: Taller interactivo de consola para comprender los conceptos clave de funciones hash en Ethereum (Keccak-256 vs SHA-256, colisiones en hashing compactado y cálculo de selectores de función). Consulta su [README específico](commands/README.md) para más información.
+
 ## 🛠️ Configuración Técnica
 
 *   **Versión de Solidity:** `0.8.35`
@@ -52,9 +56,15 @@ npm install
     ```bash
     npx hardhat ignition deploy ./ignition/modules/<Modulo>.js --network <nombre_de_red>
     ```
+*   **Ejecutar taller interactivo de hashing:**
+    ```bash
+    node commands/hashing-edu.js
+    ```
 
 ## 📂 Estructura del Proyecto
 
+*   `commands/`: Herramientas y scripts de consola interactivos de carácter educativo.
+    *   `hashing-edu.js`: Taller de consola interactivo para aprender hashing con Ethers.js.
 *   `contracts/`: Directorio de contratos inteligentes en Solidity.
     *   `BaseERC20.sol`: Contrato base de token ERC-20 implementado.
 *   `test/`: Suite de pruebas unitarias escritas en JavaScript utilizando Ethers.js y Chai.

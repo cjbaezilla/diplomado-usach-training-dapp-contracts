@@ -11,6 +11,7 @@ Este repositorio contiene los contratos inteligentes y el entorno de desarrollo 
 
 ## 📂 Estructura del Repositorio
 
+*   `commands/`: Contiene scripts interactivos o utilidades de consola con fines educativos.
 *   `contracts/`: Contiene los contratos inteligentes en Solidity (`.sol`).
 *   `test/`: Contiene las pruebas unitarias escritas en JavaScript/TypeScript utilizando Mocha, Chai y Ethers.js.
 *   `ignition/modules/`: Módulos de despliegue mediante **Hardhat Ignition**.
@@ -76,3 +77,8 @@ Al realizar tareas en este repositorio, sigue estas directrices para mantener la
 3.  **Módulos de Despliegue (Ignition)**:
     *   Define scripts de despliegue ordenados y modulares en `ignition/modules/`.
     *   Usa el patrón recomendado por Hardhat Ignition para facilitar futuras actualizaciones y testing local.
+
+4.  **Scripts y Herramientas CLI**:
+    *   Guarda las herramientas de consola o scripts utilitarios en `commands/` usando la extensión `.js` o `.ts`.
+    *   Cada script nuevo debe venir acompañado de su respectivo archivo `README.md` explicativo en la misma carpeta para detallar su propósito y uso.
+    *   Asegura el uso correcto de las dependencias globales del proyecto (por ejemplo, `ethers` versión 6) y mantén el código comentado íntegramente en español.
