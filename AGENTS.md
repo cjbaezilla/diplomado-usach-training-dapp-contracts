@@ -22,6 +22,7 @@ Este repositorio contiene los contratos inteligentes y el entorno de desarrollo 
 
 *   **Versión de Solidity**: Este proyecto está configurado para utilizar Solidity **`0.8.35`** (según consta en `hardhat.config.js`). Cualquier contrato nuevo debe usar esta versión o una compatible declarada en el pragma.
 *   **Entorno**: Node.js y npm para la gestión de dependencias.
+*   **Bibliotecas**: Las bibliotecas de **OpenZeppelin Contracts** (`@openzeppelin/contracts`) están instaladas en su versión `^5.6.1` y se debe priorizar su uso para implementar estándares de tokens (ERC20, ERC721, etc.), control de acceso y utilidades de seguridad comunes.
 
 ---
 
@@ -65,6 +66,7 @@ Al realizar tareas en este repositorio, sigue estas directrices para mantener la
 1.  **Creación de Contratos**:
     *   Guarda los contratos en `contracts/` utilizando la extensión `.sol`.
     *   Utiliza nombres descriptivos en CamelCase (ej. `MiToken.sol`).
+    *   Prioriza el uso de los contratos estándar de **OpenZeppelin** (ej. `ERC20`, `Ownable`, `AccessControl`) en lugar de reimplementar lógica común.
     *   Incluye comentarios aclaratorios y documentación NatSpec en **español** para explicar la lógica de funciones complejas.
 
 2.  **Pruebas Unitarias (Tests)**:
