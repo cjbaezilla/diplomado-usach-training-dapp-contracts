@@ -9,7 +9,7 @@ Y88b. .d88P Y88b  d88P d8888888888 Y88b  d88P 888    888
  "Y88888P"   "Y8888P" d88P     888  "Y8888P"  888    888 
 */
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.35;
+pragma solidity ^0.8.35;
 
 /**
  * @title StudentIdentity
