@@ -20,6 +20,17 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
 
 *   **[`BaseERC1155.sol`](contracts/BaseERC1155.sol)**: Contrato de token semi-fungible ERC-1155 con control de acceso por roles, acuñación, quema y soporte para URI dinámica de metadatos.
     *   **Dirección en red local (localhost):** `0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0`
+    *   **Insignias de Reliquias Disponibles:**
+        0. **ID 0**: Insignia #0: El Alambique y Recipiente (Taller de la EAO)
+        1. **ID 1**: Insignia #1: La Turbina del Patio de Talleres (Legado Industrial)
+        2. **ID 2**: Insignia #2: El Tablero de Control (Central Eléctrica EAO)
+        3. **ID 3**: Insignia #3: La Sala de Exhibición (Maestría Industrial de la EAO)
+        4. **ID 4**: Insignia #4: La Fragua y el Yunque (Taller de Forja de la EAO)
+        5. **ID 5**: Insignia #5: La Caldera Babcock & Wilcox (Corazón de Vapor de la EAO)
+        6. **ID 6**: Insignia #6: La Bodega del Laboratorio de Química (El Templo de la Alquimia EAO)
+        7. **ID 7**: Insignia #7: La Máquina de Vapor Cavé à Paris (El Motor Fundacional EAO)
+        8. **ID 8**: Insignia #8: La Urna Funeraria del General Las Heras (Maestría en Broncería y Fundición)
+        9. **ID 9**: Insignia #9: Los Taladros Mecánicos en Serie (Taller de Mecánica y Ajuste)
 
 *   **[`DEXFactory.sol`](contracts/DEXFactory.sol)**: Fábrica educativa para desplegar y registrar piscinas de liquidez (DEXPool) garantizando la unicidad de los pares.
     *   **Dirección en red local (localhost):** `0x0165878A594ca255338adfa4d48449f69242Eb8F`
