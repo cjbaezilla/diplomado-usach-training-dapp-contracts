@@ -542,3 +542,116 @@ await txRetiro.wait();
 
 console.log("Liquidez retirada e intereses cobrados.");
 ```
+
+---
+
+## 7. Dinámica y Crecimiento del Invariante $k$ bajo Comisiones Acumuladas
+
+En el modelo de producto constante de Uniswap V2, la constante geométrica $k = x \cdot y$ define el precio spot marginal de ejecución, asumiendo una piscina de liquidez teórica libre de comisiones. Sin embargo, en un entorno de producción, las comisiones de intercambio (como el $0.3\%$ estándar) se extraen directamente del activo de entrada aportado por el trader antes de proceder a la ejecución matemática del swap. Como resultado directo de este diseño, el saldo del activo de entrada depositado aumenta más de lo que disminuye el activo de salida entregado, lo que genera una acumulación de capital neto que permanece de manera irreversible en las reservas del contrato inteligente del pool.
+
+Matemáticamente, si designamos $x_t$ e $y_t$ como las reservas de tokens en un bloque $t$, el producto posterior al cobro de comisiones incrementa el valor de la constante de la curva. Si definimos la cantidad de comisión del swap como $\gamma = 0.003$ (el $0.3\%$), y el swap intercambia $\Delta x$ por $\Delta y$, las nuevas reservas pasan a ser $x_{t+1} = x_t + \Delta x$ e $y_{t+1} = y_t - \Delta y$. Dado que la cantidad de salida efectiva $\Delta y$ se calcula basándose únicamente en la cantidad neta libre de comisiones $\Delta x \cdot (1 - \gamma)$, el nuevo producto de reservas satisface la siguiente relación formalizada de crecimiento:
+
+$$x_{t+1} \cdot y_{t+1} = (x_t + \Delta x) \cdot \left(y_t - \frac{y_t \cdot \Delta x \cdot (1 - \gamma)}{x_t + \Delta x \cdot (1 - \gamma)}\right) > x_t \cdot y_t$$
+
+Este incremento sistemático en el producto de las reservas implica que la constante invariante $k$ no es estática a lo largo del tiempo, sino que experimenta un crecimiento estrictamente monótono creciente con cada swap completado en la plataforma. Debido a que el suministro total de LP tokens se mantiene constante durante el comercio (solo cambia cuando se añade o retira liquidez), el valor subyacente de cada LP token individual —calculado como la fracción proporcional del pool que posee el proveedor— aumenta progresivamente de forma lineal con respecto al volumen operado. Este mecanismo representa el canal de rentabilidad de los proveedores de liquidez, compensando la pérdida de valor que sufren por arbitraje y variación de precios (pérdida impermanente).
+
+---
+
+## 8. Arquitectura Industrial: Desacoplamiento de Lógica en Core y Periphery
+
+La arquitectura de los exchanges descentralizados industriales, como Uniswap V2, implementa un estricto patrón de diseño modular que divide el sistema en dos capas claramente diferenciadas: la capa de Núcleo (*Core*) y la capa de Periferia (*Periphery*). La capa de Núcleo consiste en contratos inmutables de alta seguridad como `UniswapV2Pair` y `UniswapV2Factory`, cuya única responsabilidad es la custodia segura de las reservas de activos, la emisión de acciones de liquidez (LP tokens) y la ejecución de intercambios de bajo nivel mediante transferencias directas. Estos contratos evitan activamente cualquier complejidad lógica innecesaria para minimizar el consumo de gas en la máquina virtual de Ethereum (EVM) y reducir drásticamente la superficie de vulnerabilidad frente a posibles exploits o reentradas.
+
+Por otro lado, la capa de Periferia está encarnada por el contrato `UniswapV2Router`, que actúa como la puerta de acceso principal para los usuarios de la dApp y los agregadores de liquidez. El Router se encarga de calcular las cantidades óptimas de depósito, coordinar la aprobación previa de tokens, implementar límites de protección de precios (límites de deslizamiento o slippage) y enrutar las operaciones comerciales a través de múltiples pools independientes en una sola transacción atómica (enrutamiento multisalto o multihop routing). Esta separación permite que el Core se mantenga extremadamente simple, robusto e inmutable, mientras que los contratos periféricos pueden ser reemplazados o actualizados en el futuro para introducir nuevas funcionalidades comerciales u optimizaciones sin poner en riesgo los miles de millones de dólares custodiados en los pools de liquidez.
+
+En contraste, nuestro contrato de aprendizaje didáctico `DEXPool.sol` consolida deliberadamente ambas responsabilidades en un único contrato monolítico con fines puramente pedagógicos. Al unificar la custodia de activos con los cálculos matemáticos de aportación proporcional en el mismo contrato, facilitamos que los estudiantes comprendan todo el ciclo de vida de un pool sin la distracción técnica de depurar llamadas entre múltiples contratos inteligentes. Sin embargo, en un entorno de producción real, este enfoque monolítico se desaconseja categóricamente, ya que incrementa exponencialmente los costos de gas de implementación y eleva el riesgo de reentrada al mezclar interacciones externas con el estado interno del pool.
+
+---
+
+## 9. Control de Ejecución en Transacciones: Límites de Deslizamiento (Slippage) y Tiempos de Expiración (Deadlines)
+
+La ejecución segura de transacciones en un entorno blockchain descentralizado requiere mitigar la incertidumbre temporal asociada al procesamiento asíncrono y al estado dinámico de la mempool pública. Para ello, los contratos comerciales implementan dos parámetros de protección vitales: el límite de deslizamiento (*slippage tolerance*) y el tiempo límite de expiración (*deadline*). La tolerancia al deslizamiento se define a través de la variable `amountOutMin` (cantidad mínima esperada de salida) en las operaciones de swap, o `amountAMin` y `amountBMin` en la provisión de liquidez, estableciendo un umbral matemático estricto por debajo del cual la transacción se revertirá de forma automática. Si una transacción de swap se envía esperando recibir $\Delta y$ tokens y el estado del pool cambia debido a transacciones competidoras que se procesaron antes en el bloque, la EVM verificará la condición al ejecutar la instrucción:
+
+$$\text{cantidadSalidaReal} \ge \text{amountOutMin}$$
+
+Si esta condición lógica no se cumple en su totalidad, la máquina virtual de Ethereum cancela la operación y revierte todos los cambios de estado aplicados durante la transacción, protegiendo al usuario de sufrir una pérdida excesiva de valor por cambios imprevistos de precios. El parámetro `deadline`, expresado como una marca de tiempo UNIX absoluta de la red, mitiga el riesgo de que una transacción quede suspendida de manera indefinida en la cola de procesamiento debido a tarifas de gas inicialmente configuradas por debajo del nivel óptimo del mercado. Si el mercado sufre una volatilidad brusca y la transacción atascada del usuario es finalmente minada horas después sin esta protección, el trader experimentaría pérdidas severas; sin embargo, al incluir una validación como `require(block.timestamp <= deadline, "Transaccion expirada")`, el contrato garantiza que cualquier orden procesada fuera de su ventana de validez temporal sea denegada de inmediato, asegurando un control absoluto del ciclo de vida de la transacción por parte del usuario.
+
+---
+
+## 10. Vectores de Ataque en la Mempool: Valor Máximo Extraíble (MEV) y Ataques Sándwich
+
+El diseño transparente de la mempool de Ethereum expone todas las transacciones pendientes a análisis algorítmicos automatizados ejecutados por mineros, validadores y bots de búsqueda especializados, dando origen al concepto de Valor Máximo Extraíble (MEV). El MEV es la ganancia que un operador de nodo o buscador puede capturar reordenando, insertando o censurando de manera arbitraria transacciones dentro de un bloque en construcción. La forma más destructiva de MEV que afecta directamente a los usuarios comunes de los exchanges descentralizados es el denominado ataque sándwich, que explota de forma sistemática los límites de deslizamiento y las asimetrías de información temporal inherentes a las ejecuciones asíncronas en cadena.
+
+Para estructurar un ataque sándwich, un bot especializado monitorea constantemente la mempool buscando transacciones de swaps de gran volumen que previsiblemente vayan a generar un impacto significativo en el precio de un pool de liquidez determinado. Una vez identificada la orden de la víctima, el atacante transmite de forma instantánea dos transacciones estratégicas: una transacción de compra previa con una comisión de gas muy elevada para asegurar que se posicione inmediatamente antes de la transacción de la víctima (*front-running*), y una transacción de venta posterior con una tarifa menor posicionada justo detrás (*back-running*). El flujo operativo detallado de este ataque secuencial se describe formalmente a continuación:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Victima as Transacción de la Víctima (Swap grande)
+    actor Atacante as Bot MEV (Atacante)
+    participant Pool as DEX Pool (Reservas x, y)
+    
+    Note over Atacante, Pool: 1. Fase de Front-running (Compra del atacante)
+    Atacante->>Pool: Ejecuta Swap (Aporta x, recibe y a precio Spot favorable)
+    Note over Pool: Precio de y aumenta en términos de x
+    
+    Note over Victima, Pool: 2. Fase de Ejecución (Swap de la víctima)
+    Victima->>Pool: Ejecuta Swap (Compra y a precio inflado dentro del slippage tolerado)
+    Note over Pool: Precio de y aumenta aún más
+    
+    Note over Atacante, Pool: 3. Fase de Back-running (Venta del atacante)
+    Atacante->>Pool: Ejecuta Swap (Vende y, reclama x a precio inflado)
+    Note over Atacante: Retorna ganancia neta libre de riesgo en token x
+```
+
+Como consecuencia de esta manipulación secuencial, el usuario víctima termina adquiriendo una cantidad sustancialmente menor del activo deseado, absorbiendo todo el impacto de precio provocado de manera artificial por la transacción de front-running del bot MEV. La ganancia neta obtenida por el atacante proviene directamente del valor sustraído a la víctima, el cual se transfiere de forma limpia al bot en la transacción de back-running. Para atenuar esta vulnerabilidad endémica de los sistemas descentralizados, es imprescindible que los usuarios y las interfaces cliente calculen el deslizamiento máximo admitido de forma dinámica y rigurosa, reduciendo la ventana de rentabilidad del ataque a valores inferiores a los costos de gas requeridos para desplegar las dos transacciones del atacante.
+
+---
+
+## 11. Oráculos de Precios Descentralizados mediante AMM y TWAP
+
+Los pools de liquidez descentralizados actúan de forma natural como fuentes de precios primarias de activos en la cadena de bloques, ya que el ratio instantáneo de sus reservas ($P_{\text{spot}} = y / x$) refleja de manera directa el tipo de cambio de mercado vigente. Sin embargo, utilizar este precio spot marginal directo como referencia de precios para otros protocolos DeFi (como plataformas de préstamos descentralizadas) es extremadamente peligroso debido al riesgo crítico de manipulación instantánea mediante préstamos rápidos o *Flash Loans*. Un atacante puede solicitar un préstamo masivo de millones de dólares, realizar un swap gigantesco en el pool en una sola transacción para sesgar artificialmente el ratio de precios a un valor extremo, interactuar con el protocolo secundario vulnerable que lee ese precio manipulado, y devolver el préstamo en el mismo bloque, vaciando los fondos de la plataforma víctima con un riesgo financiero nulo.
+
+Para erradicar esta vulnerabilidad crítica de los oráculos descentralizados, Uniswap V2 introdujo el concepto matemático del Precio Promedio Ponderado en el Tiempo (TWAP, por sus siglas en inglés) utilizando acumuladores persistentes integrados en el núcleo de los pools. En lugar de registrar únicamente el precio de cierre, el contrato almacena acumuladores de precios que incrementan continuamente en cada bloque agregando el precio spot marginal de ejecución multiplicado por el número de segundos transcurridos desde la última actualización del bloque:
+
+$$\text{precio0Acumulado} = \sum_{i} P_{0,i} \cdot \Delta t_i$$
+
+Donde $P_{0,i}$ es el precio spot del Token 0 en el bloque $i$, y $\Delta t_i$ es la diferencia de tiempo entre bloques. Para calcular el precio promedio ponderado en el tiempo durante una ventana de tiempo específica (por ejemplo, entre los bloques transcurridos en el intervalo $[t_1, t_2]$), un contrato externo lee los valores de acumuladores guardados en los puntos inicial y final, restando los valores y dividiendo la diferencia resultante por la cantidad de segundos transcurridos en el intervalo de observación:
+
+$$TWAP_{[t_1, t_2]} = \frac{\text{precio0Acumulado}(t_2) - \text{precio0Acumulado}(t_1)}{t_2 - t_1}$$
+
+Dado que un atacante solo puede alterar el precio spot marginal de forma instantánea dentro de la ejecución interna de una única transacción en un solo bloque (siendo obligado a devolver las reservas antes de que el bloque finalice), el impacto de su manipulación en el acumulador del oráculo es prácticamente insignificante cuando se promedia sobre períodos de tiempo sustanciales de varios minutos o horas. Este método de acumulación de precios en el almacenamiento inmutable de la máquina virtual proporciona a todo el ecosistema de contratos inteligentes una fuente de precios altamente resistente a ataques de manipulación instantánea y robos de liquidez.
+
+---
+
+## 12. Taxonomía Comparativa de AMM (Constant Function Market Makers)
+
+Los Creadores de Mercado de Función Constante (CFMM) se dividen en diferentes familias de diseño matemático en función de las necesidades operativas y comerciales de los activos involucrados en el par. La comparación de estos modelos matemáticos revela un balance técnico claro entre la eficiencia de capital del proveedor, la mitigación de la pérdida impermanente y la elasticidad del deslizamiento de precios para el trader. A continuación, se presenta una caracterización matemática de las tres arquitecturas principales que compiten y coexisten en el ecosistema DeFi moderno.
+
+### 12.1 Suma Constante (Constant Sum AMM)
+Este modelo se define mediante la ecuación lineal simple:
+
+$$x + y = k$$
+
+Geométricamente representa una línea recta que interseca ambos ejes con una pendiente constante de valor unitario. Su principal característica teórica es que permite a los usuarios realizar intercambios de tokens con **deslizamiento cero**, independientemente del tamaño de la orden de intercambio. Sin embargo, su vulnerabilidad operativa es absoluta: si el precio de mercado externo de un activo difiere aunque sea de forma infinitesimal del ratio estático del pool ($1:1$), los bots de arbitraje drenarán de inmediato y por completo toda la reserva del activo subvaluado en el pool, dejando la piscina completamente ilíquida con reservas de un solo token inútil. Por esta razón, el modelo de suma constante pura no se utiliza de forma independiente en la práctica comercial.
+
+### 12.2 Producto Constante (Constant Product AMM - Uniswap V2)
+Definido por la hipérbola asintótica clásica analizada a lo largo de este documento:
+
+$$x \cdot y = k$$
+
+Su gran ventaja académica y operativa es su **resiliencia de liquidez infinita**, lo que garantiza matemáticamente que el pool siempre mantendrá existencias de ambos activos sin importar la demanda o la volatilidad extrema. Sin embargo, presenta una gran ineficiencia en el uso del capital depositado: debido a que la liquidez está distribuida de manera uniforme a lo largo de todo el espectro de precios posibles (de $0$ a $\infty$), solo una pequeña fracción de los activos del pool (típicamente menos del $1\%$) se utiliza activamente para respaldar intercambios reales dentro del rango de precio spot marginal diario. Esto obliga a los LPs a inyectar grandes cantidades de capital para ofrecer una profundidad de mercado aceptable y evitar un impacto de precio prohibitivo para los traders.
+
+### 12.3 Invariante Híbrido (Curve Stableswap)
+Diseñado específicamente para optimizar intercambios de activos correlacionados (como stablecoins o wrapped tokens), este modelo combina linealmente las propiedades de suma y producto mediante un factor de apalancamiento dinámico $A$:
+
+$$A \cdot n^n \cdot (x + y) + d = A \cdot n^n \cdot d + \frac{d^{n+1}}{n^n \cdot x \cdot y}$$
+
+Donde $n$ es la cantidad de activos y $d$ es la constante de reservas totales. Cuando el precio está cerca de la paridad unitaria, el factor de apalancamiento prioriza el comportamiento de la suma constante, permitiendo swaps de gran volumen con un deslizamiento casi nulo. A medida que las reservas se desvían severamente del equilibrio de paridad, el modelo transiciona automáticamente hacia el comportamiento asintótico de producto constante, evitando el agotamiento total de la piscina. Esto permite una eficiencia de capital hasta 100 veces superior a la de Uniswap V2 para pares de activos correlacionados.
+
+### 12.4 Liquidez Concentrada (Uniswap V3)
+El modelo de liquidez concentrada revoluciona la eficiencia del capital al permitir que los proveedores de liquidez limiten sus depósitos a intervalos de precios específicos $[P_a, P_b]$, en lugar de distribuir su capital en el espectro completo de precios de cero a infinito. Matemáticamente, la curva de intercambio se desplaza de acuerdo con la fórmula de reservas virtuales:
+
+$$\left(x + \frac{L}{\sqrt{P_b}}\right) \cdot \left(y + L\sqrt{P_a}\right) = L^2$$
+
+Donde $L$ representa la liquidez concentrada activa dentro del rango de precios definido. Si el precio marginal de ejecución sale del intervalo establecido por el LP, toda su liquidez se convierte por completo en el activo menos valioso del par y deja de devengar comisiones comerciales hasta que el precio regrese al rango. Aunque este modelo incrementa masivamente la eficiencia de capital de los LPs (permitiéndoles generar los mismos ingresos por comisiones con una fracción del capital), expone a los proveedores a un riesgo de pérdida impermanente drásticamente mayor y a una complejidad de gestión de posiciones activa mucho más elevada que en los pools pasivos de producto constante.
+
