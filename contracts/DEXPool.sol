@@ -29,7 +29,7 @@ contract DEXPool is ERC20, ReentrancyGuard {
      * @dev Configura el par de tokens del pool. Se requiere que token0 < token1 alfanuméricamente
      * para asegurar una identificación única y ordenada del par.
      */
-    constructor(address _token0, address _token1) ERC20("USACH DEX LP Token", "LP-USACH") {
+    constructor(address _token0, address _token1) ERC20("USACH LP Token", "LP-USACH") {
         require(_token0 != address(0) && _token1 != address(0), "Direcciones de token invalidas");
         require(_token0 < _token1, "Los tokens deben estar ordenados");
         token0 = _token0;

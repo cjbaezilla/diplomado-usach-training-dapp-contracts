@@ -82,3 +82,8 @@ Al realizar tareas en este repositorio, sigue estas directrices para mantener la
     *   Guarda las herramientas de consola o scripts utilitarios en `commands/` usando la extensión `.js` o `.ts`.
     *   Cada script nuevo debe venir acompañado de su respectivo archivo `README.md` explicativo en la misma carpeta para detallar su propósito y uso.
     *   Asegura el uso correcto de las dependencias globales del proyecto (por ejemplo, `ethers` versión 6) y mantén el código comentado íntegramente en español.
+
+5.  **Despliegue y Arquitectura del DEX**:
+    *   **DEXFactory** es el único contrato del DEX que debe desplegarse manualmente mediante Hardhat Ignition (`DEX.js`). Su dirección predeterminada en red local (localhost) es `0x0165878A594ca255338adfa4d48449f69242Eb8F`.
+    *   **DEXPool** representa la piscina de liquidez individual para cada par de tokens ERC20 y **NO** debe ser desplegado directamente con Ignition. Se instancia dinámicamente en el contrato mediante la función `crearPool(address tokenA, address tokenB)` en `DEXFactory`.
+    *   Para la integración con la dApp en Next.js, se debe exportar la dirección de `DEXFactory` y las ABIs de ambos contratos (`DEXFactory` y `DEXPool`) para permitir al cliente web consultar las piscinas existentes e interactuar con cada pool dinámicamente.
