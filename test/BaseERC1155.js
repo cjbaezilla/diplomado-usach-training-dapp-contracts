@@ -12,8 +12,8 @@ describe("Contrato BaseERC1155 (MyToken)", function () {
     // Obtener los signers
     [admin, minter, addr1] = await ethers.getSigners();
 
-    // Obtener la fábrica del contrato MyToken definido en BaseERC1155.sol usando el nombre calificado
-    MyToken = await ethers.getContractFactory("contracts/BaseERC1155.sol:MyToken");
+    // Obtener la fábrica del contrato BaseERC1155 definido en BaseERC1155.sol usando el nombre calificado
+    MyToken = await ethers.getContractFactory("contracts/BaseERC1155.sol:BaseERC1155");
 
     // Desplegar el contrato pasando la dirección del administrador y del minter
     token = await MyToken.deploy(admin.address, minter.address);
@@ -22,13 +22,13 @@ describe("Contrato BaseERC1155 (MyToken)", function () {
   describe("Despliegue y Configuración Inicial", function () {
     it("Debería retornar la URI correcta con el ID en decimal y formato .json", async function () {
       const id = 1;
-      const uriEsperada = `https://website.com/nft/${id}.json`;
+      const uriEsperada = `https://cbaeza.com/nft/usach/badges/${id}.json`;
       expect(await token.uri(id)).to.equal(uriEsperada);
     });
 
     it("Debería funcionar dinámicamente con IDs de múltiples dígitos", async function () {
       const id = 456;
-      const uriEsperada = `https://website.com/nft/${id}.json`;
+      const uriEsperada = `https://cbaeza.com/nft/usach/badges/${id}.json`;
       expect(await token.uri(id)).to.equal(uriEsperada);
     });
 

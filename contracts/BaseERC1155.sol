@@ -17,7 +17,7 @@ import {ERC1155Burnable} from "@openzeppelin/contracts/token/ERC1155/extensions/
 import {ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
-contract MyToken is ERC1155, AccessControl, ERC1155Burnable, ERC1155Supply {
+contract BaseERC1155 is ERC1155, AccessControl, ERC1155Burnable, ERC1155Supply {
     using Strings for uint256;
 
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");

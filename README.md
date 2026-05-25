@@ -4,13 +4,22 @@ Este repositorio contiene los contratos inteligentes (smart contracts) y el ento
 
 ## 📄 Contratos del Proyecto
 
-Actualmente, el proyecto cuenta con el siguiente contrato base:
+Actualmente, el proyecto cuenta con los siguientes contratos:
 
-*   **`BaseERC20.sol`**: Un token ERC-20 estándar y robusto que implementa características modernas de la biblioteca **OpenZeppelin Contracts** (`^5.6.1`), tales como:
+*   **[`BaseERC20.sol`](contracts/BaseERC20.sol)**: Un token ERC-20 estándar y robusto que implementa características modernas de la biblioteca **OpenZeppelin Contracts** (`^5.6.1`), tales como:
     *   **Acuñación y Quema (`ERC20Burnable`, `mint`):** Permite emitir nuevos tokens (restringido al propietario) y destruir existentes.
     *   **Pausabilidad (`ERC20Pausable`):** Permite pausar todas las transferencias de tokens en caso de emergencia.
     *   **Control de Acceso (`Ownable`):** Gestión de propiedad para restringir funciones críticas al propietario.
     *   **Firmas sin Gas (`ERC20Permit`):** Soporte para aprobaciones mediante firmas (EIP-712), mejorando la experiencia del usuario.
+
+*   **[`StudentIdentity.sol`](contracts/StudentIdentity.sol)**: Contrato para gestionar identidades de estudiantes en la cadena, almacenando datos como nombre, email y redes sociales.
+    *   **Dirección en red local (localhost):** `0x5FbDB2315678afecb367f032d93F642f64180aa3`
+
+*   **[`TokenFactory.sol`](contracts/TokenFactory.sol)**: Fábrica para crear nuevos tokens `BaseERC20` de forma dinámica y registrar sus propietarios.
+    *   **Dirección en red local (localhost):** `0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512`
+
+*   **[`BaseERC1155.sol`](contracts/BaseERC1155.sol)**: Contrato de token semi-fungible ERC-1155 con control de acceso por roles, acuñación, quema y soporte para URI dinámica de metadatos.
+    *   **Dirección en red local (localhost):** `0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0`
 
 ## 🎓 Herramientas Educativas (CLI)
 
@@ -67,8 +76,10 @@ npm install
     *   `hashing-edu.js`: Taller de consola interactivo para aprender hashing con Ethers.js.
 *   `contracts/`: Directorio de contratos inteligentes en Solidity.
     *   `BaseERC20.sol`: Contrato base de token ERC-20 implementado.
+    *   `BaseERC1155.sol`: Contrato base de token ERC-1155 para insignias.
 *   `test/`: Suite de pruebas unitarias escritas en JavaScript utilizando Ethers.js y Chai.
     *   `BaseERC20.js`: Pruebas de cobertura para el contrato BaseERC20.
+    *   `BaseERC1155.js`: Pruebas de cobertura para el contrato BaseERC1155.
 *   `ignition/modules/`: Módulos de despliegue con Hardhat Ignition.
 *   `hardhat.config.js`: Configuración centralizada de Hardhat (compilador, EVM Cancun, optimizaciones).
 
