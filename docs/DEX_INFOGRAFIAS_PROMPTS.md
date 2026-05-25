@@ -181,3 +181,96 @@ uint256 public unEther = 1 ether; // Equivale a 10^18 Wei
 uint256 public unGwei  = 1 gwei;  // Equivale a 10^9 Wei
 uint256 public unWei   = 1;       // Equivale a 1 Wei (sin sufijo)
 ```
+
+---
+
+### Prompt 7: Arquitectura de Diseño DeFi: Desacoplamiento Core vs. Periphery
+
+**Descripción del Tema**: Explicación visual sobre la división de responsabilidades entre contratos inmutables de almacenamiento de reservas (Core) y contratos flexibles de interacción para swaps y enrutamiento (Periphery).
+
+**Prompt Técnico para el Diseñador Visual**:
+Este diagrama debe estar estructurado de forma jerárquica en tres niveles horizontales contiguos etiquetados claramente de arriba a abajo como "Capa de Usuario", "Capa de Periferia (Periphery)" y "Capa de Núcleo (Core)".
+
+El **Nivel Superior (Usuario)** representará una terminal o billetera etiquetada como "Billetera del Usuario / Interfaz Frontend (dApp)".
+
+El **Nivel Medio (Periphery)** ilustrará un bloque central denominado "Contrato Router (Ej: UniswapV2Router)". Se debe destacar visualmente mediante notas que este contrato es *mutable/actualizable* y *no custodia fondos*. De este bloque Router saldrán tres engranajes o recuadros que representen sus responsabilidades lógicas:
+1. "Enrutamiento Multisalto (Routing: Token A -> Token B -> Token C)".
+2. "Validación de Tolerancia al Deslizamiento (Slippage Tolerance check: amountOutMin)".
+3. "Control de Tiempo Expiración (Deadline check: block.timestamp)".
+
+El **Nivel Inferior (Core)** ilustrará un área de alta seguridad rodeada por una línea de borde continua y un candado con la etiqueta "Inmutable (No actualizable)". Dentro de este contenedor se dibujarán dos entidades:
+1. "Contrato Fábrica (DEXFactory)": con un flujo lógico que muestra una flecha de entrada desde el Router y una de salida etiquetada como `crearPool(tokenA, tokenB)` que genera un nuevo pool.
+2. Múltiples piscinas de liquidez circulares en paralelo etiquetadas como "Contrato DEXPool (Par A/B)" y "Contrato DEXPool (Par B/C)". Cada una debe mostrar que realiza de forma exclusiva las tareas de: "Custodia Física de Reservas (Reserves)" y "Acuñación/Quema de LP Tokens".
+
+Se trazará una línea de flujo numerada secuencialmente para ilustrar un swap directo de Token A por Token C a través de la periferia y el núcleo:
+- Paso 1 (Usuario -> Router): El usuario envía tokens e inicia la llamada.
+- Paso 2 (Router -> DEXPool A/B): El Router transfiere el Token A y ordena hacer el swap a la piscina A/B.
+- Paso 3 (DEXPool A/B -> DEXPool B/C): La piscina A/B envía el Token B intermedio directamente a la piscina B/C.
+- Paso 4 (DEXPool B/C -> Usuario): La piscina B/C transfiere el Token C final a la billetera del usuario.
+
+En el costado lateral de la infografía se debe colocar una nota de contraste titulada "Nuestro DEX Didáctico: Estructura Monolítica", que muestre un único bloque unificado (`DEXPool`) conteniendo toda la lógica de custodia y proporción, explicando al estudiante que este modelo monolítico es para fines educativos pero ineficiente en producción.
+
+---
+
+### Prompt 8: Vectores de Ataque en la Mempool: Anatomía del Ataque Sándwich (MEV)
+
+**Descripción del Tema**: Análisis pedagógico sobre cómo opera un bot de Valor Máximo Extraíble (MEV) en la mempool pública explotando los límites de deslizamiento de una transacción grande.
+
+**Prompt Técnico para el Diseñador Visual**:
+Esta infografía se organizará en dos paneles paralelos complementarios: el **Flujo Secuencial en la Mempool** a la izquierda y el **Impacto de Precios en la Curva** a la derecha.
+
+El **Panel de la Mempool (Izquierdo)** representará una cola de transacciones pendientes en la red (mempool) ingresando en un único bloque de la cadena de bloques. Debe ilustrarse que un bot MEV detecta una transacción grande de la víctima y transmite dos transacciones estratégicas:
+1.  **Transacción 1 (Front-run):** Orden del atacante para comprar Token A. Se dibujará una etiqueta de "Tarifa de Gas Alta ($G_{\text{alta}}$)" para posicionarse al inicio del bloque.
+2.  **Transacción 2 (Víctima):** Orden de la víctima para comprar una cantidad grande de Token A. Se etiquetará con "Tarifa de Gas Normal ($G_{\text{normal}}$)".
+3.  **Transacción 3 (Back-run):** Orden del atacante para vender Token A. Se etiquetará con "Tarifa de Gas Baja/Normal ($G_{\text{baja}}$)" para asegurar que se ejecute inmediatamente después de la víctima.
+
+El **Panel de la Curva de Precios (Derecho)** mostrará un gráfico cartesiano con la curva hiperbólica $x \cdot y = k$, donde el eje Y es la cantidad del Token B y el eje X la del Token A. Se graficarán tres estados del precio sobre la curva:
+- **Estado 0 (Spot Inicial):** El precio de compra del Token A en el pool es bajo.
+- **Transición 1 (Front-run del atacante):** El bot compra primero y desplaza el estado del pool a un punto de precio más elevado (Estado 1).
+- **Transición 2 (Ejecución de la víctima):** La víctima compra al precio inflado (Estado 1). Su transacción absorbe el impacto de precio y desplaza el pool a un nivel de precio extremo (Estado 2). La víctima recibe menos Token A del esperado.
+- **Transición 3 (Back-run del atacante):** El bot vende de inmediato todo su Token A acumulado al precio inflado del Estado 2, retornando el pool a un punto de equilibrio y extrayendo una ganancia neta en Token B sin riesgo.
+
+En la base de la infografía se colocará una advertencia académica titulada "Mitigación del Ataque": "Un cálculo preciso del deslizamiento máximo admitido (`amountOutMin`) previene que la Transacción 2 se ejecute a un precio tan desfavorable, haciendo que la transacción de la víctima falle (revert) y arruine la rentabilidad del bot atacante".
+
+---
+
+### Prompt 9: Oráculos de Precios: Flash Loan Attack vs. TWAP Oracles
+
+**Descripción del Tema**: Demostración visual de la manipulación de precios instantáneos mediante préstamos rápidos en pools de liquidez y la protección mediante el acumulador TWAP (Time-Weighted Average Price).
+
+**Prompt Técnico para el Diseñador Visual**:
+Esta infografía se dividirá en dos secciones dispuestas verticalmente para contrastar directamente un sistema vulnerable de oráculo spot frente a un sistema seguro de oráculo TWAP.
+
+La **Sección Superior (Ataque de Manipulación Spot)** mostrará el flujo cíclico de una transacción maliciosa en 4 pasos:
+- Paso 1 (Préstamo): El atacante solicita un volumen masivo de Token A mediante un "Flash Loan" (Préstamo Rápido sin colateral) de un contrato proveedor.
+- Paso 2 (Manipulación del DEX): El atacante deposita todo el Token A prestado en el `DEXPool`, desbalanceando drásticamente las reservas reales. El precio spot $P_{\text{spot}} = y/x$ cae instantáneamente.
+- Paso 3 (Explotación): Un contrato DeFi secundario (ej. plataforma de préstamos) consulta el precio *spot* instantáneo del pool para valorar la garantía del atacante. El protocolo cree que el Token A está devaluado y el Token B sobrevaluado, permitiendo al atacante retirar activos valiosos usando colateral devaluado.
+- Paso 4 (Repago y Cierre): El atacante retira el colateral, revierte el swap en el `DEXPool` para recuperar los fondos, y repaga el Flash Loan inicial. Todo ocurre en la misma transacción atómica (un solo bloque de tiempo $t_0$).
+
+La **Sección Inferior (Mapeo de TWAP y Resiliencia)** ilustrará una línea temporal formada por varios bloques de transacciones sucesivos ($B_0, B_1, B_2, \dots, B_n$). 
+Se representará la fórmula matemática del oráculo TWAP en un recuadro destacado:
+$$\text{precioAcumulado} = \sum_{i} P_{\text{spot}, i} \cdot \Delta t_i$$
+Se dibujará un gráfico temporal de precio (Precio vs. Tiempo) donde se aprecie un pico extremo y vertical de precio durante el bloque $B_1$ provocado por el Flash Loan. La línea de precio TWAP (calculada como la diferencia de acumuladores dividida por el tiempo transcurrido) debe mostrarse como una curva suave y horizontal casi inalterada por el pico del Flash Loan, demostrando visualmente que los ataques instantáneos no logran distorsionar la valoración temporal si se promedia sobre períodos de tiempo (ej. 1 hora).
+
+---
+
+### Prompt 10: Curvas de Vinculación (Bonding Curves) y el Algoritmo de Bancor
+
+**Descripción del Tema**: Concepto matemático y operativo del mercado primario autónomo de tokens donde la emisión/quema y el precio unitario se definen algorítmicamente mediante la fórmula de Bancor.
+
+**Prompt Técnico para el Diseñador Visual**:
+Esta infografía se estructurará combinando un gráfico de curvas matemáticas en el lado izquierdo y un diagrama de flujo de transacciones del contrato inteligente en el derecho.
+
+El **Gráfico Matemático (Izquierdo)** mostrará un plano cartesiano donde el eje vertical (Y) es el "Precio del Token (P)" y el eje horizontal (X) es el "Suministro en Circulación (S)". Se dibujará una curva potencial ascendente que parta del origen y crezca continuamente. Bajo la curva, dibuje un área sombreada entre los puntos de suministro $S_{\text{inicial}}$ y $S_{\text{final}}$ tras una compra. Esta área se etiquetará visualmente como:
+$$\text{Costo de Compra (Reserva a depositar)} = \int_{S_{\text{inicial}}}^{S_{\text{final}}} P(S) \, dS$$
+
+El **Diagrama de Flujo del Contrato (Derecho)** mostrará el contrato de la Curva de Vinculación conteniendo un cofre o caja fuerte titulado "Fondo de Reserva de Colateral (R)". Se ilustrarán dos flujos direccionales:
+1.  **Compra de Tokens (Minting):** El usuario envía "Activo de Reserva (Colateral)" al contrato. El contrato lo añade al cofre de reservas, acuña nuevos tokens y los transfiere al usuario. El precio spot marginal de la curva sube.
+2.  **Venta de Tokens (Burning):** El usuario devuelve los tokens al contrato. El contrato los quema permanentemente y devuelve la cantidad proporcional de colateral del cofre de reservas. El precio spot marginal de la curva baja.
+
+En el centro de la infografía se detallará en letras grandes la **Fórmula del Reserve Ratio (Bancor)**:
+$$F = \frac{R}{S \cdot P}$$
+Se incluirán etiquetas que expliquen la relación del factor $F$ (Connector Weight):
+- Un $F = 100\%$ representa una línea horizontal de precio fijo (Respaldo total 1:1, sin volatilidad).
+- Un $F = 20\%$ representa una curva de crecimiento exponencial sensible al volumen de compras (Respaldo fraccionario, alto impacto de apreciación).
+
