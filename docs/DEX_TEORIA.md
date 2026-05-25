@@ -655,3 +655,105 @@ $$\left(x + \frac{L}{\sqrt{P_b}}\right) \cdot \left(y + L\sqrt{P_a}\right) = L^2
 
 Donde $L$ representa la liquidez concentrada activa dentro del rango de precios definido. Si el precio marginal de ejecución sale del intervalo establecido por el LP, toda su liquidez se convierte por completo en el activo menos valioso del par y deja de devengar comisiones comerciales hasta que el precio regrese al rango. Aunque este modelo incrementa masivamente la eficiencia de capital de los LPs (permitiéndoles generar los mismos ingresos por comisiones con una fracción del capital), expone a los proveedores a un riesgo de pérdida impermanente drásticamente mayor y a una complejidad de gestión de posiciones activa mucho más elevada que en los pools pasivos de producto constante.
 
+---
+
+## 13. Aritmética de Punto Fijo y la Estructura de Datos UQ112x112 en la EVM
+
+Para implementar de manera segura operaciones matemáticas que involucren fracciones sin comprometer el determinismo de la máquina virtual de Ethereum (EVM), los protocolos industriales como Uniswap V2 evitan el uso de números reales continuos y recurren al estándar de punto fijo binario denominado $UQ112 \times 112$. Este formato codifica los números utilizando un entero sin signo de 224 bits, donde los 112 bits menos significativos representan la parte fraccionaria y los 112 bits más significativos representan la parte entera. La elección de este formato no es arbitraria; permite almacenar dos precios acumulados distintos y la marca de tiempo de la última actualización del bloque en una única ranura de almacenamiento (slot) de 256 bits, optimizando el gas.
+
+La codificación de un número decimal $x$ en este sistema de representación discreto se calcula multiplicando el valor por el factor de escala fraccionario de base dos, es decir, $2^{112}$, y aplicando la función piso para truncar los decimales restantes. De esta forma, el valor entero almacenado en la EVM es $X = \lfloor x \cdot 2^{112} \rfloor$. Para decodificar o recuperar el número real a partir de su representación entera, simplemente se divide el número almacenado en Solidity por el mismo factor de escala, obteniendo $x \approx X / 2^{112}$. La precisión absoluta de este formato es extremadamente alta, permitiendo representar fracciones del orden de $2^{-112} \approx 1.92 \times 10^{-34}$, una resolución que supera con creces las necesidades de precisión del mercado financiero.
+
+Las operaciones aritméticas fundamentales en formato $UQ112 \times 112$ se ejecutan mediante manipulaciones directas a nivel de bits en lugar de multiplicaciones algebraicas convencionales con escalado por potencias de diez. La multiplicación de dos números de punto fijo, representados por $X$ e $Y$, requiere realizar el producto directo $X \cdot Y$ y dividir el resultado por $2^{112}$ para corregir la duplicación del factor de escala en el numerador, lo cual se escribe formalmente como $Z = (X \cdot Y) / 2^{112}$. En Solidity, esta división por una potencia de dos se optimiza en gas reemplazándola por un desplazamiento de bits hacia la derecha (`shr(112, mul(x, y))`), reduciendo el consumo de recursos de ejecución en la máquina virtual. Por su parte, la división de $X$ entre $Y$ requiere pre-escalar el numerador multiplicando $X$ por $2^{112}$ mediante un desplazamiento hacia la izquierda antes de ejecutar la división, para evitar que la división entera de la EVM trunque el resultado a cero.
+
+---
+
+## 14. Derivación Matemática del Swap de Arbitraje Óptimo en AMMs de Producto Constante
+
+El arbitraje es el mecanismo financiero descentralizado que mantiene los precios spot de los pools en paridad con el valor de mercado de los activos en el mundo exterior o en exchanges centralizados. Cuando el precio de mercado externo de un activo es superior al precio del pool de liquidez, existe una oportunidad de arbitraje rentable que consiste en comprar el activo subvaluado en el pool y venderlo en el exterior. Un arbitrador sofisticado no realiza swaps de tamaño al azar; calcula de forma exacta la cantidad óptima de entrada ($\Delta x_{\text{opt}}$) que maximiza su ganancia neta restando el costo de la operación del retorno obtenido, considerando la comisión del pool.
+
+Modelemos la función de beneficio del arbitrador en términos del token de entrada, asumiendo un precio de mercado externo $P_{ext}$ para el activo que se retira del pool. La cantidad de salida obtenida al introducir $\Delta x$ unidades con un factor de comisión $\gamma = 0.003$ es $\Delta y = \frac{y \cdot \Delta x \cdot (1 - \gamma)}{x + \Delta x \cdot (1 - \gamma)}$. El beneficio del arbitrador, valuado en términos de la unidad del activo de entrada, se define mediante la función de ganancia $\Pi(\Delta x)$:
+$$\Pi(\Delta x) = \Delta y \cdot P_{ext} - \Delta x = \left( \frac{y \cdot \Delta x \cdot (1 - \gamma)}{x + \Delta x \cdot (1 - \gamma)} \right) \cdot P_{ext} - \Delta x$$
+Para hallar la cantidad óptima que maximiza esta función de beneficio, derivamos $\Pi(\Delta x)$ con respecto a $\Delta x$ e igualamos la derivada resultante a cero, siguiendo el principio de optimización de cálculo clásico de primer orden.
+
+Al aplicar la regla del cociente para diferenciar la expresión del beneficio con respecto a la variable $\Delta x$, obtenemos la siguiente ecuación diferencial:
+$$\frac{d\Pi}{d\Delta x} = \frac{y \cdot (1 - \gamma) \cdot [x + \Delta x \cdot (1 - \gamma)] - [y \cdot \Delta x \cdot (1 - \gamma)] \cdot (1 - \gamma)}{[x + \Delta x \cdot (1 - \gamma)]^2} \cdot P_{ext} - 1 = 0$$
+Simplificando los términos semejantes en el numerador de la fracción del cociente, el término que depende de $\Delta x$ se cancela de forma limpia, dejando una expresión reducida para el numerador de valor $x \cdot y \cdot (1 - \gamma) \cdot P_{ext}$:
+$$\frac{x \cdot y \cdot (1 - \gamma) \cdot P_{ext}}{[x + \Delta x \cdot (1 - \gamma)]^2} = 1$$
+Despejando el denominador de la fracción y tomando la raíz cuadrada a ambos lados, obtenemos el tamaño óptimo del swap de arbitraje para el operador:
+$$\Delta x_{\text{opt}} = \frac{\sqrt{x \cdot y \cdot P_{ext} \cdot (1 - \gamma)} - x}{1 - \gamma}$$
+Esta derivación matemática demuestra que la cantidad óptima que se debe intercambiar depende directamente de la profundidad geométrica de las reservas del pool ($\sqrt{x \cdot y}$) y de la magnitud de la discrepancia de precio.
+
+---
+
+## 15. Ecuaciones del Invariante Virtual y Límites de Reserva en Liquidez Concentrada (Uniswap V3)
+
+La liquidez concentrada revoluciona la eficiencia del capital de los AMMs al permitir a los proveedores de liquidez limitar su exposición y depósito a intervalos de precios específicos $[P_a, P_b]$, en lugar de distribuir de manera uniforme e ineficiente su capital a lo largo de todo el espectro infinito de precios. Matemáticamente, la curva de intercambio se desplaza mediante la inyección de **reservas virtuales** que actúan como traslaciones geométricas sobre los ejes de la hipérbola. Esto permite que el comportamiento de los swaps dentro del rango sea idéntico al de una piscina clásica con una cantidad de capital significativamente mayor (las reservas virtuales $x_v, y_v$), pero utilizando solo una fracción del capital real depositado en el contrato.
+
+La ecuación que describe la dinámica de intercambio de activos dentro de un rango de precios $[P_a, P_b]$ para un nivel de liquidez concentrada $L$ se define como:
+$$(x + x_v) \cdot (y + y_v) = L^2$$
+Las constantes de desplazamiento de reservas virtuales, $x_v$ e $y_v$, se calculan evaluando los puntos límite del intervalo de precios, donde el pool se queda sin uno de los activos. Cuando el precio de mercado del par alcanza el límite superior $P_b$, toda la reserva real de Token 1 ($y$) se agota por completo ($y = 0$), lo que significa que el precio spot marginal es exactamente $P_b = \frac{y + y_v}{x + x_v} = \frac{y_v}{x_v}$. De manera recíproca, en el límite inferior del rango $P_a$, el pool agota sus reservas de Token 0 ($x = 0$), lo que resulta en un precio spot de $P_a = \frac{y_v}{x_v}$. Resolviendo este sistema de ecuaciones no lineales obtenemos los offsets virtuales:
+$$x_v = \frac{L}{\sqrt{P_b}}, \quad y_v = L\sqrt{P_a}$$
+
+Sustituyendo los valores de las constantes de reservas virtuales en la ecuación fundamental, se obtiene la expresión para las reservas reales que mantiene el contrato inteligente de Uniswap V3:
+$$\left(x + \frac{L}{\sqrt{P_b}}\right) \cdot \left(y + L\sqrt{P_a}\right) = L^2$$
+Esta ecuación demuestra que cuando el precio spot real del activo sale de los límites definidos, por ejemplo superando $P_b$, la reserva real de Token 1 se reduce a cero ($y = 0$) y la reserva real de Token 0 se maximiza, quedando la liquidez del proveedor temporalmente inactiva. En este punto, la posición del proveedor consiste exclusivamente en el activo menos valioso del par en el mercado actual, y permanecerá así, sin generar tarifas por transacciones, hasta que el precio spot del mercado externo regrese a la ventana $[P_a, P_b]$.
+
+---
+
+## 16. Modelo Cuantitativo del Crecimiento Global de Tarifas por Posición (*Fee Growth*)
+
+En los creadores de mercado automatizados con liquidez concentrada, el cálculo de las tarifas acumuladas por cada proveedor de liquidez individual es un desafío técnico complejo debido a la naturaleza no homogénea de los depósitos en diferentes rangos de precios. A diferencia del modelo clásico de Uniswap V2, donde las tarifas se pueden reinvertir directamente aumentando la constante global del pool $k$ y revaluando las acciones LP comunes, en Uniswap V3 se debe rastrear de forma exacta qué porción de tarifas se generó mientras el precio se encontraba dentro del rango específico de cada proveedor. Para evitar iteraciones costosas sobre todas las posiciones abiertas en la cadena de bloques, se utiliza un sistema acumulativo discreto global de tarifas por unidad de liquidez.
+
+El contrato de la piscina mantiene dos acumuladores globales persistentes, representados por las variables `feeGrowthGlobal0X128` y `feeGrowthGlobal1X128`, que incrementan con cada swap que se ejecuta en el sistema. Cuando se produce una transacción que genera una tarifa en Token 0 (denotada por $\Delta T_0$), el acumulador global se actualiza sumando la relación entre la tarifa y la liquidez activa actual $L_{\text{activa}}$ en el pool:
+$$f_{g,0} = f_{g,0} + \frac{\Delta T_0}{L_{\text{activa}}}$$
+Este valor se almacena utilizando números de punto fijo representados con un factor de escala de $2^{128}$ para evitar pérdidas de precisión matemática. De forma análoga, se realiza el mismo procedimiento para las tarifas recaudadas en Token 1.
+
+Para determinar las tarifas que corresponden a una posición individual abierta en el intervalo de precios $[P_a, P_b]$, el contrato registra una instantánea de los acumuladores globales en las posiciones límites inferior y superior al momento de inicializar la posición, denotados por $f_i(P_a)$ y $f_i(P_b)$. El acumulador de tarifas interno de la posición ($f_{rango}$) se calcula restando del acumulador global los valores de los límites externos de acuerdo con la posición actual del precio:
+$$f_{rango} = f_{g} - f_{\text{debajo}}(P_a) - f_{\text{encima}}(P_b)$$
+Finalmente, el beneficio acumulado para el proveedor se calcula multiplicando esta diferencia neta por el valor de la liquidez propia de su posición ($L_{\text{posicion}}$):
+$$\text{Tarifas Acumuladas} = L_{\text{posicion}} \cdot (f_{rango} - f_{rango,\text{inicial}})$$
+Este mecanismo de acumuladores de estado y deltas de rango permite distribuir de forma matemáticamente exacta y sin bucles iterativos las comisiones comerciales correspondientes a cada proveedor de liquidez.
+
+---
+
+## 17. Fórmulas de Emisión Diferida para las Tarifas de Protocolo (*Protocol Fee*)
+
+El diseño económico de los creadores de mercado descentralizados de producción a menudo incluye un mecanismo de cobro de tarifas de protocolo para sostener la gobernanza y el desarrollo continuo del proyecto. En Uniswap V2, esta tarifa de protocolo se configura como una fracción $\phi$ de las comisiones del pool (típicamente $\phi = 1/6$, es decir, una sexta parte de la comisión de intercambio del $0.3\%$, lo que equivale al $0.05\%$ del volumen total transaccionado). En lugar de procesar transferencias físicas de tokens en cada operación de swap, lo cual aumentaría prohibitivamente los costos de gas de los traders ordinarios, el protocolo calcula y emite LP tokens adicionales a la cuenta de la tesorería de manera diferida, únicamente cuando se ejecutan depósitos o retiros de liquidez.
+
+Para derivar la fórmula matemática de emisión de tokens LP para la tesorería del protocolo, definamos $k_1$ como la constante invariante de la piscina al momento de la última inyección o extracción de liquidez, y $k_2$ como el valor del producto de las reservas al bloque actual tras la acumulación de tarifas comerciales. La porción de tarifas comerciales acumulada es directamente proporcional al crecimiento de la raíz de la constante invariante, es decir, $\sqrt{k_2} - \sqrt{k_1}$. Queremos emitir una cantidad de LP tokens de protocolo ($s_m$) de tal forma que represente exactamente la fracción $\phi$ del incremento total de valor del pool. Si el suministro total de LP tokens previo a la emisión es $s_1$, la proporción de propiedad que debe tener la tesorería satisface la relación formalizada:
+$$\frac{s_m}{s_1 + s_m} = \phi \cdot \left( \frac{\sqrt{k_2} - \sqrt{k_1}}{\sqrt{k_2}} \right)$$
+
+Para despejar $s_m$ de la ecuación anterior, multiplicamos de forma cruzada y aislamos los términos que dependen de la variable de emisión del protocolo $s_m$:
+$$s_m \cdot \sqrt{k_2} = \phi \cdot (s_1 + s_m) \cdot (\sqrt{k_2} - \sqrt{k_1})$$
+$$s_m \cdot \sqrt{k_2} - \phi \cdot s_m \cdot (\sqrt{k_2} - \sqrt{k_1}) = \phi \cdot s_1 \cdot (\sqrt{k_2} - \sqrt{k_1})$$
+$$s_m \cdot [ \sqrt{k_2} \cdot (1 - \phi) + \phi \cdot \sqrt{k_1} ] = \phi \cdot s_1 \cdot (\sqrt{k_2} - \sqrt{k_1})$$
+Dividiendo el lado derecho por el factor del corchete del lado izquierdo, y dividiendo el numerador y el denominador por $\phi$, obtenemos la ecuación final de acuñación que se codifica directamente en Solidity:
+$$s_m = \frac{s_1 \cdot (\sqrt{k_2} - \sqrt{k_1})}{\left(\frac{1 - \phi}{\phi}\right) \sqrt{k_2} + \sqrt{k_1}}$$
+Para el caso estándar donde $\phi = 1/6$, la relación $\frac{1-\phi}{\phi}$ es exactamente igual a $5$, lo que produce la fórmula clásica utilizada por el creador del pool:
+$$s_m = \frac{s_1 \cdot (\sqrt{k_2} - \sqrt{k_1})}{5 \cdot \sqrt{k_2} + \sqrt{k_1}}$$
+
+---
+
+## 18. Optimización Física del Almacenamiento en la EVM (*Packed Storage*) y Gas en AMMs
+
+La optimización de los costos de ejecución en Solidity requiere un entendimiento profundo del modelo físico de memoria de la máquina virtual de Ethereum (EVM). El almacenamiento en la EVM se organiza en ranuras (slots) contiguas de 32 bytes de capacidad cada una, donde el costo de gas por acceder y modificar los datos está determinado por los opcodes `sload` (lectura de estado en disco) y `sstore` (escritura en disco). Una lectura de almacenamiento en frío cuesta 2,100 unidades de gas, mientras que una escritura puede costar hasta 20,000 unidades de gas, representando el cuello de botella físico más significativo en el diseño de protocolos de finanzas descentralizadas.
+
+Para mitigar estos altos costos de gas, los contratos de AMM industriales emplean el empaquetado de variables de almacenamiento (*packed storage*). El compilador de Solidity empaqueta múltiples variables de tamaño menor a 32 bytes en la misma ranura de almacenamiento si se declaran de forma consecutiva en el código. En el contrato de Uniswap V2, en lugar de almacenar `reserve0` y `reserve1` utilizando el tipo estándar `uint256`, se declaran con el tipo de datos `uint112`. Esto permite agrupar ambas variables junto a la marca de tiempo del último bloque `blockTimestampLast` (declarada como `uint32`) en un solo slot de 256 bits:
+$$\underbrace{\text{reserve0}}_{\text{112 bits}} + \underbrace{\text{reserve1}}_{\text{112 bits}} + \underbrace{\text{blockTimestampLast}}_{\text{32 bits}} = \text{256 bits (32 bytes)}$$
+Al realizar un swap, el pool puede leer y actualizar las dos reservas del contrato y la marca de tiempo de la última transacción ejecutando un único opcode `sload` y un único opcode `sstore`, reduciendo a la mitad el consumo de gas en comparación con variables de 256 bits independientes.
+
+Además del empaquetado de variables en el storage, los AMMs optimizan la lectura de constantes y variables inmutables definiéndolas con los modificadores `constant` e `immutable`. En Solidity, las variables marcadas como `immutable` (como las direcciones de los tokens del par `token0` y `token1` en el pool) no se guardan en el área de almacenamiento del contrato. En su lugar, el compilador inserta sus valores directamente como datos binarios embebidos en el propio código bytecode del contrato inteligente durante el despliegue. Al interactuar con el pool, el contrato lee las direcciones utilizando la memoria de instrucciones en lugar de ejecutar opcodes `sload` en el disco de almacenamiento, reduciendo el costo de lectura de las direcciones del par a una fracción de gas insignificante.
+
+---
+
+## 19. Vulnerabilidad de Integración ante Tokens Deflacionarios (*Fee-on-Transfer*)
+
+Uno de los vectores de ataque y fallas lógicas más comunes en la integración de contratos inteligentes DeFi surge al asumir que todas las transferencias de tokens ERC20 son simétricas y libres de impuestos internos. Los tokens deflacionarios o con tarifas de transferencia internas (*fee-on-transfer tokens*) aplican un descuento porcentual sobre el monto transferido en el propio código de su contrato inteligente ERC20 para financiar mecanismos de quema, recompensas de staking o tesorerías externas del proyecto. Si un contrato de pool de liquidez no está diseñado específicamente para interactuar con este tipo de activos, la constante de producto $k$ del AMM puede ser corrompida de forma irreversible o el pool puede ser drenado por arbitraje malicioso.
+
+Analicemos la falla de seguridad en una implementación monolítica didáctica de la función de intercambio `swap` de un pool. Si el usuario inicia un swap especificando `cantidadEntrada` en los parámetros de la llamada, el pool calcula de forma interna la cantidad de tokens de salida `cantidadSalida` basándose en ese parámetro nominal. A continuación, el pool ejecuta la instrucción `transferFrom(usuario, pool, cantidadEntrada)` y envía `cantidadSalida` al usuario de vuelta. Sin embargo, si el token de entrada cobra una tarifa de transferencia del $2\%$, la cantidad real de tokens que ingresan al contrato del pool es un $98\%$ del valor nominal de `cantidadEntrada`. Como resultado de este desajuste, el pool entrega más tokens de salida de lo que las matemáticas del producto constante de reservas reales permiten, rompiendo la ecuación fundamental $x \cdot y = k$ y acumulando pérdidas en el pool a favor del usuario.
+
+Para neutralizar por completo esta vulnerabilidad crítica en la integración de tokens arbitrarios, los pools de liquidez profesionales implementan una lógica defensiva basada en la medición de balances dinámicos en lugar de confiar en los parámetros de entrada nominales de las funciones. La cantidad efectiva de entrada ($\Delta x_{\text{real}}$) se calcula restando el balance real de tokens almacenado en el contrato antes del swap del balance real obtenido inmediatamente después de ejecutar la transferencia, utilizando la función estándar `balanceOf`:
+$$\Delta x_{\text{real}} = \text{balanceAfter} - \text{balanceBefore}$$
+Al basar los cálculos matemáticos de salida exclusivamente en este valor neta real, el pool garantiza que cualquier comisión o impuesto cobrado durante la transferencia sea absorbido por el usuario que realiza el swap y no por las reservas del pool de liquidez, protegiendo a los proveedores de liquidez de pérdidas financieras.
+
+
