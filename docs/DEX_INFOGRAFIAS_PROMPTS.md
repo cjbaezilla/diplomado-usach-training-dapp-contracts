@@ -133,3 +133,51 @@ Se trazará el flujo secuencial de la transacción bajo el modificador `nonReent
   1. Validar requerimientos (`Checks`).
   2. Actualizar variables de reserva y de LP token en disco (`Effects`).
   3. Transferir activos reales hacia el exterior (`Interactions`).
+
+---
+
+### Prompt 6: Representación de Decimales en Ethereum: De Wei a Ether
+
+**Descripción del Tema**: Explicación didáctica sobre cómo la máquina virtual de Ethereum (EVM) maneja números enteros para simular valores fraccionarios con una precisión fija de 18 decimales, ilustrando la escala completa desde 1 Wei hasta 1 Ether ($10^{18}$ Wei).
+
+**Prompt Técnico para el Diseñador Visual**:
+Esta infografía se organizará verticalmente en tres secciones de contenido claramente delimitadas para facilitar la lectura del estudiante.
+
+El **Panel Superior (El porqué de los 18 decimales)** presentará un contraste directo sobre cómo se manejan los decimales en contratos inteligentes para evitar errores de redondeo financiero. A la izquierda, dibuje una calculadora que muestre un error típico de punto flotante de precisión simple/doble (estilo IEEE 754), con la operación `0.1 + 0.2 = 0.30000000000000004` y una señal de alerta de "Error de Redondeo (Inseguro)". A la derecha, dibuje un engranaje o ábaco matemático robusto que represente la precisión exacta de la aritmética entera fija de la EVM sumando en Wei: `100,000,000,000,000,000 Wei` (0.1 Ether) + `200,000,000,000,000,000 Wei` (0.2 Ether) = `300,000,000,000,000,000 Wei` (0.3 Ether), con un sello verde de "Precisión Determinista".
+
+El **Panel Central (Línea de Escala)** mostrará una barra de escala numérica horizontal que represente un gradiente que vaya de menos a más (de izquierda a derecha). Marque con marcas divisorias los saltos de magnitudes de $10^3$ en $10^3$, destacando con etiquetas visuales prominentes los tres puntos clave que Solidity utiliza en su sintaxis nativa:
+1.  **Wei** ($10^0$): "La unidad básica, mínima e indivisible de valor en la red".
+2.  **Gwei** ($10^9$): "Unidad utilizada por defecto para expresar el precio de las transacciones de Gas".
+3.  **Ether** ($10^{18}$): "Unidad principal nativa de Ethereum".
+
+El **Panel Inferior (Tabla Completa de 18 Decimales)** será una tabla detallada que liste exactamente todas las magnitudes desde la potencia máxima hasta el valor mínimo para que los programadores visualicen la posición exacta de cada cero:
+
+| Potencia | Unidad / Denominación | Representación en Ether (Decimal) | Equivalencia en Wei (Entero EVM) | Cantidad de Ceros |
+| :--- | :--- | :--- | :--- | :--- |
+| $10^{18}$ | **Ether** (ETH / base) | `1.0` | `1,000,000,000,000,000,000` | 18 ceros |
+| $10^{17}$ | 100 Finney | `0.1` | `100,000,000,000,000,000` | 17 ceros |
+| $10^{16}$ | 10 Finney | `0.01` | `10,000,000,000,000,000` | 16 ceros |
+| $10^{15}$ | **Finney** (milli / milliether) | `0.001` | `1,000,000,000,000,000` | 15 ceros |
+| $10^{14}$ | 100 Szabo | `0.0001` | `100,000,000,000,000` | 14 ceros |
+| $10^{13}$ | 10 Szabo | `0.00001` | `10,000,000,000,000` | 13 ceros |
+| $10^{12}$ | **Szabo** (micro / microether) | `0.000001` | `1,000,000,000,000` | 12 ceros |
+| $10^{11}$ | 100 Gwei | `0.0000001` | `100,000,000,000` | 11 ceros |
+| $10^{10}$ | 10 Gwei | `0.00000001` | `10,000,000,000` | 10 ceros |
+| $10^9$ | **Gwei** (Shannon / nano) | `0.000000001` | `1,000,000,000` | 9 ceros |
+| $10^8$ | 100 Mwei | `0.0000000001` | `100,000,000` | 8 ceros |
+| $10^7$ | 10 Mwei | `0.00000000001` | `10,000,000` | 7 ceros |
+| $10^6$ | **Mwei** (Lovelace / pico) | `0.000000000001` | `1,000,000` | 6 ceros |
+| $10^5$ | 100 Kwei | `0.0000000000001` | `100,000` | 5 ceros |
+| $10^4$ | 10 Kwei | `0.00000000000001` | `10,000` | 4 ceros |
+| $10^3$ | **Kwei** (Babbage / femto) | `0.000000000000001` | `1,000` | 3 ceros |
+| $10^2$ | 100 Wei | `0.0000000000000001` | `100` | 2 ceros |
+| $10^1$ | 10 Wei | `0.00000000000000001` | `10` | 1 cero |
+| $10^0$ | **Wei** (wei / base) | `0.000000000000000001` | `1` | 0 ceros |
+
+Al pie de la tabla, incluya un recuadro de código Solidity destacado que recuerde al estudiante cómo se escribe esto en código:
+```solidity
+// Ejemplo de declaración en Solidity:
+uint256 public unEther = 1 ether; // Equivale a 10^18 Wei
+uint256 public unGwei  = 1 gwei;  // Equivale a 10^9 Wei
+uint256 public unWei   = 1;       // Equivale a 1 Wei (sin sufijo)
+```
