@@ -33,13 +33,13 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
         9. **ID 9**: Insignia #9: Los Taladros Mecánicos en Serie (Taller de Mecánica y Ajuste)
 
 *   **[`DEXFactory.sol`](contracts/DEXFactory.sol)**: Fábrica educativa para desplegar y registrar piscinas de liquidez (DEXPool) garantizando la unicidad de los pares.
-    *   **Dirección en red local (localhost):** `0x0165878A594ca255338adfa4d48449f69242Eb8F`
+    *   **Dirección en red local (localhost):** `0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9`
 
 *   **[`DEXPool.sol`](contracts/DEXPool.sol)**: Contrato de piscina de liquidez que implementa el modelo AMM de producto constante ($x \times y = k$) para el intercambio de tokens y la emisión de tokens LP.
     *   *Nota: No se despliega individualmente mediante Ignition, sino que es instanciado dinámicamente por `DEXFactory` al crear un par.*
 
 *   **[`WETH.sol`](contracts/WETH.sol)**: Port del contrato WETH9 original adaptado a Solidity `0.8.35` para envolver Ether (ETH) en un token compatible con el estándar ERC-20.
-    *   **Dirección en red local (localhost):** `0xa513E6E4b8f2a923D98304ec87F64353C4D5C853`
+    *   **Dirección en red local (localhost):** `0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9`
 
 ## 🎓 Herramientas Educativas (CLI)
 
