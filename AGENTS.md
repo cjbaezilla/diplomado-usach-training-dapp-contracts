@@ -87,3 +87,7 @@ Al realizar tareas en este repositorio, sigue estas directrices para mantener la
     *   **DEXFactory** es el único contrato del DEX que debe desplegarse manualmente mediante Hardhat Ignition (`DEX.js`). Su dirección predeterminada en red local (localhost) es `0x0165878A594ca255338adfa4d48449f69242Eb8F`.
     *   **DEXPool** representa la piscina de liquidez individual para cada par de tokens ERC20 y **NO** debe ser desplegado directamente con Ignition. Se instancia dinámicamente en el contrato mediante la función `crearPool(address tokenA, address tokenB)` en `DEXFactory`.
     *   Para la integración con la dApp en Next.js, se debe exportar la dirección de `DEXFactory` y las ABIs de ambos contratos (`DEXFactory` y `DEXPool`) para permitir al cliente web consultar las piscinas existentes e interactuar con cada pool dinámicamente.
+
+6.  **Despliegue de WETH**:
+    *   **WETH** representa el envoltorio de Ether oficial para la dApp. Se despliega mediante Hardhat Ignition (`WETH.js`). Su dirección predeterminada en red local (localhost) es `0xa513E6E4b8f2a923D98304ec87F64353C4D5C853`.
+    *   Sirve como token de emparejamiento clave dentro de las piscinas de liquidez del DEX.

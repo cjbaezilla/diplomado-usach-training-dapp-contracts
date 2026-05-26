@@ -38,6 +38,9 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
 *   **[`DEXPool.sol`](contracts/DEXPool.sol)**: Contrato de piscina de liquidez que implementa el modelo AMM de producto constante ($x \times y = k$) para el intercambio de tokens y la emisión de tokens LP.
     *   *Nota: No se despliega individualmente mediante Ignition, sino que es instanciado dinámicamente por `DEXFactory` al crear un par.*
 
+*   **[`WETH.sol`](contracts/WETH.sol)**: Port del contrato WETH9 original adaptado a Solidity `0.8.35` para envolver Ether (ETH) en un token compatible con el estándar ERC-20.
+    *   **Dirección en red local (localhost):** `0xa513E6E4b8f2a923D98304ec87F64353C4D5C853`
+
 ## 🎓 Herramientas Educativas (CLI)
 
 *   **`commands/hashing-edu.js`**: Taller interactivo de consola para comprender los conceptos clave de funciones hash en Ethereum (Keccak-256 vs SHA-256, colisiones en hashing compactado y cálculo de selectores de función). Consulta su [README específico](commands/README.md) para más información.
@@ -96,11 +99,14 @@ npm install
     *   `BaseERC1155.sol`: Contrato base de token ERC-1155 para insignias.
     *   `DEXFactory.sol`: Contrato de fábrica para instanciar piscinas de liquidez.
     *   `DEXPool.sol`: Contrato de piscina de liquidez para pares de tokens (AMM).
+    *   `WETH.sol`: Contrato WETH para envolver Ether (ETH).
 *   `test/`: Suite de pruebas unitarias escritas en JavaScript utilizando Ethers.js y Chai.
     *   `BaseERC20.js`: Pruebas de cobertura para el contrato BaseERC20.
     *   `BaseERC1155.js`: Pruebas de cobertura para el contrato BaseERC1155.
     *   `DEX.js`: Pruebas de cobertura para los contratos de DEXFactory y DEXPool.
-*   `ignition/modules/`: Módulos de despliegue con Hardhat Ignition (incluye `DEX.js` para desplegar la fábrica).
+    *   `WETH.js`: Pruebas de cobertura para el contrato WETH.
+*   `ignition/modules/`: Módulos de despliegue con Hardhat Ignition (incluye `DEX.js` para la fábrica de DEX y `WETH.js` para WETH).
+    *   `WETH.js`: Módulo de despliegue para el contrato WETH.
 *   `hardhat.config.js`: Configuración centralizada de Hardhat (compilador, EVM Cancun, optimizaciones).
 
 ## 🤖 Guía para Agentes de IA
