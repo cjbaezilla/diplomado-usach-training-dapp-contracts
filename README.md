@@ -18,12 +18,15 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
 
 *   **[`StudentIdentity.sol`](contracts/StudentIdentity.sol)**: Contrato para gestionar identidades de estudiantes en la cadena, almacenando datos como nombre, email y redes sociales.
     *   **Dirección en red local (localhost):** `0x5FbDB2315678afecb367f032d93F642f64180aa3`
+    *   **Dirección en red Sepolia:** `0x652b7718F130329F3eC865f418FE2a2634fb5E29`
 
 *   **[`TokenFactory.sol`](contracts/TokenFactory.sol)**: Fábrica para crear nuevos tokens `BaseERC20` de forma dinámica y registrar sus propietarios.
     *   **Dirección en red local (localhost):** `0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512`
+    *   **Dirección en red Sepolia:** `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB`
 
 *   **[`BaseERC1155.sol`](contracts/BaseERC1155.sol)**: Contrato de token semi-fungible ERC-1155 con control de acceso por roles, acuñación, quema y soporte para URI dinámica de metadatos.
     *   **Dirección en red local (localhost):** `0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0`
+    *   **Dirección en red Sepolia:** `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E`
     *   **Insignias de Reliquias Disponibles:**
         0. **ID 0**: Insignia #0: El Alambique y Recipiente (Taller de la EAO)
         1. **ID 1**: Insignia #1: La Turbina del Patio de Talleres (Legado Industrial)
@@ -38,12 +41,26 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
 
 *   **[`DEXFactory.sol`](contracts/DEXFactory.sol)**: Fábrica educativa para desplegar y registrar piscinas de liquidez (DEXPool) garantizando la unicidad de los pares.
     *   **Dirección en red local (localhost):** `0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9`
+    *   **Dirección en red Sepolia:** `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4`
 
 *   **[`DEXPool.sol`](contracts/DEXPool.sol)**: Contrato de piscina de liquidez que implementa el modelo AMM de producto constante ($x \times y = k$) para el intercambio de tokens y la emisión de tokens LP.
     *   *Nota: No se despliega individualmente mediante Ignition, sino que es instanciado dinámicamente por `DEXFactory` al crear un par.*
 
 *   **[`WETH.sol`](contracts/WETH.sol)**: Port del contrato WETH9 original adaptado a Solidity `0.8.35` para envolver Ether (ETH) en un token compatible con el estándar ERC-20.
     *   **Dirección en red local (localhost):** `0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9`
+    *   **Dirección en red Sepolia:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
+
+### 🌐 Despliegue en Ethereum Sepolia (Resumen de Transacciones)
+
+A continuación se detallan las direcciones finales de despliegue en la red de pruebas Sepolia, los hashes de transacción correspondientes y los enlaces directos a Etherscan Sepolia para facilitar el seguimiento del proceso educativo de despliegue y verificación:
+
+| Contrato / Módulo | Dirección en Sepolia | Hash de Transacción de Despliegue | Enlace Etherscan (Transacción) | Enlace Etherscan (Código Verificado) |
+| :--- | :--- | :--- | :--- | :--- |
+| **StudentIdentity** | `0x652b7718F130329F3eC865f418FE2a2634fb5E29` | `0xf2b1edd45b97629512e5fb519936466786e5d6135e07511c5aa968c40f10645d` | [Ver Tx](https://sepolia.etherscan.io/tx/0xf2b1edd45b97629512e5fb519936466786e5d6135e07511c5aa968c40f10645d) | [Ver Código](https://sepolia.etherscan.io/address/0x652b7718F130329F3eC865f418FE2a2634fb5E29#code) |
+| **TokenFactory** | `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB` | `0x3bcc16c5dc5512c566525b6f3850bb5133ff691198dcbae7b35e993936791d72` | [Ver Tx](https://sepolia.etherscan.io/tx/0x3bcc16c5dc5512c566525b6f3850bb5133ff691198dcbae7b35e993936791d72) | [Ver Código](https://sepolia.etherscan.io/address/0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB#code) |
+| **BaseERC1155** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | `0xcdb09e648974448d8fa2dc2edeb5113fe05746377a5aaaf4e0642608df6183db` | [Ver Tx](https://sepolia.etherscan.io/tx/0xcdb09e648974448d8fa2dc2edeb5113fe05746377a5aaaf4e0642608df6183db) | [Ver Código](https://sepolia.etherscan.io/address/0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E#code) |
+| **DEXFactory** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | `0x3fb045aaf2617146536cca9d9a45452c53b5393f83d2acf4350d385a715f6c62` | [Ver Tx](https://sepolia.etherscan.io/tx/0x3fb045aaf2617146536cca9d9a45452c53b5393f83d2acf4350d385a715f6c62) | [Ver Código](https://sepolia.etherscan.io/address/0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4#code) |
+| **WETH** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | `0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94` | [Ver Tx](https://sepolia.etherscan.io/tx/0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94) | [Ver Código](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317#code) |
 
 ## 🎓 Herramientas Educativas (CLI)
 

@@ -31,7 +31,7 @@ contract BaseERC1155 is ERC1155, AccessControl, ERC1155Burnable, ERC1155Supply {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
     constructor(address defaultAdmin, address minter)
-        ERC1155("https://cbaeza.com/nft/usach/badges/")
+        ERC1155("https://web3-usach-lab.cbaeza.com/nft/usach/relics/")
     {
         _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
         _grantRole(URI_SETTER_ROLE, defaultAdmin);
@@ -48,8 +48,8 @@ contract BaseERC1155 is ERC1155, AccessControl, ERC1155Burnable, ERC1155Supply {
      * la base URI actual con el ID en decimal y el sufijo '.json'.
      *
      * Ejemplo:
-     * Si la base URI es 'https://cbaeza.com/nft/usach/badges/', al consultar el ID 42,
-     * retornará: 'https://cbaeza.com/nft/usach/badges/42.json'.
+     * Si la base URI es 'https://web3-usach-lab.cbaeza.com/nft/usach/relics/', al consultar el ID 42,
+     * retornará: 'https://web3-usach-lab.cbaeza.com/nft/usach/relics/42.json'.
      */
     function uri(uint256 id)
         public
