@@ -2,6 +2,10 @@
 
 Este repositorio contiene los contratos inteligentes (smart contracts) y el entorno de pruebas para la dApp de entrenamiento del Diplomado de la Universidad de Santiago de Chile (USACH). Está construido utilizando el framework de desarrollo **Hardhat**.
 
+> [!WARNING]
+> **Descargo de responsabilidad (Disclaimer):** Los contratos inteligentes de este repositorio no han sido auditados. Son representaciones didácticas simples y básicas diseñadas exclusivamente con el propósito de explicar los conceptos y fundamentos básicos de las materias tratadas en el programa de estudios. No deben ser utilizados en entornos de producción.
+
+
 ## 📄 Contratos del Proyecto
 
 Actualmente, el proyecto cuenta con los siguientes contratos:
