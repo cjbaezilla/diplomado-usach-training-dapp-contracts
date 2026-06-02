@@ -91,3 +91,10 @@ Al realizar tareas en este repositorio, sigue estas directrices para mantener la
 6.  **Despliegue de WETH**:
     *   **WETH** representa el envoltorio de Ether oficial para la dApp. Se despliega mediante Hardhat Ignition (`WETH.js`). Su dirección predeterminada en red local (localhost) es `0xa513E6E4b8f2a923D98304ec87F64353C4D5C853`.
     *   Sirve como token de emparejamiento clave dentro de las piscinas de liquidez del DEX.
+
+7.  **Desafíos e Integración de Firmas ECDSA**:
+    *   La validación de la finalización de los desafíos se realiza **off-chain** en el servidor backend para evitar transacciones on-chain y listados de permitidos (whitelists) costosos en gas.
+    *   El contrato **ChallengeMinter** es el intermediario encargado de validar las firmas criptográficas de la red (generadas por el servidor autorizado con el `SIGNER_ROLE`) y gatillar la acuñación en el token de insignias.
+    *   **NO** se debe modificar el contrato base `BaseERC1155.sol` para incorporar lógicas de desafíos o reclamos. En su lugar, el contrato `BaseERC1155` debe otorgar el rol `MINTER_ROLE` a la dirección del contrato `ChallengeMinter` desplegado para habilitar el flujo descentralizado de acuñación.
+    *   Las firmas digitales deben incluir la dirección del usuario (`msg.sender`), el id de token, la cantidad, un `salt` único (nonce) y la dirección del contrato `ChallengeMinter` (`address(this)`) para evitar ataques de repetición y suplantaciones cruzadas de contratos.
+

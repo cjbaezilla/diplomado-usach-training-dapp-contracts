@@ -39,6 +39,8 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
         8. **ID 8**: Insignia #8: La Urna Funeraria del General Las Heras (Maestría en Broncería y Fundición)
         9. **ID 9**: Insignia #9: Los Taladros Mecánicos en Serie (Taller de Mecánica y Ajuste)
 
+*   **[`ChallengeMinter.sol`](contracts/ChallengeMinter.sol)**: Contrato intermediario y distribuidor de recompensas de desafíos. Implementa verificación criptográfica de firmas ECDSA (estándar EIP-191) generadas off-chain por el backend para autorizar la acuñación de insignias en `BaseERC1155.sol` sin gas fee administrativo ni requerir whitelists on-chain.
+
 *   **[`DEXFactory.sol`](contracts/DEXFactory.sol)**: Fábrica educativa para desplegar y registrar piscinas de liquidez (DEXPool) garantizando la unicidad de los pares.
     *   **Dirección en red local (localhost):** `0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9`
     *   **Dirección en red Sepolia:** `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4`
@@ -118,14 +120,18 @@ npm install
 *   `contracts/`: Directorio de contratos inteligentes en Solidity.
     *   `BaseERC20.sol`: Contrato base de token ERC-20 implementado.
     *   `BaseERC1155.sol`: Contrato base de token ERC-1155 para insignias.
+    *   `ChallengeMinter.sol`: Distribuidor de reclamos de desafíos mediante firmas criptográficas ECDSA.
     *   `DEXFactory.sol`: Contrato de fábrica para instanciar piscinas de liquidez.
     *   `DEXPool.sol`: Contrato de piscina de liquidez para pares de tokens (AMM).
     *   `WETH.sol`: Contrato WETH para envolver Ether (ETH).
 *   `test/`: Suite de pruebas unitarias escritas en JavaScript utilizando Ethers.js y Chai.
     *   `BaseERC20.js`: Pruebas de cobertura para el contrato BaseERC20.
     *   `BaseERC1155.js`: Pruebas de cobertura para el contrato BaseERC1155.
+    *   `ChallengeMinter.js`: Pruebas de validación de firmas ECDSA y de control de repeticiones de ChallengeMinter.
     *   `DEX.js`: Pruebas de cobertura para los contratos de DEXFactory y DEXPool.
     *   `WETH.js`: Pruebas de cobertura para el contrato WETH.
+*   `docs/`: Documentación teórica y guías académicas del diplomado.
+    *   `ECDSA_Signatures_Edu.md`: Guía educativa exhaustiva sobre la matemática, implementación y seguridad de firmas ECDSA en Solidity y Web3.
 *   `ignition/modules/`: Módulos de despliegue con Hardhat Ignition (incluye `DEX.js` para la fábrica de DEX y `WETH.js` para WETH).
     *   `WETH.js`: Módulo de despliegue para el contrato WETH.
 *   `hardhat.config.js`: Configuración centralizada de Hardhat (compilador, EVM Cancun, optimizaciones).
