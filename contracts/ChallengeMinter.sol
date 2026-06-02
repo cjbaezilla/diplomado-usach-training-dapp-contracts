@@ -9,8 +9,11 @@ Y88b. .d88P Y88b  d88P d8888888888 Y88b  d88P 888    888
  "Y88888P"   "Y8888P" d88P     888  "Y8888P"  888    888 
 ________________________________________________________
 
-Creado para Diplomado USACH (Junio 2026)
-Modulo educativo para distribucion de insignias mediante firmas off-chain (ECDSA)
+Creado por Carlos Baeza Negroni para Diplomado USACH (Junio 2026)
+Email: hola@cbaeza.com
+Sitio Web: https://cbaeza.com
+LinkedIn: https://www.linkedin.com/in/carlos-baeza-negroni/
+GitHub: https://github.com/cjbaezilla/
 */
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.35;
