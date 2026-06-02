@@ -40,6 +40,7 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
         9. **ID 9**: Insignia #9: Los Taladros Mecánicos en Serie (Taller de Mecánica y Ajuste)
 
 *   **[`ChallengeMinter.sol`](contracts/ChallengeMinter.sol)**: Contrato intermediario y distribuidor de recompensas de desafíos. Implementa verificación criptográfica de firmas ECDSA (estándar EIP-191) generadas off-chain por el backend para autorizar la acuñación de insignias en `BaseERC1155.sol` sin gas fee administrativo ni requerir whitelists on-chain.
+    *   **Dirección en red Sepolia:** `0xd898ecBD77E4A428e9EAC2B1E445c2628E033653`
 
 *   **[`DEXFactory.sol`](contracts/DEXFactory.sol)**: Fábrica educativa para desplegar y registrar piscinas de liquidez (DEXPool) garantizando la unicidad de los pares.
     *   **Dirección en red local (localhost):** `0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9`
@@ -63,6 +64,8 @@ A continuación se detallan las direcciones finales de despliegue en la red de p
 | **BaseERC1155** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | `0xcdb09e648974448d8fa2dc2edeb5113fe05746377a5aaaf4e0642608df6183db` | [Ver Tx](https://sepolia.etherscan.io/tx/0xcdb09e648974448d8fa2dc2edeb5113fe05746377a5aaaf4e0642608df6183db) | [Ver Código](https://sepolia.etherscan.io/address/0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E#code) |
 | **DEXFactory** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | `0x3fb045aaf2617146536cca9d9a45452c53b5393f83d2acf4350d385a715f6c62` | [Ver Tx](https://sepolia.etherscan.io/tx/0x3fb045aaf2617146536cca9d9a45452c53b5393f83d2acf4350d385a715f6c62) | [Ver Código](https://sepolia.etherscan.io/address/0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4#code) |
 | **WETH** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | `0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94` | [Ver Tx](https://sepolia.etherscan.io/tx/0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94) | [Ver Código](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317#code) |
+| **ChallengeMinter** | `0xd898ecBD77E4A428e9EAC2B1E445c2628E033653` | `0xeb2cbcb2f54b7ed509c6abac3862e0672fcc1874aec68d05d319d9598402252b` | [Ver Tx](https://sepolia.etherscan.io/tx/0xeb2cbcb2f54b7ed509c6abac3862e0672fcc1874aec68d05d319d9598402252b) | [Ver Código](https://sepolia.etherscan.io/address/0xd898ecBD77E4A428e9EAC2B1E445c2628E033653#code) |
+| **Asignación MINTER_ROLE** | N/A (Interacción) | `0x0b2c0f7266c9d979dbb9083916dbfe8f9a10b0785b80370bc38581bdc5f56177` | [Ver Tx](https://sepolia.etherscan.io/tx/0x0b2c0f7266c9d979dbb9083916dbfe8f9a10b0785b80370bc38581bdc5f56177) | N/A |
 
 ## 🎓 Herramientas Educativas (CLI)
 
