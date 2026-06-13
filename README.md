@@ -53,6 +53,9 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
     *   **Dirección en red local (localhost):** `0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9`
     *   **Dirección en red Sepolia:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
 
+*   **[`BatchTransfer.sol`](contracts/BatchTransfer.sol)**: Contrato para envío masivo (por lotes) de tokens ERC20 a un listado de direcciones, optimizando el gas y ofreciendo soporte para firmas de aprobación `permit` (EIP-2612) en una sola transacción.
+    *   **Dirección en red Sepolia:** `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860`
+
 ### 🌐 Despliegue en Ethereum Sepolia (Resumen de Transacciones)
 
 A continuación se detallan las direcciones finales de despliegue en la red de pruebas Sepolia, los hashes de transacción correspondientes y los enlaces directos a Etherscan Sepolia para facilitar el seguimiento del proceso educativo de despliegue y verificación:
@@ -66,10 +69,12 @@ A continuación se detallan las direcciones finales de despliegue en la red de p
 | **WETH** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | `0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94` | [Ver Tx](https://sepolia.etherscan.io/tx/0xefaab4f239fa40fe26d4a05b318cb3afb4cd8a6da6c76c31a9aa4bbf27224f94) | [Ver Código](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317#code) |
 | **ChallengeMinter** | `0xd898ecBD77E4A428e9EAC2B1E445c2628E033653` | `0xeb2cbcb2f54b7ed509c6abac3862e0672fcc1874aec68d05d319d9598402252b` | [Ver Tx](https://sepolia.etherscan.io/tx/0xeb2cbcb2f54b7ed509c6abac3862e0672fcc1874aec68d05d319d9598402252b) | [Ver Código](https://sepolia.etherscan.io/address/0xd898ecBD77E4A428e9EAC2B1E445c2628E033653#code) |
 | **Asignación MINTER_ROLE** | N/A (Interacción) | `0x0b2c0f7266c9d979dbb9083916dbfe8f9a10b0785b80370bc38581bdc5f56177` | [Ver Tx](https://sepolia.etherscan.io/tx/0x0b2c0f7266c9d979dbb9083916dbfe8f9a10b0785b80370bc38581bdc5f56177) | N/A |
+| **BatchTransfer** | `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860` | `0xcef3bb5872b09c427b3ec68759655e05888e92edcc7eb3abccd14943010363b9` | [Ver Tx](https://sepolia.etherscan.io/tx/0xcef3bb5872b09c427b3ec68759655e05888e92edcc7eb3abccd14943010363b9) | [Ver Código](https://sepolia.etherscan.io/address/0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860#code) |
 
 ## 🎓 Herramientas Educativas (CLI)
 
 *   **`commands/hashing-edu.js`**: Taller interactivo de consola para comprender los conceptos clave de funciones hash en Ethereum (Keccak-256 vs SHA-256, colisiones en hashing compactado y cálculo de selectores de función). Consulta su [README específico](commands/README.md) para más información.
+*   **`commands/enviar-lote.js`**: Herramienta CLI de consola para realizar el envío masivo de tokens ERC20 a un arreglo de direcciones utilizando el contrato inteligente `BatchTransfer`, validando aprobaciones previas. Consulta su [README específico](commands/README_enviar_lote.md) para más información.
 
 ## 🛠️ Configuración Técnica
 
@@ -120,8 +125,11 @@ npm install
 
 *   `commands/`: Herramientas y scripts de consola interactivos de carácter educativo.
     *   `hashing-edu.js`: Taller de consola interactivo para aprender hashing con Ethers.js.
+    *   `enviar-lote.js`: Script para envío masivo de tokens por lotes.
+    *   `README_enviar_lote.md`: Guía de uso de la herramienta CLI de envíos por lotes.
 *   `contracts/`: Directorio de contratos inteligentes en Solidity.
     *   `BaseERC20.sol`: Contrato base de token ERC-20 implementado.
+    *   `BatchTransfer.sol`: Contrato inteligente de transferencia masiva por lotes de tokens.
     *   `BaseERC1155.sol`: Contrato base de token ERC-1155 para insignias.
     *   `ChallengeMinter.sol`: Distribuidor de reclamos de desafíos mediante firmas criptográficas ECDSA.
     *   `DEXFactory.sol`: Contrato de fábrica para instanciar piscinas de liquidez.
