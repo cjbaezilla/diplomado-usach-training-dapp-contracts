@@ -2467,22 +2467,22 @@ Por consiguiente, la planificación pedagógica y el diseño metodológico de es
 
 Para facilitar la investigación autónoma y la especialización de los estudiantes del diplomado de la Universidad de Santiago de Chile, se presenta a continuación una selección curada de recursos y capítulos específicos de la documentación oficial de Solidity, detallando su vinculación técnica con los temas abordados en esta guía:
 
-1. [Patrones Comunes de Diseño](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/common-patterns.rst): Este capítulo es fundamental para profundizar en la lógica de restricción de accesos mediante modificadores y en la implementación segura del patrón de retiros (Withdrawal Pattern) frente al envío directo de fondos.
+1. [Patrones Comunes de Diseño](https://github.com/argotorg/solidity/tree/develop/docs/common-patterns.rst): Este capítulo es fundamental para profundizar en la lógica de restricción de accesos mediante modificadores y en la implementación segura del patrón de retiros (Withdrawal Pattern) frente al envío directo de fondos.
 
-2. [Consideraciones de Seguridad](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/security-considerations.rst): Analiza detalladamente las vulnerabilidades recurrentes en contratos de Solidity, incluyendo fallos de control de acceso, reentradas, y riesgos asociados a la manipulación del emisor de la transacción.
+2. [Consideraciones de Seguridad](https://github.com/argotorg/solidity/tree/develop/docs/security-considerations.rst): Analiza detalladamente las vulnerabilidades recurrentes en contratos de Solidity, incluyendo fallos de control de acceso, reentradas, y riesgos asociados a la manipulación del emisor de la transacción.
 
-3. [Especificación de la Interfaz Binaria de la Aplicación](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/abi-spec.rst): Documento técnico imprescindible para comprender cómo se codifican los parámetros de entrada y salida, cómo se estructuran los selectores de funciones y cómo se procesan los errores personalizados en la EVM.
+3. [Especificación de la Interfaz Binaria de la Aplicación](https://github.com/argotorg/solidity/tree/develop/docs/abi-spec.rst): Documento técnico imprescindible para comprender cómo se codifican los parámetros de entrada y salida, cómo se estructuran los selectores de funciones y cómo se procesan los errores personalizados en la EVM.
 
-4. [Ensamblador y Opcodes de Bajo Nivel](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/assembly.rst): Proporciona un desglose detallado de las instrucciones de ensamblador en línea, permitiendo a los auditores examinar la pila y los registros de almacenamiento durante las comprobaciones de seguridad.
+4. [Ensamblador y Opcodes de Bajo Nivel](https://github.com/argotorg/solidity/tree/develop/docs/assembly.rst): Proporciona un desglose detallado de las instrucciones de ensamblador en línea, permitiendo a los auditores examinar la pila y los registros de almacenamiento durante las comprobaciones de seguridad.
 
-5. [Hoja de Referencia Rápida](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/cheatsheet.rst): Un catálogo compacto de variables globales, opcodes, y modificadores integrados en el compilador, útil para consultas ágiles durante el proceso de codificación.
+5. [Hoja de Referencia Rápida](https://github.com/argotorg/solidity/tree/develop/docs/cheatsheet.rst): Un catálogo compacto de variables globales, opcodes, y modificadores integrados en el compilador, útil para consultas ágiles durante el proceso de codificación.
 
-6. [Estructuras de Control y Excepciones](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst): Detalla la lógica de bifurcación condicional, el comportamiento de bucles, y el ciclo de vida de las excepciones provocadas por las instrucciones de reversión de la transacción.
+6. [Estructuras de Control y Excepciones](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst): Detalla la lógica de bifurcación condicional, el comportamiento de bucles, y el ciclo de vida de las excepciones provocadas por las instrucciones de reversión de la transacción.
 
-7. [Estructura del Contrato Inteligente](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/structure-of-a-contract.rst): Describe la anatomía formal de un contrato de Solidity, analizando la declaración de variables de estado, funciones, eventos, modificadores, y tipos definidos por el usuario.
+7. [Estructura del Contrato Inteligente](https://github.com/argotorg/solidity/tree/develop/docs/structure-of-a-contract.rst): Describe la anatomía formal de un contrato de Solidity, analizando la declaración de variables de estado, funciones, eventos, modificadores, y tipos definidos por el usuario.
 
-8. [Guía de Estilo Oficial](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/style-guide.rst): Establece las convenciones estéticas y de nomenclatura recomendadas por la comunidad de Solidity, promoviendo la consistencia en el uso de modificadores y nombres de variables.
+8. [Guía de Estilo Oficial](https://github.com/argotorg/solidity/tree/develop/docs/style-guide.rst): Establece las convenciones estéticas y de nomenclatura recomendadas por la comunidad de Solidity, promoviendo la consistencia en el uso de modificadores y nombres de variables.
 
-9. [Unidades y Variables Globales](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/units-and-global-variables.rst): Analiza el comportamiento de variables especiales de la EVM como `msg.sender`, `tx.origin`, `block.timestamp`, y las unidades de conversión de Ether y tiempo.
+9. [Unidades y Variables Globales](https://github.com/argotorg/solidity/tree/develop/docs/units-and-global-variables.rst): Analiza el comportamiento de variables especiales de la EVM como `msg.sender`, `tx.origin`, `block.timestamp`, y las unidades de conversión de Ether y tiempo.
 
-10. [Compilación e Idioma Yul](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/yul.rst): Introduce el lenguaje intermedio del compilador de Solidity, clave para comprender cómo se optimizan las llamadas de control de acceso y las validaciones lógicas antes de su conversión a bytecode.
+10. [Compilación e Idioma Yul](https://github.com/argotorg/solidity/tree/develop/docs/yul.rst): Introduce el lenguaje intermedio del compilador de Solidity, clave para comprender cómo se optimizan las llamadas de control de acceso y las validaciones lógicas antes de su conversión a bytecode.

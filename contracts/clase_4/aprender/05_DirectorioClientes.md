@@ -2069,13 +2069,13 @@ En el marco del desarrollo curricular y el perfil de egreso del diplomado de la 
 
 Para profundizar en los aspectos técnicos analizados en esta guía didáctica, se recomienda el estudio riguroso de los siguientes documentos de referencia extraídos directamente de la documentación oficial del compilador:
 
-1. [Mapping Types en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/mapping-types.rst) - Detalle exhaustivo sobre la sintaxis, inicialización virtual y limitaciones de las tablas hash on-chain.
-2. [Layout of State Variables in Storage](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/internals/layout_in_storage.rst) - Análisis de bajo nivel sobre la disposición de variables y el cálculo de slots mediante Keccak-256.
-3. [Units and Global Variables](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/units-and-global-variables.rst) - Referencia completa de los miembros especiales de transacciones como msg.sender y msg.data.
-4. [Control Structures y Excepciones](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst) - Semántica del flujo de control e instrucciones require, revert y assert en Solidity.
-5. [Security Considerations](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/security-considerations.rst) - Guía oficial de buenas prácticas de seguridad y prevención de vulnerabilidades comunes de acceso.
-6. [Style Guide para Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/style-guide.rst) - Estándares de codificación, nombrado de modificadores y organización de variables de estado.
-7. [Introduction to Smart Contracts](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/introduction-to-smart-contracts.rst) - Fundamentos teóricos de la Máquina Virtual de Ethereum, transacciones y costos de gas.
-8. [Types and Type Conversions](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/conversion.rst) - Reglas del compilador para la conversión implícita y explícita de tipos address y payable.
-9. [Using the Compiler](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/using-the-compiler.rst) - Detalles del optimizador de gas, configuraciones de ejecución y generación de ABIs del contrato.
-10. [Natspec Format Specification](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/natspec-format.rst) - Estándar oficial de comentarios para documentación pedagógica de funciones y modificadores.
+1. [Mapping Types en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/types/mapping-types.rst) - Detalle exhaustivo sobre la sintaxis, inicialización virtual y limitaciones de las tablas hash on-chain.
+2. [Layout of State Variables in Storage](https://github.com/argotorg/solidity/tree/develop/docs/internals/layout_in_storage.rst) - Análisis de bajo nivel sobre la disposición de variables y el cálculo de slots mediante Keccak-256.
+3. [Units and Global Variables](https://github.com/argotorg/solidity/tree/develop/docs/units-and-global-variables.rst) - Referencia completa de los miembros especiales de transacciones como msg.sender y msg.data.
+4. [Control Structures y Excepciones](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst) - Semántica del flujo de control e instrucciones require, revert y assert en Solidity.
+5. [Security Considerations](https://github.com/argotorg/solidity/tree/develop/docs/security-considerations.rst) - Guía oficial de buenas prácticas de seguridad y prevención de vulnerabilidades comunes de acceso.
+6. [Style Guide para Solidity](https://github.com/argotorg/solidity/tree/develop/docs/style-guide.rst) - Estándares de codificación, nombrado de modificadores y organización de variables de estado.
+7. [Introduction to Smart Contracts](https://github.com/argotorg/solidity/tree/develop/docs/introduction-to-smart-contracts.rst) - Fundamentos teóricos de la Máquina Virtual de Ethereum, transacciones y costos de gas.
+8. [Types and Type Conversions](https://github.com/argotorg/solidity/tree/develop/docs/types/conversion.rst) - Reglas del compilador para la conversión implícita y explícita de tipos address y payable.
+9. [Using the Compiler](https://github.com/argotorg/solidity/tree/develop/docs/using-the-compiler.rst) - Detalles del optimizador de gas, configuraciones de ejecución y generación de ABIs del contrato.
+10. [Natspec Format Specification](https://github.com/argotorg/solidity/tree/develop/docs/natspec-format.rst) - Estándar oficial de comentarios para documentación pedagógica de funciones y modificadores.

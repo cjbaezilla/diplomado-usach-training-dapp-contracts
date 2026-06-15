@@ -2513,13 +2513,13 @@ Adicionalmente, cabe destacar que la integración de estos componentes con el so
 
 Para profundizar en la especificación técnica y el diseño del lenguaje Solidity, se recomienda consultar la documentación oficial incluida en la carpeta de estudio del diplomado:
 
-1. [Tipos de Referencia y Mappings](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/reference-types.rst)
-2. [Tipos de Mapeo en Detalle](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/mapping-types.rst)
-3. [Estructuras y Declaración de Tipos Compuestos](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/value-types.rst)
-4. [Estructuras de Control de Acceso y Gestión de Excepciones](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst)
-5. [Especificación Oficial de Codificación de la Interfaz Binaria de Aplicación (ABI)](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/abi-spec.rst)
-6. [Consideraciones de Seguridad y Auditoría de Contratos Inteligentes](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/security-considerations.rst)
-7. [Guía de Referencia Rápida y Variables Globales de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/cheatsheet.rst)
-8. [Unidades y Variables Globales del Entorno de Ejecución](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/units-and-global-variables.rst)
-9. [Guía de Estilo de Codificación para el Desarrollo en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/style-guide.rst)
-10. [Análisis del Compilador y Opciones de Optimización](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/using-the-compiler.rst)
+1. [Tipos de Referencia y Mappings](https://github.com/argotorg/solidity/tree/develop/docs/types/reference-types.rst)
+2. [Tipos de Mapeo en Detalle](https://github.com/argotorg/solidity/tree/develop/docs/types/mapping-types.rst)
+3. [Estructuras y Declaración de Tipos Compuestos](https://github.com/argotorg/solidity/tree/develop/docs/types/value-types.rst)
+4. [Estructuras de Control de Acceso y Gestión de Excepciones](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst)
+5. [Especificación Oficial de Codificación de la Interfaz Binaria de Aplicación (ABI)](https://github.com/argotorg/solidity/tree/develop/docs/abi-spec.rst)
+6. [Consideraciones de Seguridad y Auditoría de Contratos Inteligentes](https://github.com/argotorg/solidity/tree/develop/docs/security-considerations.rst)
+7. [Guía de Referencia Rápida y Variables Globales de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/cheatsheet.rst)
+8. [Unidades y Variables Globales del Entorno de Ejecución](https://github.com/argotorg/solidity/tree/develop/docs/units-and-global-variables.rst)
+9. [Guía de Estilo de Codificación para el Desarrollo en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/style-guide.rst)
+10. [Análisis del Compilador y Opciones de Optimización](https://github.com/argotorg/solidity/tree/develop/docs/using-the-compiler.rst)

@@ -1170,16 +1170,16 @@ En concordancia con las directivas oficiales de seguridad, por otra parte, la ej
 
 Para ampliar el conocimiento sobre los conceptos presentados en este documento académico, se recomienda estudiar las siguientes secciones de la documentación técnica oficial de Solidity en el entorno local:
 
-1. [Abstracción de Eventos y Logs en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/contracts/events.rst)
-2. [Tipos de Datos Elementales y Dirección en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types.rst)
-3. [Estructura y Declaración de Contratos Inteligentes](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/contracts.rst)
-4. [Unidades de Gas y Variables Globales de la EVM](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/units-and-global-variables.rst)
-5. [Estructuras de Control de Acceso y Manejo de Errores](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst)
-6. [Consideraciones de Seguridad y Ataques de Reentrada](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/security-considerations.rst)
-7. [Introducción a la Arquitectura de Smart Contracts](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/introduction-to-smart-contracts.rst)
-8. [Diseño y Disposición de Archivos Fuente de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/layout-of-source-files.rst)
-9. [Especificación de la Interfaz Binaria de la Aplicación (ABI)](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/abi-spec.rst)
-10. [Gramática Formal y Reglas del Compilador de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/grammar.rst)
+1. [Abstracción de Eventos y Logs en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/contracts/events.rst)
+2. [Tipos de Datos Elementales y Dirección en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/types.rst)
+3. [Estructura y Declaración de Contratos Inteligentes](https://github.com/argotorg/solidity/tree/develop/docs/contracts.rst)
+4. [Unidades de Gas y Variables Globales de la EVM](https://github.com/argotorg/solidity/tree/develop/docs/units-and-global-variables.rst)
+5. [Estructuras de Control de Acceso y Manejo de Errores](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst)
+6. [Consideraciones de Seguridad y Ataques de Reentrada](https://github.com/argotorg/solidity/tree/develop/docs/security-considerations.rst)
+7. [Introducción a la Arquitectura de Smart Contracts](https://github.com/argotorg/solidity/tree/develop/docs/introduction-to-smart-contracts.rst)
+8. [Diseño y Disposición de Archivos Fuente de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/layout-of-source-files.rst)
+9. [Especificación de la Interfaz Binaria de la Aplicación (ABI)](https://github.com/argotorg/solidity/tree/develop/docs/abi-spec.rst)
+10. [Gramática Formal y Reglas del Compilador de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/grammar.rst)
 
 
 Dentro del contexto de la ingeniería de software descentralizado, con relación a la gestión del tiempo y la sincronización horaria de los bloques de transacciones de Ethereum bajo el esquema de Prueba de Participación, es indispensable resaltar que la precisión de la variable block.timestamp se encuentra directamente condicionada al cumplimiento del intervalo de slots establecido por el protocolo de red, requiriendo que los proponentes de bloques mantengan relojes locales precisos para evitar el rechazo de sus bloques por parte de los validadores de consenso, lo que a su vez previene la manipulación de marcas temporales en los registros de auditoría financiera. En este sentido, la dimensión temporal avanza de forma predecible en múltiplos exactos de doce segundos bajo la coordinación del Consensus Layer, lo que ofrece un marco de estabilidad y confianza para la validación de pagos recurrentes, permitiendo al sistema corporativo de la Universidad de Santiago de Chile calendarizar desembolsos de sueldos sin depender de servidores Web2 externos que introduzcan vulnerabilidades de seguridad en el procesamiento contable mensual de la organización.

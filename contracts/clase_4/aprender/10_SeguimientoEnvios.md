@@ -1154,14 +1154,14 @@ En el marco del aseguramiento de la calidad de software para la blockchain, la e
 
 Para ampliar el conocimiento sobre los conceptos presentados en este documento académico, se recomienda estudiar las siguientes secciones de la documentación técnica oficial de Solidity en el entorno local:
 
-1. [Tipos de Datos Elementales y Tipos de Valor en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/value-types.rst)
-2. [Estructuras de Control y Máquinas de Estado en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst)
-3. [Estructura y Declaración de Contratos Inteligentes](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/structure-of-a-contract.rst)
-4. [Mapeos y Estructuras de Almacenamiento en Mappings](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/mapping-types.rst)
-5. [Guía de Estilo y Convenciones de Nombres en Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/style-guide.rst)
-6. [Cambios de Compatibilidad y Cambios Rupturas en la Versión 0.8.0](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/080-breaking-changes.rst)
-7. [Especificación de la Interfaz Binaria de la Aplicación ABI](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/abi-spec.rst)
-8. [Verificación Formal y Uso del Analizador SMTChecker](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/smtchecker.rst)
-9. [Diseño y Disposición de Archivos Fuente de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/layout-of-source-files.rst)
-10. [Especificación de Limpieza de Variables del Compilador](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/internals/variable_cleanup.rst)
+1. [Tipos de Datos Elementales y Tipos de Valor en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/types/value-types.rst)
+2. [Estructuras de Control y Máquinas de Estado en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst)
+3. [Estructura y Declaración de Contratos Inteligentes](https://github.com/argotorg/solidity/tree/develop/docs/structure-of-a-contract.rst)
+4. [Mapeos y Estructuras de Almacenamiento en Mappings](https://github.com/argotorg/solidity/tree/develop/docs/types/mapping-types.rst)
+5. [Guía de Estilo y Convenciones de Nombres en Solidity](https://github.com/argotorg/solidity/tree/develop/docs/style-guide.rst)
+6. [Cambios de Compatibilidad y Cambios Rupturas en la Versión 0.8.0](https://github.com/argotorg/solidity/tree/develop/docs/080-breaking-changes.rst)
+7. [Especificación de la Interfaz Binaria de la Aplicación ABI](https://github.com/argotorg/solidity/tree/develop/docs/abi-spec.rst)
+8. [Verificación Formal y Uso del Analizador SMTChecker](https://github.com/argotorg/solidity/tree/develop/docs/smtchecker.rst)
+9. [Diseño y Disposición de Archivos Fuente de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/layout-of-source-files.rst)
+10. [Especificación de Limpieza de Variables del Compilador](https://github.com/argotorg/solidity/tree/develop/docs/internals/variable_cleanup.rst)
 

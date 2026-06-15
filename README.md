@@ -56,6 +56,8 @@ Actualmente, el proyecto cuenta con los siguientes contratos:
 *   **[`BatchTransfer.sol`](contracts/BatchTransfer.sol)**: Contrato para envío masivo (por lotes) de tokens ERC20 a un listado de direcciones, optimizando el gas y ofreciendo soporte para firmas de aprobación `permit` (EIP-2612) en una sola transacción.
     *   **Dirección en red Sepolia:** `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860`
 
+*   **[Contratos Didácticos de la Clase 4](contracts/clase_4/README.md)**: Módulo compuesto por 15 contratos de práctica didáctica y casos de negocio en Solidity (desde almacenamiento simple hasta multifirmas y control de tiempos), orientados al autoaprendizaje de perfiles de negocio e ingenieriles.
+
 ### 🌐 Despliegue en Ethereum Sepolia (Resumen de Transacciones)
 
 A continuación se detallan las direcciones finales de despliegue en la red de pruebas Sepolia, los hashes de transacción correspondientes y los enlaces directos a Etherscan Sepolia para facilitar el seguimiento del proceso educativo de despliegue y verificación:
@@ -135,7 +137,10 @@ npm install
     *   `DEXFactory.sol`: Contrato de fábrica para instanciar piscinas de liquidez.
     *   `DEXPool.sol`: Contrato de piscina de liquidez para pares de tokens (AMM).
     *   `WETH.sol`: Contrato WETH para envolver Ether (ETH).
+    *   `clase_4/`: Contratos de la clase práctica del diplomado (15 casos de negocio didácticos).
+        *   `aprender/`: 15 guías teóricas completas de autoaprendizaje sobre EVM, gas, seguridad y opcodes.
 *   `test/`: Suite de pruebas unitarias escritas en JavaScript utilizando Ethers.js y Chai.
+
     *   `BaseERC20.js`: Pruebas de cobertura para el contrato BaseERC20.
     *   `BaseERC1155.js`: Pruebas de cobertura para el contrato BaseERC1155.
     *   `ChallengeMinter.js`: Pruebas de validación de firmas ECDSA y de control de repeticiones de ChallengeMinter.
@@ -143,7 +148,10 @@ npm install
     *   `WETH.js`: Pruebas de cobertura para el contrato WETH.
 *   `docs/`: Documentación teórica y guías académicas del diplomado.
     *   `ECDSA_Signatures_Edu.md`: Guía educativa exhaustiva sobre la matemática, implementación y seguridad de firmas ECDSA en Solidity y Web3.
+    *   `DEX_TEORIA.md`: Guía académica avanzada sobre la matemática y lógica del DEX, AMMs (producto constante), slippage, pérdidas impermanentes y arbitraje en la EVM.
+    *   `DEX_INFOGRAFIAS_PROMPTS.md`: Guía de estudio y especificación de prompts estructurados para infografías explicativas de DEX, AMM y reentradas.
 *   `ignition/modules/`: Módulos de despliegue con Hardhat Ignition (incluye `DEX.js` para la fábrica de DEX y `WETH.js` para WETH).
+
     *   `WETH.js`: Módulo de despliegue para el contrato WETH.
 *   `hardhat.config.js`: Configuración centralizada de Hardhat (compilador, EVM Cancun, optimizaciones).
 

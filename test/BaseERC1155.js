@@ -22,13 +22,13 @@ describe("Contrato BaseERC1155 (MyToken)", function () {
   describe("Despliegue y Configuración Inicial", function () {
     it("Debería retornar la URI correcta con el ID en decimal y formato .json", async function () {
       const id = 1;
-      const uriEsperada = `https://cbaeza.com/nft/usach/badges/${id}.json`;
+      const uriEsperada = `https://web3-usach-lab.cbaeza.com/nft/usach/relics/${id}.json`;
       expect(await token.uri(id)).to.equal(uriEsperada);
     });
 
     it("Debería funcionar dinámicamente con IDs de múltiples dígitos", async function () {
       const id = 456;
-      const uriEsperada = `https://cbaeza.com/nft/usach/badges/${id}.json`;
+      const uriEsperada = `https://web3-usach-lab.cbaeza.com/nft/usach/relics/${id}.json`;
       expect(await token.uri(id)).to.equal(uriEsperada);
     });
 

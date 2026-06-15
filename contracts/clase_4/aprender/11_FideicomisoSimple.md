@@ -3887,13 +3887,13 @@ Con el propósito de consolidar el aprendizaje y ofrecer un marco conceptual rig
 
 Para profundizar en los aspectos técnicos analizados en este manual, los estudiantes del diplomado pueden consultar los siguientes recursos en el repositorio local de la documentación oficial de Solidity:
 
-1. El estudio detallado de los tipos globales de transacciones y el acceso a marcas de tiempo se encuentra en [Unidades y Variables Globales](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/units-and-global-variables.rst).
-2. Las directrices sobre el control del flujo de ejecución y las aserciones condicionales de error se detallan en [Estructuras de Control](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/control-structures.rst).
-3. El análisis de seguridad y las medidas preventivas contra ataques de reentrancia se exponen en [Consideraciones de Seguridad](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/security-considerations.rst).
-4. Los patrones de diseño estándar para la distribución de Ether y pagos seguros se describen en [Patrones Comunes](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/common-patterns.rst).
-5. La especificación técnica de la codificación y decodificación de llamadas externas se encuentra en [Especificación de la ABI](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/abi-spec.rst).
-6. El funcionamiento de la programación de bajo nivel y el uso del ensamblador en Solidity se estudian en [Ensamblador de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/assembly.rst).
-7. El catálogo rápido de tipos de datos, palabras clave y opcodes de la EVM se encuentra en [Hoja de Referencia de Solidity](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/cheatsheet.rst).
-8. La representación y las reglas de los tipos de datos de valor en el compilador se describen en [Tipos de Valor](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/value-types.rst).
-9. La organización y copia de estructuras complejas en la memoria de la EVM se detalla en [Tipos de Referencia](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/types/reference-types.rst).
-10. Las reglas de diseño de contratos, herencia y definición de funciones se encuentran en [Estructura de Contratos](file:///media/carlos/DATA1/DEV/solidity_course/solidity/docs/structure-of-a-contract.rst).
+1. El estudio detallado de los tipos globales de transacciones y el acceso a marcas de tiempo se encuentra en [Unidades y Variables Globales](https://github.com/argotorg/solidity/tree/develop/docs/units-and-global-variables.rst).
+2. Las directrices sobre el control del flujo de ejecución y las aserciones condicionales de error se detallan en [Estructuras de Control](https://github.com/argotorg/solidity/tree/develop/docs/control-structures.rst).
+3. El análisis de seguridad y las medidas preventivas contra ataques de reentrancia se exponen en [Consideraciones de Seguridad](https://github.com/argotorg/solidity/tree/develop/docs/security-considerations.rst).
+4. Los patrones de diseño estándar para la distribución de Ether y pagos seguros se describen en [Patrones Comunes](https://github.com/argotorg/solidity/tree/develop/docs/common-patterns.rst).
+5. La especificación técnica de la codificación y decodificación de llamadas externas se encuentra en [Especificación de la ABI](https://github.com/argotorg/solidity/tree/develop/docs/abi-spec.rst).
+6. El funcionamiento de la programación de bajo nivel y el uso del ensamblador en Solidity se estudian en [Ensamblador de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/assembly.rst).
+7. El catálogo rápido de tipos de datos, palabras clave y opcodes de la EVM se encuentra en [Hoja de Referencia de Solidity](https://github.com/argotorg/solidity/tree/develop/docs/cheatsheet.rst).
+8. La representación y las reglas de los tipos de datos de valor en el compilador se describen en [Tipos de Valor](https://github.com/argotorg/solidity/tree/develop/docs/types/value-types.rst).
+9. La organización y copia de estructuras complejas en la memoria de la EVM se detalla en [Tipos de Referencia](https://github.com/argotorg/solidity/tree/develop/docs/types/reference-types.rst).
+10. Las reglas de diseño de contratos, herencia y definición de funciones se encuentran en [Estructura de Contratos](https://github.com/argotorg/solidity/tree/develop/docs/structure-of-a-contract.rst).
