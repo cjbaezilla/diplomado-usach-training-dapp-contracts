@@ -40,6 +40,8 @@ Para el desarrollo y seguimiento de las actividades de aprendizaje, se han dispu
 *   **Laboratorio Web3 (dApp):** [web3-usach-lab.cbaeza.com](https://web3-usach-lab.cbaeza.com/)
 *   **Repositorio de los Contratos Inteligentes:** [github.com/cjbaezilla/diplomado-usach-training-dapp-contracts](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts)
 *   **Repositorio de la dApp:** [github.com/cjbaezilla/diplomado-usach-training-dapp](https://github.com/cjbaezilla/diplomado-usach-training-dapp)
+*   **Perfil Público de Estudiantes (Ejemplo):** [web3-usach-lab.cbaeza.com/estudiante](https://web3-usach-lab.cbaeza.com/estudiante?address=0xaEeaA55ED4f7df9E4C5688011cEd1E2A1b696772)
+*   **Ranking de Proveedores de Liquidez:** [web3-usach-lab.cbaeza.com/ranking](https://web3-usach-lab.cbaeza.com/ranking)
 
 ---
 
@@ -127,6 +129,18 @@ El flujo de registro de la identidad estudiantil comienza cuando el alumno ingre
 
 ![Captura de identidad](docs/article_imgs/captura_identidad.png)
 
+
+### Visualización de Perfiles Públicos de Estudiantes
+
+Una extensión fundamental de la gestión de identidades en la dApp es el módulo de **perfiles públicos**, diseñado para visibilizar el avance y los logros de cada participante de forma abierta a la comunidad. A través de una ruta parametrizada que recibe la dirección Ethereum del estudiante en la URL (por ejemplo, el [Perfil Público del Estudiante (Ejemplo: Profe Carlos)](https://web3-usach-lab.cbaeza.com/estudiante?address=0xaEeaA55ED4f7df9E4C5688011cEd1E2A1b696772)), cualquier usuario puede consultar el estado académico de un alumno de forma directa.
+
+Esta interfaz pública realiza consultas directas a los contratos de la dApp (principalmente a `StudentIdentity.sol` y `BaseERC1155.sol`) para renderizar de manera dinámica:
+*   La tarjeta de identidad digital del estudiante (nombre, correo institucional, avatar y enlaces a redes profesionales).
+*   El inventario de reliquias y desafíos completados, mostrando visualmente las insignias acumuladas.
+*   Las métricas de interacción con la plataforma, incluyendo el listado de tokens ERC-20 creados por el alumno y su participación en los pools de liquidez.
+
+Esto introduce una dimensión de portafolio académico digital y verificable en tiempo real, permitiendo a los estudiantes compartir su progreso de aprendizaje de forma transparente y soberana.
+
 ![Perfil de usuario](docs/article_imgs/user_profile.jpeg)
 
 ---
@@ -150,6 +164,14 @@ El mercado descentralizado integrado en la dApp permite a los estudiantes compre
 Para proveer liquidez el estudiante accede a la sección de aportes e ingresa la cantidad deseada del token base, la dApp calcula automáticamente la cantidad simétrica requerida del segundo token según la relación de precios de las reservas del pool, requiere que el usuario apruebe el uso de ambos tokens mediante transacciones previas y posteriormente envía la transacción de depósito que acuña los tokens LP de participación en el pool, el panel muestra la participación porcentual del estudiante sobre las reservas totales de la piscina y permite retirar la liquidez en cualquier momento devolviendo los tokens base y quemando los activos de participación.
 
 ![Captura liquidez](docs/article_imgs/captura_liquidez.png)
+
+### Gamificación Educativa: Ranking de Proveedores de Liquidez
+
+Con el fin de incentivar la comprensión profunda de los mecanismos de incentivos financieros y la provisión de liquidez en un creador de mercado automatizado (AMM), la dApp incorpora un módulo interactivo de [Ranking de Estudiantes](https://web3-usach-lab.cbaeza.com/ranking). Esta sección actúa como un tablero de competencia académica en tiempo real, ordenando a los participantes bajo una métrica competitiva clave: el volumen de valor total bloqueado (TVL) que logran mantener en sus respectivas piscinas de liquidez.
+
+El algoritmo del ranking analiza de forma agregada los balances de los contratos de piscinas instanciados a través de `DEXFactory.sol` y calcula la cantidad equivalente de Ether (a través de WETH) bloqueado por la dirección de cada estudiante en sus pools activos. Los estudiantes compiten por optimizar la eficiencia de su capital y mantener las piscinas con mayor liquidez activa, protegiéndolas de desbalances extremos de precios. Este elemento de gamificación no solo fomenta la sana competencia en el aula, sino que permite experimentar empíricamente con conceptos de riesgo financiero descentralizado, tales como la pérdida impermanente (*impermanent loss*) y la profundidad de mercado en pools de liquidez educativos.
+
+![Ranking de estudiantes](docs/article_imgs/ranking_dex.png)
 
 ---
 
@@ -207,33 +229,33 @@ El detalle exhaustivo de los estudiantes registrados en la red se detalla en la 
 
 | Estudiante (Dirección) | Nombre | Email | Bloque | Tx Hash |
 | :--- | :--- | :--- | :---: | :--- |
-| `0xaEeaA55ED4f7df9E4C5688011cEd1E2A1b696772` | **Profe Carlos** | `hola@cbaeza.com` | 10970169 | [`ver tx`](https://sepolia.etherscan.io/tx/0x9982d43cde598a7e4ca7f4de3edac78b6aa19ce03e9e9c7f23bd7987b5f980b4) |
-| `0x5953D009299f31fac1d7B08176Cc7a7A571405Cb` | **Escudero Maestro** | `escudero@unmailfalso.net` | 10976222 | [`ver tx`](https://sepolia.etherscan.io/tx/0x6c1c746ecafa18d4c859225373a38dc3b7c6d4c1aee5cd114ba9c268f187f69e) |
-| `0x5122aECe833b38e26b63756ACC1555C99afA1162` | **Danilo Contreras** | `dcontrerasl@live.com` | 10984620 | [`ver tx`](https://sepolia.etherscan.io/tx/0x3b4dc5a084b673138800847f544faf694adeb91cf6ca7f2b8f51680ecba46e80) |
-| `0x760f11004aa59d898913E5aE768C648004f3bf47` | **Vinicio** | `marcos.reyes.m@gmail.com` | 10984627 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbe0f3d43f2f02d6683ee2e5fe24fae74c363d04f1a6aa7991940599c6ad966e5) |
-| `0x209D191B60AAa4Dd8452BF42DaDC5D68aea385F0` | **Alejandro Hernan Aguilera Bucarey** | `jano2312.aa@gmail.com` | 10985595 | [`ver tx`](https://sepolia.etherscan.io/tx/0xd527808f0475484cba68d386aa1314ce4aa240f2fb178b6020642858ac098c6b) |
-| `0x1B3443521CbB39b85bC3e4510f3B3b6eC315D90B` | **Marcelo Pino Chandia** | `mpino03@gmail.com` | 10996511 | [`ver tx`](https://sepolia.etherscan.io/tx/0xfac639a35117fb5841d51dbedc26eef525bd6f141e024ef1cf96df2aae6a8f36) |
-| `0x5bac18695637fbD41D5d64dCb93dc54D66FEEbf3` | **Cristian Manriquez Romero** | `cristianoo.manriquezr@gmail.com` | 11004053 | [`ver tx`](https://sepolia.etherscan.io/tx/0xaa5d23f711e761a4587448e7ca6ba95eea3beb74ff33e820f491a3c6d3c2d9f0) |
-| `0x42ddE3F6ae39066b79767261AFD4Cb2c3d82eA96` | **Giovanna Fuentes Cabello** | `govifu@yahoo.es` | 11011443 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbc6167d4dabcee356e06aad16befaf121c664db0828397c40dfc021ec089a9d1) |
-| `0xC00B07476a6F2Fc3a3eDE442652FBcc694CCfB68` | **Francisco Fuentes Infante** | `francisco.fuentes.i@usach.cl` | 11018724 | [`ver tx`](https://sepolia.etherscan.io/tx/0x712652355824ec31d0e0b38709fe7d1845c77dca0fc3179e60f79a2e5d74b29c) |
-| `0xcDA61b6aC1207262e38585cDffE2ea87a70c4e4f` | **Omer Salazar** | `omersalazar@gmail.com` | 11019258 | [`ver tx`](https://sepolia.etherscan.io/tx/0xcb637cf198caa5cee120a27a5f35e633b904d3456b1de6d77646d5500a399522) |
-| `0x1D14B5D0D290669741B9df14b2c4B69b3Ad0423C` | **Cristina Jalilie** | `cjalilie24@gmail.com` | 11030068 | [`ver tx`](https://sepolia.etherscan.io/tx/0x0c9f64f015478aeb2b5a79d21a27822f9aab37e5d25678f71ff891264a340d1b) |
-| `0x3a211d4a5638E9dCEa893e7Be4b1E3ce157C0B39` | **Sebastián Emilio Martí Cabrera** | `sebastianmarti99@gmail.com` | 11031359 | [`ver tx`](https://sepolia.etherscan.io/tx/0x464464a512ea69c8882b87dab3ad50969e205bf438c52ea5fe5f3483edb061a4) |
-| `0x9e034CcB8407101B4FEd0D52D13b6D02aFa021dE` | **Romina Carrillo** | `romifrancarrinilo@gmail.com` | 11033682 | [`ver tx`](https://sepolia.etherscan.io/tx/0x099a03ea4688354b85bec6825bc94ae85ecb0ab0f9b966815b701fd1afa99a52) |
-| `0xeC006BA3EA4cA637cea06027b5e68Bf99062A5F5` | **Juan Carlos Galdamez** | `jcarlosgaldamez@gmail.com` | 11034024 | [`ver tx`](https://sepolia.etherscan.io/tx/0x022d8b90a4445d6b4a3d03f2d69b51317d8f58be24e47105978533e2f43d4c56) |
-| `0x5EB6Cd3cEAE4548a459E0F255aD4d1bda4f05c42` | **Nico Villén** | `nicovillenagunsa@gmail.com` | 11034222 | [`ver tx`](https://sepolia.etherscan.io/tx/0x7eb1da726274cfe0736304261a058af8caa20f7c4aef62d9e4d74ec3c758bf62) |
-| `0xA78B57234A481d69393381Ac1642DBCadd9B66F1` | **Miguel Contreras T.** | `miguel.contreras@usach.cl` | 11037907 | [`ver tx`](https://sepolia.etherscan.io/tx/0xe420f9dbeee1acde5e3a14d682e30ca011266dca46372a43ee1bfba5cf8465e3) |
-| `0x87A7ef686037a25DFd53a5d7400657f09b2ce4AF` | **Gabriel Nemunao** | `gabrielnemunaomolina05@gmail.com` | 11041120 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbe5652773a89087d52c1925a032cba9c70bd3d8c71a90e9d2d8f3748f46463c7) |
-| `0x82528840954594A11855a1fDA9b19AEda6BCEa4F` | **Nicolas Alberto Donoso Lopez** | `ni.donoso@gmail.com` | 11047013 | [`ver tx`](https://sepolia.etherscan.io/tx/0x8727134b0749ba0ad3f2b4c6ce56463a6892e520d4ed09e25931a0a27c32f92c) |
-| `0xf133e655555711E25CD9723a8e83A7C53a5D91a4` | **Victor Morales** | `victor.morales@usach.cl` | 11047114 | [`ver tx`](https://sepolia.etherscan.io/tx/0x254005b1449fb19408b401f17c0ac76d3badbaccc9f7c19329a9628ae23a6863) |
-| `0x4479C1b9c40bBDa0473cE1757a7b1cCf1a6bDcD3` | **Ivonne Poletto** | `boxmerced@gmail.com` | 11047300 | [`ver tx`](https://sepolia.etherscan.io/tx/0x5871d1eaae895ffe01aa818a3b9d5f191d1677c0a8d47a462c12a1403f053506) |
-| `0x0e51080164B5Eb3F028D6A85deF9273457093c70` | **Manuel González Barra** | `gonzalezbarramanuel@gmail.com` | 11050076 | [`ver tx`](https://sepolia.etherscan.io/tx/0xfc49d6007cb9db5a87f372a9b7f2efa571746d8203a7b0b35d882bc6ef5a5532) |
-| `0x8376F6eef5362cCd91c7F2Ecae8B02Ca02043121` | **Diego Alid Riveros** | `diegoalid@gmail.com` | 11053801 | [`ver tx`](https://sepolia.etherscan.io/tx/0xe13bd67347828b717f8fb4a0d75f611444c6f40358cb3983160d5473de5ab128) |
-| `0x131B7E72CdD02717F74E1529ae4Ecb7C2dD39a4A` | **Daniel** | `daniel@identidad.cl` | 11060901 | [`ver tx`](https://sepolia.etherscan.io/tx/0x181fdaf0afa6d631d99f37c2a8b195a61fb3a20ca1a4afbe7e1ea27164905a5b) |
-| `0xe52A8FC5c172e38B48C15895B1e987f19DB203Ce` | **Juan Leon** | `leonar.c.juan@gmail.com` | 11061261 | [`ver tx`](https://sepolia.etherscan.io/tx/0xc916c3e0b840c0cafd26c99365fea541bbab0e219235d57fc80689090d8d5782) |
-| `0x5155c3d1F537b094B42BCc4e3cfB295b10F4A7Df` | **Javiera Rojas Vergara** | *(No registrado)* | 11068318 | [`ver tx`](https://sepolia.etherscan.io/tx/0x6eef30149d1576f19d564ff29e4501eacbeef44483b663672c7dd53613d85c6b) |
-| `0x684858C2072Ef9eE7269B81d348a627956c44382` | **Javier Ferreira** | `zionghost7730@gmail.com` | 11069945 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbbdb1bbbe99d4edc23a94db3f618d7ad221469031bec42fd463443770f2b2c6d) |
-| `0x0BCDd9fB7647f285A16BC6DA358775b816d1DD3B` | **Felipe nuñez** | `felipenunezplaza@gmail.com` | 11086978 | [`ver tx`](https://sepolia.etherscan.io/tx/0x567906d97a73e63606146f8d6951522b8a80e2bf7fe975aa218abdd5c5a897e4) |
+| [`0xaEeaA55ED4f7df9E4C5688011cEd1E2A1b696772`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xaEeaA55ED4f7df9E4C5688011cEd1E2A1b696772) | **Profe Carlos** | `hola@cbaeza.com` | 10970169 | [`ver tx`](https://sepolia.etherscan.io/tx/0x9982d43cde598a7e4ca7f4de3edac78b6aa19ce03e9e9c7f23bd7987b5f980b4) |
+| [`0x5953D009299f31fac1d7B08176Cc7a7A571405Cb`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x5953D009299f31fac1d7B08176Cc7a7A571405Cb) | **Escudero Maestro** | `escudero@unmailfalso.net` | 10976222 | [`ver tx`](https://sepolia.etherscan.io/tx/0x6c1c746ecafa18d4c859225373a38dc3b7c6d4c1aee5cd114ba9c268f187f69e) |
+| [`0x5122aECe833b38e26b63756ACC1555C99afA1162`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x5122aECe833b38e26b63756ACC1555C99afA1162) | **Danilo Contreras** | `dcontrerasl@live.com` | 10984620 | [`ver tx`](https://sepolia.etherscan.io/tx/0x3b4dc5a084b673138800847f544faf694adeb91cf6ca7f2b8f51680ecba46e80) |
+| [`0x760f11004aa59d898913E5aE768C648004f3bf47`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x760f11004aa59d898913E5aE768C648004f3bf47) | **Vinicio** | `marcos.reyes.m@gmail.com` | 10984627 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbe0f3d43f2f02d6683ee2e5fe24fae74c363d04f1a6aa7991940599c6ad966e5) |
+| [`0x209D191B60AAa4Dd8452BF42DaDC5D68aea385F0`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x209D191B60AAa4Dd8452BF42DaDC5D68aea385F0) | **Alejandro Hernan Aguilera Bucarey** | `jano2312.aa@gmail.com` | 10985595 | [`ver tx`](https://sepolia.etherscan.io/tx/0xd527808f0475484cba68d386aa1314ce4aa240f2fb178b6020642858ac098c6b) |
+| [`0x1B3443521CbB39b85bC3e4510f3B3b6eC315D90B`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x1B3443521CbB39b85bC3e4510f3B3b6eC315D90B) | **Marcelo Pino Chandia** | `mpino03@gmail.com` | 10996511 | [`ver tx`](https://sepolia.etherscan.io/tx/0xfac639a35117fb5841d51dbedc26eef525bd6f141e024ef1cf96df2aae6a8f36) |
+| [`0x5bac18695637fbD41D5d64dCb93dc54D66FEEbf3`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x5bac18695637fbD41D5d64dCb93dc54D66FEEbf3) | **Cristian Manriquez Romero** | `cristianoo.manriquezr@gmail.com` | 11004053 | [`ver tx`](https://sepolia.etherscan.io/tx/0xaa5d23f711e761a4587448e7ca6ba95eea3beb74ff33e820f491a3c6d3c2d9f0) |
+| [`0x42ddE3F6ae39066b79767261AFD4Cb2c3d82eA96`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x42ddE3F6ae39066b79767261AFD4Cb2c3d82eA96) | **Giovanna Fuentes Cabello** | `govifu@yahoo.es` | 11011443 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbc6167d4dabcee356e06aad16befaf121c664db0828397c40dfc021ec089a9d1) |
+| [`0xC00B07476a6F2Fc3a3eDE442652FBcc694CCfB68`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xC00B07476a6F2Fc3a3eDE442652FBcc694CCfB68) | **Francisco Fuentes Infante** | `francisco.fuentes.i@usach.cl` | 11018724 | [`ver tx`](https://sepolia.etherscan.io/tx/0x712652355824ec31d0e0b38709fe7d1845c77dca0fc3179e60f79a2e5d74b29c) |
+| [`0xcDA61b6aC1207262e38585cDffE2ea87a70c4e4f`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xcDA61b6aC1207262e38585cDffE2ea87a70c4e4f) | **Omer Salazar** | `omersalazar@gmail.com` | 11019258 | [`ver tx`](https://sepolia.etherscan.io/tx/0xcb637cf198caa5cee120a27a5f35e633b904d3456b1de6d77646d5500a399522) |
+| [`0x1D14B5D0D290669741B9df14b2c4B69b3Ad0423C`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x1D14B5D0D290669741B9df14b2c4B69b3Ad0423C) | **Cristina Jalilie** | `cjalilie24@gmail.com` | 11030068 | [`ver tx`](https://sepolia.etherscan.io/tx/0x0c9f64f015478aeb2b5a79d21a27822f9aab37e5d25678f71ff891264a340d1b) |
+| [`0x3a211d4a5638E9dCEa893e7Be4b1E3ce157C0B39`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x3a211d4a5638E9dCEa893e7Be4b1E3ce157C0B39) | **Sebastián Emilio Martí Cabrera** | `sebastianmarti99@gmail.com` | 11031359 | [`ver tx`](https://sepolia.etherscan.io/tx/0x464464a512ea69c8882b87dab3ad50969e205bf438c52ea5fe5f3483edb061a4) |
+| [`0x9e034CcB8407101B4FEd0D52D13b6D02aFa021dE`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x9e034CcB8407101B4FEd0D52D13b6D02aFa021dE) | **Romina Carrillo** | `romifrancarrinilo@gmail.com` | 11033682 | [`ver tx`](https://sepolia.etherscan.io/tx/0x099a03ea4688354b85bec6825bc94ae85ecb0ab0f9b966815b701fd1afa99a52) |
+| [`0xeC006BA3EA4cA637cea06027b5e68Bf99062A5F5`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xeC006BA3EA4cA637cea06027b5e68Bf99062A5F5) | **Juan Carlos Galdamez** | `jcarlosgaldamez@gmail.com` | 11034024 | [`ver tx`](https://sepolia.etherscan.io/tx/0x022d8b90a4445d6b4a3d03f2d69b51317d8f58be24e47105978533e2f43d4c56) |
+| [`0x5EB6Cd3cEAE4548a459E0F255aD4d1bda4f05c42`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x5EB6Cd3cEAE4548a459E0F255aD4d1bda4f05c42) | **Nico Villén** | `nicovillenagunsa@gmail.com` | 11034222 | [`ver tx`](https://sepolia.etherscan.io/tx/0x7eb1da726274cfe0736304261a058af8caa20f7c4aef62d9e4d74ec3c758bf62) |
+| [`0xA78B57234A481d69393381Ac1642DBCadd9B66F1`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xA78B57234A481d69393381Ac1642DBCadd9B66F1) | **Miguel Contreras T.** | `miguel.contreras@usach.cl` | 11037907 | [`ver tx`](https://sepolia.etherscan.io/tx/0xe420f9dbeee1acde5e3a14d682e30ca011266dca46372a43ee1bfba5cf8465e3) |
+| [`0x87A7ef686037a25DFd53a5d7400657f09b2ce4AF`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x87A7ef686037a25DFd53a5d7400657f09b2ce4AF) | **Gabriel Nemunao** | `gabrielnemunaomolina05@gmail.com` | 11041120 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbe5652773a89087d52c1925a032cba9c70bd3d8c71a90e9d2d8f3748f46463c7) |
+| [`0x82528840954594A11855a1fDA9b19AEda6BCEa4F`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x82528840954594A11855a1fDA9b19AEda6BCEa4F) | **Nicolas Alberto Donoso Lopez** | `ni.donoso@gmail.com` | 11047013 | [`ver tx`](https://sepolia.etherscan.io/tx/0x8727134b0749ba0ad3f2b4c6ce56463a6892e520d4ed09e25931a0a27c32f92c) |
+| [`0xf133e655555711E25CD9723a8e83A7C53a5D91a4`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xf133e655555711E25CD9723a8e83A7C53a5D91a4) | **Victor Morales** | `victor.morales@usach.cl` | 11047114 | [`ver tx`](https://sepolia.etherscan.io/tx/0x254005b1449fb19408b401f17c0ac76d3badbaccc9f7c19329a9628ae23a6863) |
+| [`0x4479C1b9c40bBDa0473cE1757a7b1cCf1a6bDcD3`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x4479C1b9c40bBDa0473cE1757a7b1cCf1a6bDcD3) | **Ivonne Poletto** | `boxmerced@gmail.com` | 11047300 | [`ver tx`](https://sepolia.etherscan.io/tx/0x5871d1eaae895ffe01aa818a3b9d5f191d1677c0a8d47a462c12a1403f053506) |
+| [`0x0e51080164B5Eb3F028D6A85deF9273457093c70`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x0e51080164B5Eb3F028D6A85deF9273457093c70) | **Manuel González Barra** | `gonzalezbarramanuel@gmail.com` | 11050076 | [`ver tx`](https://sepolia.etherscan.io/tx/0xfc49d6007cb9db5a87f372a9b7f2efa571746d8203a7b0b35d882bc6ef5a5532) |
+| [`0x8376F6eef5362cCd91c7F2Ecae8B02Ca02043121`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x8376F6eef5362cCd91c7F2Ecae8B02Ca02043121) | **Diego Alid Riveros** | `diegoalid@gmail.com` | 11053801 | [`ver tx`](https://sepolia.etherscan.io/tx/0xe13bd67347828b717f8fb4a0d75f611444c6f40358cb3983160d5473de5ab128) |
+| [`0x131B7E72CdD02717F74E1529ae4Ecb7C2dD39a4A`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x131B7E72CdD02717F74E1529ae4Ecb7C2dD39a4A) | **Daniel** | `daniel@identidad.cl` | 11060901 | [`ver tx`](https://sepolia.etherscan.io/tx/0x181fdaf0afa6d631d99f37c2a8b195a61fb3a20ca1a4afbe7e1ea27164905a5b) |
+| [`0xe52A8FC5c172e38B48C15895B1e987f19DB203Ce`](https://web3-usach-lab.cbaeza.com/estudiante?address=0xe52A8FC5c172e38B48C15895B1e987f19DB203Ce) | **Juan Leon** | `leonar.c.juan@gmail.com` | 11061261 | [`ver tx`](https://sepolia.etherscan.io/tx/0xc916c3e0b840c0cafd26c99365fea541bbab0e219235d57fc80689090d8d5782) |
+| [`0x5155c3d1F537b094B42BCc4e3cfB295b10F4A7Df`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x5155c3d1F537b094B42BCc4e3cfB295b10F4A7Df) | **Javiera Rojas Vergara** | *(No registrado)* | 11068318 | [`ver tx`](https://sepolia.etherscan.io/tx/0x6eef30149d1576f19d564ff29e4501eacbeef44483b663672c7dd53613d85c6b) |
+| [`0x684858C2072Ef9eE7269B81d348a627956c44382`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x684858C2072Ef9eE7269B81d348a627956c44382) | **Javier Ferreira** | `zionghost7730@gmail.com` | 11069945 | [`ver tx`](https://sepolia.etherscan.io/tx/0xbbdb1bbbe99d4edc23a94db3f618d7ad221469031bec42fd463443770f2b2c6d) |
+| [`0x0BCDd9fB7647f285A16BC6DA358775b816d1DD3B`](https://web3-usach-lab.cbaeza.com/estudiante?address=0x0BCDd9fB7647f285A16BC6DA358775b816d1DD3B) | **Felipe nuñez** | `felipenunezplaza@gmail.com` | 11086978 | [`ver tx`](https://sepolia.etherscan.io/tx/0x567906d97a73e63606146f8d6951522b8a80e2bf7fe975aa218abdd5c5a897e4) |
 
 ---
 
