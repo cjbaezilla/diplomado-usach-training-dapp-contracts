@@ -2,7 +2,7 @@
 
 ![Introducción y Fundamentos Pedagógicos](docs/article_imgs/hero_page.png)
 
-## Resumen Onchain
+## Resumen On-chain
 
 | Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
 | :--- | :--- | :---: | :---: |
@@ -31,6 +31,8 @@
 El aprendizaje del desarrollo de aplicaciones descentralizadas en el ecosistema Web3 requiere de plataformas interactivas que combinen la teoría y la práctica en entornos seguros, es por esta razón que diseñé para el Diplomado en Tecnologías Blockchain de la Universidad de Santiago de Chile, una infraestructura educativa robusta que permite a los estudiantes experimentar de forma directa con la descentralización, la inmutabilidad de los datos y la ejecución de lógica de negocio autoejecutable en redes compatibles con la Máquina Virtual de Ethereum, esta aproximación constructivista sitúa al alumno en el centro del proceso educativo al otorgarle la capacidad de desplegar sus propios activos financieros, interactuar con mercados automatizados y certificar sus competencias académicas mediante la obtención de reliquias no fungibles.
 
 La plataforma educativa se articula sobre un sistema híbrido que conecta componentes distribuidos on-chain con servicios web tradicionales, la interfaz de usuario actúa como el portal de interacción donde los estudiantes conectan sus billeteras criptográficas y ejecutan transacciones, mientras que los contratos inteligentes implementados en la red de pruebas Sepolia aseguran la persistencia inmutable de la información y la ejecución rigurosa de las reglas del sistema, este ecosistema no solo sirve como una herramienta de entrenamiento práctico, sino que también genera un registro histórico completo de transacciones que puede ser analizado para evaluar el desempeño, el entendimiento técnico y la adopción de los conceptos clave de Web3 por parte de la comunidad estudiantil.
+
+Una de las características arquitectónicas más destacadas de la plataforma es su capacidad para operar bajo un paradigma descentralizado y serverless a nivel de frontend, funcionando exclusivamente como código estático que realiza llamadas directas a la blockchain sin necesidad de un servidor backend intermedio o base de datos centralizada, la interfaz de usuario (compuesta por archivos estáticos HTML, CSS y JavaScript) se comunica directamente con los nodos de la red Ethereum (Sepolia) mediante llamadas RPC (JSON-RPC) facilitadas por un proveedor Web3 (como MetaMask), toda la persistencia de datos (perfiles de estudiantes, balances de tokens, transacciones y piscinas de liquidez) y la lógica de ejecución del negocio residen enteramente on-chain en los contratos inteligentes, así, la blockchain actúa como la única fuente de verdad y backend de la dApp, demostrando el potencial de las aplicaciones verdaderamente descentralizadas que eliminan la dependencia de infraestructura de servidores tradicional para sus flujos principales de lectura y escritura.
 
 ![Portada y Arquitectura Híbrida del Sistema Educativo dApp de la USACH](docs/article_imgs/portada.png)
 
@@ -64,6 +66,7 @@ El acceso a este mapeo se realiza mediante una función externa que valida prime
 La simulación financiera y la creación de economías de tokens requiere de una infraestructura ágil para la emisión de activos digitales, el contrato de la fábrica de tokens proporciona este mecanismo al permitir a los estudiantes instanciar de forma automatizada contratos individuales basados en el estándar ERC-20, el proceso se gestiona mediante una función que toma los parámetros del nombre, el símbolo y el suministro inicial que el estudiante desea asignar a su token personalizado, el contrato realiza una llamada de creación utilizando la palabra clave que despliega dinámicamente un nuevo contrato inteligente del tipo especificado y asigna la propiedad de la nueva instancia a la dirección que originó la llamada de creación.
 
 ![Fábrica de Activos ERC-20](docs/article_imgs/erc20_factory.png)
+![TokenFactory](docs/article_imgs/infografia_tokenfactory.png)
 
 El contrato secundario desplegado hereda de la implementación estándar de OpenZeppelin e introduce extensiones para permitir la acuñación adicional de unidades por parte del propietario del token, esta estructura garantiza que los estudiantes posean control absoluto sobre la política monetaria de sus activos individuales, permitiendo simular procesos de emisión, distribución secundaria hacia otros compañeros del curso y provisión de liquidez en los mercados secundarios, el contrato registra el bloque de creación y emite eventos de transferencia iniciales hacia la dirección del creador si el suministro inicial configurado es mayor a cero, estableciendo la base para los flujos comerciales subsiguientes en la plataforma de entrenamiento.
 
@@ -179,9 +182,11 @@ El algoritmo del ranking analiza de forma agregada los balances de los contratos
 
 La senda de desafíos académicos consta de diez etapas que evalúan la interacción real de los estudiantes con los contratos inteligentes, cuando el estudiante completa una tarea en la blockchain presiona el botón de reclamo de la reliquia correspondiente en la interfaz, el frontend envía una solicitud HTTP al backend local que audita las transacciones del estudiante en la red utilizando un indexador de eventos, si el backend valida el cumplimiento de las condiciones firma los datos con la llave privada del servidor y responde con la firma criptográfica resultante.
 
+![Interfaz de la senda de desafíos académicos ](docs/article_imgs/screenshot_desafios.png)
+
 La dApp recibe la firma y abre un modal interactivo donde el usuario confirma la llamada al contrato inteligente del mintero de desafíos, al procesar la transacción en la red el contrato inteligente verifica la firma contra la clave pública del backend y ordena la acuñación de la reliquia no fungible, al confirmarse la transacción la dApp despliega una animación festiva y actualiza la galería de reliquias del estudiante mostrando el logro en formato de tarjeta digital inmutable con sus respectivos metadatos.
 
-[PLACEHOLDER: Interfaz de la senda de desafíos académicos y modal de confirmación de reclamo de la reliquia NFT]
+![Modal interactivo de confirmación de reclamo de la reliquia NFT](docs/article_imgs/claiming_relic.png)
 
 ---
 
@@ -263,7 +268,6 @@ El detalle exhaustivo de los estudiantes registrados en la red se detalla en la 
 
 El progreso y los logros académicos acreditados mediante insignias NFT muestran los siguientes resultados en la red:
 
-*   **Desafíos Reclamados Exitosamente (vía ChallengeMinter):** `0`
 *   **Total de Acuñaciones de Insignias (vía BaseERC1155):** `241`
 
 La distribución detallada de insignias académicas acumuladas por cada una de las reliquias históricas del campus se especifica a continuación:
@@ -354,7 +358,7 @@ El número total de tokens personalizados creados por los estudiantes a través 
 
 ---
 
-### Wrapped Ether ([WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)) y Envío por Lotes ([BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol))
+### Wrapped Ether ([WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol))
 
 La actividad transaccional de conversión de Ether y distribución de tokens por lotes reporta el siguiente resumen en los respectivos contratos.
 
@@ -362,14 +366,10 @@ La actividad transaccional de conversión de Ether y distribución de tokens por
 *   **Operaciones de Depósito (Wrap):** `140`
 *   **Operaciones de Retiro (Unwrap):** `12`
 
-#### Envío de Tokens por Lote (BatchTransfer)
-*   **Lotes Enviados:** `2`
-*   **Total de Tokens Distribuidos:** `48.0`
-
 ---
 
 ## Análisis de Comportamiento del Estudiante y Adopción del Ecosistema
 
-El volumen transaccional consolidado en la blockchain de pruebas evidencia una adopción activa y progresiva del ecosistema descentralizado por parte de la comunidad académica, el registro de veintisiete estudiantes únicos en el contrato de identidades establece la base de usuarios activos, de los cuales veinticinco han interactuado de manera recurrente con los demás componentes del sistema, la distribución de doscientas cuarenta y una insignias de reliquias refleja un avance homogéneo en los primeros desafíos, mostrando una tasa de finalización alta en las tareas introductorias de conexión de billeteras, reclamo del grifo y registro de perfil, lo cual valida la efectividad del diseño de la interfaz y la claridad de las guías integradas.
+El volumen transaccional consolidado en la blockchain de pruebas evidencia una adopción activa y progresiva del ecosistema descentralizado por parte de la comunidad académica, el registro de 27 estudiantes únicos en el contrato de identidades establece la base de usuarios activos, de los cuales 25 han interactuado de manera recurrente con los demás componentes del sistema, la distribución de 241 insignias de reliquias refleja un avance homogéneo en los primeros desafíos, mostrando una tasa de finalización alta en las tareas introductorias de conexión de billeteras, reclamo del grifo y registro de perfil, lo cual valida la efectividad del diseño de la interfaz y la claridad de las guías integradas.
 
-El despliegue de ciento quince tokens personalizados a través de la fábrica evidencia la curiosidad técnica y el deseo de los alumnos de explorar la creación de activos propios, no obstante, se observa una disparidad en la configuración del suministro inicial y la posterior inyección de liquidez, donde solo una fracción de los tokens creados posee mercados activos, la creación de noventa y ocho piscinas de liquidez en el DEX demuestra un esfuerzo significativo por comprender el funcionamiento de los creadores de mercado automatizados, acumulando un valor total bloqueado de más de treinta y tres unidades de Wrapped Ether que respalda las operaciones de intercambio, los pares con mayor actividad comercial son aquellos vinculados a tokens de uso común y pruebas del profesor, lo cual indica que los estudiantes priorizan la interacción con los mercados de referencia antes de experimentar con sus propios pares comerciales, este comportamiento práctico y estructurado valida la solidez pedagógica del Diplomado USACH en la formación de desarrolladores Web3 competentes.
+El despliegue de 115 tokens personalizados a través de la fábrica evidencia la curiosidad técnica y el deseo de los alumnos de explorar la creación de activos propios, no obstante, se observa una disparidad en la configuración del suministro inicial y la posterior inyección de liquidez, donde solo una fracción de los tokens creados posee mercados activos, la creación de 98 piscinas de liquidez en el DEX demuestra un esfuerzo significativo por comprender el funcionamiento de los creadores de mercado automatizados, acumulando un valor total bloqueado de más de 33 unidades de Wrapped Ether que respalda las operaciones de intercambio, los pares con mayor actividad comercial son aquellos vinculados a tokens de uso común y pruebas del profesor, lo cual indica que los estudiantes priorizan la interacción con los mercados de referencia antes de experimentar con sus propios pares comerciales, este comportamiento práctico y estructurado valida la solidez pedagógica del Diplomado USACH en la formación de desarrolladores Web3 competentes.
