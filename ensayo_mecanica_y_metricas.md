@@ -88,11 +88,15 @@ El contrato de la piscina individual hereda de la implementación de tokens est�
 
 ![Información del Pool](docs/article_imgs/dex_pool_info.png)
 
+![Información del Pool](docs/article_imgs/infografia_add_liquidity.png)
+
 Para ejecutar un intercambio el usuario llama a la función de intercambio especificando la dirección del token de entrada y el monto a entregar, el contrato calcula la cantidad de salida utilizando las reservas internas actualizadas y deduce la comisión, transfiriendo los tokens de entrada desde la dirección del usuario mediante la aprobación previa y enviando los tokens de salida resultantes al destinatario, las reservas se actualizan al consultar los balances reales del contrato para evitar discrepancias por transferencias directas, protegiendo las funciones críticas contra ataques de reentrada a través del uso de modificadores de control de flujo.
 
 ![Intercambio](docs/article_imgs/swap_function.png)
 
 ![Diseño de Almacenamiento](docs/article_imgs/dex_storage_layout.png)
+
+![Infografía de AMM Precios](docs/article_imgs/infografia_amm_precios.png)
 
 ---
 
