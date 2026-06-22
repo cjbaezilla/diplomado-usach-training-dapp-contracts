@@ -73,13 +73,21 @@ El contrato secundario desplegado hereda de la implementación estándar de Open
 
 La liquidez descentralizada se estructura mediante una fábrica de mercados y un conjunto de contratos de piscinas individuales que implementan el algoritmo de creador de mercado de producto constante, el contrato de la fábrica del mercado de intercambio gestiona un mapa bidireccional que asocia dos direcciones de tokens con la dirección única del contrato de la piscina de liquidez correspondiente, el algoritmo de creación de piscinas impone un orden estricto de las direcciones de los tokens involucrados mediante una comparación alfanumérica, esto asegura que solo pueda existir una piscina única por cada par de tokens, previniendo la duplicación del mercado y canalizando la liquidez de forma eficiente en la plataforma.
 
+![Fábrica de Mercados](docs/article_imgs/dexfactory_contract.png)
+
 El contrato de la piscina individual hereda de la implementación de tokens estándar para emitir acciones de liquidez que representan la copropiedad del fondo depositado por los proveedores, el núcleo matemático del intercambio se define mediante la conservación de la multiplicación de las reservas de ambos activos, de tal modo que cualquier retiro de un token debe ser compensado por el depósito proporcional del otro token, considerando una comisión fija del tres por mil que se acumula en las reservas para incentivar el aporte de capital, la inyección de liquidez inicial calcula las acciones a emitir mediante la raíz cuadrada geométrica de los montos depositados, mientras que los aportes subsiguientes deben respetar de forma estricta la proporción de precios actual en el pool para evitar desbalances de arbitraje inmediato.
 
-[PLACEHOLDER: Diagrama de flujo del swap en el DEXPool y la actualización de las reservas internas]
+![Contrato de Piscina](docs/article_imgs/dexpool_contract.png)
+
+![Inyección de Liquidez](docs/article_imgs/add_liquidity_function.png)
+
+![Información del Pool](docs/article_imgs/dex_pool_info.png)
 
 Para ejecutar un intercambio el usuario llama a la función de intercambio especificando la dirección del token de entrada y el monto a entregar, el contrato calcula la cantidad de salida utilizando las reservas internas actualizadas y deduce la comisión, transfiriendo los tokens de entrada desde la dirección del usuario mediante la aprobación previa y enviando los tokens de salida resultantes al destinatario, las reservas se actualizan al consultar los balances reales del contrato para evitar discrepancias por transferencias directas, protegiendo las funciones críticas contra ataques de reentrada a través del uso de modificadores de control de flujo.
 
-[PLACEHOLDER: Diagrama del diseño del almacenamiento (Storage Layout) de variables de estado y herencia en los contratos del DEX]
+![Intercambio](docs/article_imgs/swap_function.png)
+
+![Diseño de Almacenamiento](docs/article_imgs/dex_storage_layout.png)
 
 ---
 
