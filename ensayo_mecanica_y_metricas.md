@@ -6,6 +6,8 @@
 
 ## Resumen On-chain
 
+El nivel de adopción y la actividad operativa dentro de una plataforma educativa Web3 se reflejan con total transparencia en la inmutabilidad de la cadena de bloques, en el ecosistema del Diplomado USACH, los datos agregados revelan un volumen transaccional sobresaliente que constituye el principal indicador clave de rendimiento del laboratorio, un total acumulado de **2,460 transacciones** y **3,331 eventos registrados** en la red de pruebas Sepolia, este flujo dinámico es liderado por la interacción con el contrato de Wrapped Ether (WETH.sol) y la actividad de los tokens personalizados creados por los propios estudiantes, validando la efectividad del aprendizaje práctico y la robustez de la arquitectura descentralizada implementada, a continuación, se presenta el resumen consolidado de las métricas on-chain por componente:
+
 | Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
 | :--- | :--- | :---: | :---: |
 | **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | [`0x652b7718F130329F3eC865f418FE2a2634fb5E29`](https://sepolia.etherscan.io/address/0x652b7718F130329F3eC865f418FE2a2634fb5E29) | **33** (Etherscan) | **61** |
@@ -383,6 +385,16 @@ La actividad transaccional de conversión de Ether y distribución de tokens por
 #### Wrapped Ether (WETH)
 *   **Operaciones de Depósito (Wrap):** `140`
 *   **Operaciones de Retiro (Unwrap):** `12`
+
+---
+
+### Protocolo de Prueba de Asistencia (POAP)
+
+El protocolo de prueba de asistencia, conocido técnicamente por su acrónimo POAP, se implementa en este entorno educativo como un mecanismo complementario para la acreditación inmutable de la participación estudiantil en las sesiones de laboratorio, las credenciales se estructuran como fichas no fungibles en redes compatibles con la Máquina Virtual de Ethereum utilizando el identificador único del token "7591359", correspondiente al grupo académico denominado "Primer Grupo Exploradores Blockchain Diplomado USACH", este proceso de distribución criptográfica mitiga la falsificación de registros de asistencia y optimiza el proceso de auditoría académica al almacenar de manera inmutable el enlace directo de colectores en la dirección [https://collectors.poap.xyz/token/7591359](https://collectors.poap.xyz/token/7591359) para su verificación pública en la blockchain.
+
+La infraestructura de POAP opera bajo estándares ERC-721 y esquemas de metadatos descentralizados que garantizan la procedencia del emisor oficial del programa de diplomado, la distribución se efectúa mediante enlaces criptográficos únicos o códigos QR que previenen el reclamo múltiple por una misma dirección Ethereum, la trazabilidad de esta insignia digital permite consolidar un portafolio profesional verificable off-chain y on-chain que demuestra la adquisición de competencias en ingeniería de contratos inteligentes.
+
+![Protocolo de Prueba de Asistencia (POAP)](docs/article_imgs/poap.png)
 
 ---
 
