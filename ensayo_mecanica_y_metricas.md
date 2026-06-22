@@ -2,6 +2,30 @@
 
 ![Introducción y Fundamentos Pedagógicos](docs/article_imgs/hero_page.png)
 
+## Resumen Onchain
+
+| Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
+| :--- | :--- | :---: | :---: |
+| **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | `0x652b7718F130329F3eC865f418FE2a2634fb5E29` | **33** (Etherscan) | **61** |
+| **[TokenFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/TokenFactory.sol)** | `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB` | **115** (Etherscan) | **115** |
+| **[BaseERC1155.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BaseERC1155.sol)** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | **2** (Etherscan) | **245** |
+| **[DEXFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/DEXFactory.sol)** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | **99** (Etherscan) | **98** |
+| **[WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | **615** (Etherscan) | **960** |
+| **[BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol)** | `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860` | **3** (Etherscan) | **2** |
+| **DEX Pools (Agregado - 98 pools)** | *(Múltiples direcciones)* | **358** (Est. por logs) | **567** |
+| **Tokens Personalizados (Agregado - 115 tokens)** | *(Múltiples direcciones)* | **1235** (Est. por logs) | **1283** |
+| 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **2460** | 🏆 **3331** |
+
+### Detalles Técnicos del Reporte de Consulta
+
+*   **Red Blockchain:** `sepolia` (Chain ID: `11155111`)
+*   **Bloque de Consulta de Datos:** `11115859`
+*   **Fecha y Hora de Generación del Reporte:** `22-06-2026, 8:39:55 a. m.`
+*   **Valor Total Bloqueado de la Plataforma (WETH TVL):** `33.3264 WETH`
+*   **Cantidad de Pares de Intercambio con WETH:** `46 pares`
+
+---
+
 ## Introducción y Fundamentos Pedagógicos
 
 El aprendizaje del desarrollo de aplicaciones descentralizadas en el ecosistema Web3 requiere de plataformas interactivas que combinen la teoría y la práctica en entornos seguros, es por esta razón que diseñé para el Diplomado en Tecnologías Blockchain de la Universidad de Santiago de Chile, una infraestructura educativa robusta que permite a los estudiantes experimentar de forma directa con la descentralización, la inmutabilidad de los datos y la ejecución de lógica de negocio autoejecutable en redes compatibles con la Máquina Virtual de Ethereum, esta aproximación constructivista sitúa al alumno en el centro del proceso educativo al otorgarle la capacidad de desplegar sus propios activos financieros, interactuar con mercados automatizados y certificar sus competencias académicas mediante la obtención de reliquias no fungibles.
@@ -25,19 +49,11 @@ Para el desarrollo y seguimiento de las actividades de aprendizaje, se han dispu
 
 La identidad digital soberana representa uno de los pilares del desarrollo Web3, en este sistema se implementa mediante el contrato inteligente de registro de identidades estudiantiles, este componente permite asociar una dirección de cuenta pública con un perfil estructurado de datos personales y académicos del alumno, la estructura de almacenamiento interna se define mediante una disposición eficiente en la memoria persistente del contrato, utilizando un mapeo que vincula direcciones Ethereum individuales con un registro que contiene el nombre completo, el correo electrónico institucional, el enlace al perfil profesional de LinkedIn, la cuenta de Twitter, el avatar en formato de enlace o hash del sistema de archivos interplanetario, el registro de fecha de actualización y una bandera de confirmación de registro.
 
-```solidity
-struct Profile {
-    string name;
-    string email;
-    string linkedin;
-    string twitter;
-    string avatar;
-    uint256 updatedAt;
-    bool isRegistered;
-}
-```
+![Registro de Identidad Académica](docs/article_imgs/struct_identity.png)
 
 El acceso a este mapeo se realiza mediante una función externa que valida primeramente que el nombre provisto no sea una cadena de texto vacía, en caso de omisión del nombre el contrato revierte la transacción a través de un error personalizado que optimiza el consumo de gas en comparación con las cadenas de texto tradicionales de requerimiento, una vez aprobada la validación se verifica si el estudiante ya poseía un registro previo, si la dirección de la billetera interactúa por primera vez el sistema activa la bandera de registro, introduce la dirección en una lista dinámica global de estudiantes registrados y almacena la posición del elemento en un mapeo de índices, esto permite iterar sobre las identidades y consultar el total de registros mediante llamadas de lectura externa, emitiendo eventos específicos para que los indexadores y el frontend detecten las nuevas identidades o las modificaciones de los perfiles existentes.
+
+![Set Profile](docs/article_imgs/set_profile.png)
 
 ---
 
@@ -45,20 +61,11 @@ El acceso a este mapeo se realiza mediante una función externa que valida prime
 
 La simulación financiera y la creación de economías de tokens requiere de una infraestructura ágil para la emisión de activos digitales, el contrato de la fábrica de tokens proporciona este mecanismo al permitir a los estudiantes instanciar de forma automatizada contratos individuales basados en el estándar ERC-20, el proceso se gestiona mediante una función que toma los parámetros del nombre, el símbolo y el suministro inicial que el estudiante desea asignar a su token personalizado, el contrato realiza una llamada de creación utilizando la palabra clave que despliega dinámicamente un nuevo contrato inteligente del tipo especificado y asigna la propiedad de la nueva instancia a la dirección que originó la llamada de creación.
 
-```solidity
-contract TokenFactory {
-    address[] public todosLosTokens;
-    event TokenCreado(address indexed tokenAddress, address indexed owner, string name, string symbol);
-
-    function crearToken(string calldata name, string calldata symbol, uint256 supplyInicial) external returns (address nuevoToken) {
-        nuevoToken = address(new BaseERC20(name, symbol, supplyInicial, msg.sender));
-        todosLosTokens.push(nuevoToken);
-        emit TokenCreado(nuevoToken, msg.sender, name, symbol);
-    }
-}
-```
+![Fábrica de Activos ERC-20](docs/article_imgs/erc20_factory.png)
 
 El contrato secundario desplegado hereda de la implementación estándar de OpenZeppelin e introduce extensiones para permitir la acuñación adicional de unidades por parte del propietario del token, esta estructura garantiza que los estudiantes posean control absoluto sobre la política monetaria de sus activos individuales, permitiendo simular procesos de emisión, distribución secundaria hacia otros compañeros del curso y provisión de liquidez en los mercados secundarios, el contrato registra el bloque de creación y emite eventos de transferencia iniciales hacia la dirección del creador si el suministro inicial configurado es mayor a cero, estableciendo la base para los flujos comerciales subsiguientes en la plataforma de entrenamiento.
+
+![Contrato de Activos ERC-20](docs/article_imgs/erc20_contract.png)
 
 ---
 
