@@ -3,8 +3,8 @@
 Generado automáticamente a partir del historial de la cadena de bloques.
 
 - **Red:** `sepolia` (Chain ID: `11155111`)
-- **Bloque de consulta:** `11115771`
-- **Fecha de generación:** `22-06-2026, 8:22:20 a. m.`
+- **Bloque de consulta:** `11115859`
+- **Fecha de generación:** `22-06-2026, 8:39:55 a. m.`
 
 ---
 
@@ -22,13 +22,17 @@ Generado automáticamente a partir del historial de la cadena de bloques.
 | **Tokens Personalizados (Agregado - 115 tokens)** | *(Múltiples direcciones)* | **1235** (Est. por logs) | **1283** |
 | 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **2460** | 🏆 **3331** |
 
+### 💧 Liquidez de la Plataforma (Vista Rápida)
+- **Valor Total Bloqueado (WETH TVL):** `33.3264 WETH`
+- **Cantidad de Pares con WETH:** `46 pares`
+
 ---
 
 ## 👥 1. Identidad Estudiantil (StudentIdentity)
 - **Estudiantes Únicos Registrados:** `27`
 - **Actualizaciones de Perfil Realizadas:** `34`
 - **Usuarios Únicos Interactuando:** `25`
-
+ 
 ### Detalle de Estudiantes Registrados:
 
 | Estudiante (Dirección) | Nombre | Email | Bloque | Tx Hash |
@@ -66,7 +70,7 @@ Generado automáticamente a partir del historial de la cadena de bloques.
 ## 🏆 2. Insignias y Desafíos (BaseERC1155 y ChallengeMinter)
 - **Desafíos Reclamados Exitosamente (vía ChallengeMinter):** `0`
 - **Total de Acuñaciones de Insignias (vía BaseERC1155):** `241`
-
+ 
 ### Distribución de Insignias Reclamadas (Por ID de Reliquia):
 
 | ID Insignia | Nombre de la Reliquia | Cantidad Acuñada |
@@ -86,890 +90,111 @@ Generado automáticamente a partir del historial de la cadena de bloques.
 
 ## 💱 3. Liquidez e Intercambios (DEXFactory y DEXPools)
 - **Piscinas de Liquidez Desplegadas:** `98`
+- **Valor Total Bloqueado (WETH TVL):** `33.3264 WETH`
+- **Pares de Liquidez con WETH:** `46 de 98 pools totales`
 
 ### Detalle de Piscinas e Intercambios:
 
-#### 🏊 Pool: `0xbef9a0E94968Db74E4539a319955f2188cbeedd2`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `3034620420938835857` | Token1: `23026769161463807110064561`
-- **Total LP Emitido:** `8349634376211046893102`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **15**
-  - ➕ Aportes de liquidez: **21**
-  - ➖ Retiros de liquidez: **2**
-
-#### 🏊 Pool: `0x110B01dC90968091DD3b97f36f7a381dA1b12275`
-- **Par:** `0x074367Cd77370D869C0894508E314091960662B2` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xC5E85eA6C8C4D89695d978563b773a2DC59D45c2`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `1412447058193118996` | Token1: `32041085094839300263002`
-- **Total LP Emitido:** `212401449882722132713`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **11**
-  - ➕ Aportes de liquidez: **11**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0x7Dffcf389F9DD9e74Bae656580D8FABc4055E6F4`
-- **Par:** `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `10000000000000000000` | Token1: `10000000000000000000`
-- **Total LP Emitido:** `10000000000000000000`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xe4971777B481EDc4Dc3367A5C665076041A62bcc`
-- **Par:** `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xC4d6F9bDb47416883D587301556c038448fc1BdA`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `268104316839862374` | Token1: `985220592468560424189`
-- **Total LP Emitido:** `16205215859002345707`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **15**
-  - ➕ Aportes de liquidez: **14**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x80865F5e57C0f520B90d577D85959f26591414D4`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F`
-- **Reservas actuales:** Token0: `2598878866934304768` | Token1: `3112419413789578410293`
-- **Total LP Emitido:** `89880926173367952769`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **9**
-  - ➕ Aportes de liquidez: **6**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0xB856f1B6074A83C86437DE58c421237b5ba030e4`
-- **Par:** `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xeE1E2f35c55184024B6F27E60AD243be2C823f3F`
-- **Par:** `0x074367Cd77370D869C0894508E314091960662B2` / `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xE60D72A4101dfCb5419842B456904eC16419BF37`
-- **Par:** `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x08FeE1d134aa6f526f3469072eC7A85877bAd360`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x6B09665Afa3540f8CD8296E47DbB0445ef155f47`
-- **Reservas actuales:** Token0: `211316012999858189` | Token1: `9051442201248`
-- **Total LP Emitido:** `1382806974960200`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **4**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x4f8bb066005038D28A8EF09Cda9fB2e942c6D7d4`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xff7A19b2d03F13f589Ff94219b32ffaEF2CF0336`
-- **Reservas actuales:** Token0: `2478371485755070568` | Token1: `366016225036427840459`
-- **Total LP Emitido:** `30101726949836338233`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **15**
-  - ➕ Aportes de liquidez: **12**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0x2005166EAcA7C268E348642A8ee0c1760D3c2eCf`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xa897009E017F1Bf7Fa72f3C19ad0e7295858F64C`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0Ad7772681Ec55695bba0F3b8fcE3CEeF6181679`
-- **Par:** `0x3d0FDfC08B1484AE8499aF03cD744B8c7c3c6d15` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `13532797055133029006098074714` | Token1: `7846372293337442352`
-- **Total LP Emitido:** `325410278055650387550798`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **9**
-  - ➕ Aportes de liquidez: **21**
-  - ➖ Retiros de liquidez: **2**
-
-#### 🏊 Pool: `0x4c30c588a578D333aA30B53e5F4e76fAE7268000`
-- **Par:** `0x9264698E11bb73484BA821945b81BcaD13095897` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x6BC1947B3b9F62A18Eb49C1bd3AF09BEA60351F4`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x9264698E11bb73484BA821945b81BcaD13095897`
-- **Reservas actuales:** Token0: `50655001306373842` | Token1: `400864499183875048`
-- **Total LP Emitido:** `142115518833956476`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **8**
-  - ➕ Aportes de liquidez: **4**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x92073b07AE5AEFbf11FE0Cb886bF8174776D8F63`
-- **Par:** `0x0F2c4fB4c90F2335AA7384601c22B35706536fFf` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `48783962824983133461615` | Token1: `538974322969012591`
-- **Total LP Emitido:** `162140059497910390961`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **7**
-  - ➕ Aportes de liquidez: **5**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0xfc22BCF856AAE09a9C9241a84AbCc093ebFBF6F9`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19`
-- **Reservas actuales:** Token0: `205613035170071199` | Token1: `29255264242123797417`
-- **Total LP Emitido:** `2448007892748980354`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **9**
-  - ➕ Aportes de liquidez: **9**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xA4Fe6881De397b788CD355Bf8098d095e5E852cB`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xE2dCC5495694A1414a3bebafCBa67F4ccfeA4164`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x61Dec1630F12d67336E29224fc4137d740bA338a`
-- **Reservas actuales:** Token0: `33185641388654014` | Token1: `7475273596858354831`
-- **Total LP Emitido:** `497352365338065650`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **5**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x31114610bFD8821D3f7dfC8eBE9e1c5cC407e124`
-- **Par:** `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19` / `0xff7A19b2d03F13f589Ff94219b32ffaEF2CF0336`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x9C3b0b7C34FC20436B7A3004039d3878e1E4477D`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xBd5cBd08D644f1C5ef9282b2A19B5a7eEcCeA008`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xD56815eDd0E17eA5c89999a9144b753A12a7B266`
-- **Par:** `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2` / `0xBd5cBd08D644f1C5ef9282b2A19B5a7eEcCeA008`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x7c4351cD7607fbcD53cBc7231EBcAca2b6C66E18`
-- **Par:** `0x9264698E11bb73484BA821945b81BcaD13095897` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x303eEef65A55997532f84E3340069A4Af4177348`
-- **Par:** `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x56de6e5a5a903a788174931CDc834a00aAb19EdB`
-- **Par:** `0x07FE3FB30C77B9a2B6C18c3e4391b4c03Bbcf668` / `0xF703ea88880C1a7b221887BbB321e8dDECD9d822`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xa88c0F0b474911Da1220aE5F0489A8B899EDe26e`
-- **Par:** `0x53D4B3288c1c7EF9374d753047873C8b0cfC8c46` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x890F6553476010A2dBEbB1D72B7795F616dDe7f4`
-- **Par:** `0x53D4B3288c1c7EF9374d753047873C8b0cfC8c46` / `0xBd5cBd08D644f1C5ef9282b2A19B5a7eEcCeA008`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0f3Dd809c75355E8DE0d49961187123874eF74cb`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x9ADEC62F91687f552A6C32B9f8Bde7DD1452AB8B`
-- **Reservas actuales:** Token0: `200723368621457287` | Token1: `1098297369495213240107`
-- **Total LP Emitido:** `14778776925042545139`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **12**
-  - ➕ Aportes de liquidez: **12**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x78Af01Bde08D5b16E072ED56c364B5E4F02E8Ae8`
-- **Par:** `0x53D4B3288c1c7EF9374d753047873C8b0cfC8c46` / `0x9ADEC62F91687f552A6C32B9f8Bde7DD1452AB8B`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x7828A38A805ca9F3a41eF20e6865e3d5C64E57C3`
-- **Par:** `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F` / `0xF703ea88880C1a7b221887BbB321e8dDECD9d822`
-- **Reservas actuales:** Token0: `34195412052659368541` | Token1: `50000000000000000`
-- **Total LP Emitido:** `1307581967844833973`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0fb253700da402aEBB1ea2B642A85925fb24Ba43`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x53D4B3288c1c7EF9374d753047873C8b0cfC8c46`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x2A1fA062BaAa194F616c4f3f6eb2fe517b5421BB`
-- **Par:** `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6` / `0xF703ea88880C1a7b221887BbB321e8dDECD9d822`
-- **Reservas actuales:** Token0: `3708027569603618` | Token1: `134947421131697546`
-- **Total LP Emitido:** `22360679775000485`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xA366e25F758c6f9953C6eeb8302803F40f08f1e1`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0xF703ea88880C1a7b221887BbB321e8dDECD9d822`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0xd11b93a61bBCE8d99dC513B19e9Bd30dBCC5B971`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x743b4728b6895C8957d458b023C6F90E458D1D24`
-- **Reservas actuales:** Token0: `9528760061489535277` | Token1: `14660735080404638198716`
-- **Total LP Emitido:** `373471868958388502684`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **4**
-  - ➕ Aportes de liquidez: **24**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0xda7a193659eE454A6E610582B5ca63D0094A37A4`
-- **Par:** `0x9ADEC62F91687f552A6C32B9f8Bde7DD1452AB8B` / `0xe577aD4374C1649C012ecFD82d047FC2AC283534`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0C6c2F4f0Bcaaa14795470FAd4182b83b9447783`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xF703ea88880C1a7b221887BbB321e8dDECD9d822`
-- **Reservas actuales:** Token0: `449549999999999990` | Token1: `35052578868302453`
-- **Total LP Emitido:** `125373504976131213`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **2**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xADA9866A38B5E8526Ba744045DEe9db8fd054e9C`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x513A9a6BCA3Fb7cDB8Cb82DCfB5e820C9B070E7f`
-- **Reservas actuales:** Token0: `200000010000000000` | Token1: `200601775265`
-- **Total LP Emitido:** `199999989999091`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xcBEA3f7946e8A405232Fb60087dc1fF6e1d73261`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xe49cCdD0C0b15E8461Cf01ABE488B67A41373D29`
-- **Reservas actuales:** Token0: `399399999999999999` | Token1: `999999999999999997496`
-- **Total LP Emitido:** `19969999999999999949`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x7C52de65448623104e2CA949cC9C8487cD8879Ae`
-- **Par:** `0xe49cCdD0C0b15E8461Cf01ABE488B67A41373D29` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xbB4A3536FDd00f8250229187CDfFE3e42C526314`
-- **Par:** `0x872BC57A7bdF3A58567a9A4cD735107e16c6B5C6` / `0xe49cCdD0C0b15E8461Cf01ABE488B67A41373D29`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x23e05FE714e990cBFD8fCa086413FbeF5257Da50`
-- **Par:** `0x2662aA461fc7DF9eeeB6f66f1c38aF00c97048A1` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xf42004CaEb641C28F21C0ad8c795F4186243734e`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xbD06f4509D100e4b9C8194Bed26b5AB0d3184b92`
-- **Reservas actuales:** Token0: `27417704261147124` | Token1: `483652548895783008803`
-- **Total LP Emitido:** `3637868305054180422`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **3**
-  - ➕ Aportes de liquidez: **4**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x40A44B8C5d93F8866F5294f55E748D6beC231109`
-- **Par:** `0x743b4728b6895C8957d458b023C6F90E458D1D24` / `0x8553C7b94bcFc01fFcf2D5CF49d35D999B1Fe832`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x06A4A0f41c80E1d10006f632a5B16DAB0aC8495c`
-- **Par:** `0x743b4728b6895C8957d458b023C6F90E458D1D24` / `0xBd5cBd08D644f1C5ef9282b2A19B5a7eEcCeA008`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xB9Cae63B049e9fA3e56Bf6F71c569708EE37D516`
-- **Par:** `0x53D4B3288c1c7EF9374d753047873C8b0cfC8c46` / `0x743b4728b6895C8957d458b023C6F90E458D1D24`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xEa5c6A67209D8Dc02d0f224596Ee02F105CF3221`
-- **Par:** `0x743b4728b6895C8957d458b023C6F90E458D1D24` / `0xa897009E017F1Bf7Fa72f3C19ad0e7295858F64C`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x9D6c72817d2eEf324785d58365D5D037Df16933E`
-- **Par:** `0x743b4728b6895C8957d458b023C6F90E458D1D24` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `1000000000000000000` | Token1: `100000000000000000`
-- **Total LP Emitido:** `316227766016837933`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x4dF39945BF6CE8b86Db22064C2B60a9a032046E8`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x872BC57A7bdF3A58567a9A4cD735107e16c6B5C6`
-- **Reservas actuales:** Token0: `1201597599999999` | Token1: `3008506760140207812`
-- **Total LP Emitido:** `60079879999999944`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **3**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x74851956CE90EC5DFbeFc3Af4A6e166Ef79c9986`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `1000092451588332368` | Token1: `93651192555`
-- **Total LP Emitido:** `305120908738345`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **2**
-  - ➕ Aportes de liquidez: **5**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x89A0111D0491ad7279E9E9396266E6cb81E6e3d7`
-- **Par:** `0x07FE3FB30C77B9a2B6C18c3e4391b4c03Bbcf668` / `0x9a5B80895920E1F08AA9FC9867Ab02Bb97c9C4F3`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x294aF235ffFf363630574C9d34906649078F386a`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x9a5B80895920E1F08AA9FC9867Ab02Bb97c9C4F3`
-- **Reservas actuales:** Token0: `1307259755600158901` | Token1: `11281941322082`
-- **Total LP Emitido:** `3839958542358154`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **3**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0x960F7e83124BDC9eA9ac7D9d92b3d016B9465d1D`
-- **Par:** `0x513A9a6BCA3Fb7cDB8Cb82DCfB5e820C9B070E7f` / `0xC67584882f0a742f787cF965739558Ab3d1d52f4`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x99F1D2C77c0AFDF0C27Fa0b9A8A9a5Ff2b1db2B6`
-- **Par:** `0x9a5B80895920E1F08AA9FC9867Ab02Bb97c9C4F3` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xC06E78AF27Fc5732FE9487c8DAC7Ed4Edd07ffc2`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x5c890252491c1422407B1243a50c3B0499499ADA`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x1aDE7B55eAbBb80AFfFc3D429306eAD443A4e7Ab`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xCB6f07A9bC0ACAC9D8087956FB36B8e036609B60`
-- **Reservas actuales:** Token0: `487807603558698162` | Token1: `99861594357303041710977`
-- **Total LP Emitido:** `220678377427360386314`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **4**
-  - ➕ Aportes de liquidez: **6**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x867aE5cFE679Ded95dE2874D561537d43f5E4037`
-- **Par:** `0x30C5641E47FF1CAE9d16fb27A8C505FdfA65A107` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x012109eEC9a606d30360f978ba265c1b1aCa2A44`
-- **Par:** `0x61Dec1630F12d67336E29224fc4137d740bA338a` / `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xF475d6612b5849f70f9E5861577e86D7F2BB7836`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x83f1273FF47977b271150B8A3C84097Ca633bBaF`
-- **Reservas actuales:** Token0: `211713003382072667` | Token1: `19074903224042119044`
-- **Total LP Emitido:** `2002954456266480889`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **4**
-  - ➕ Aportes de liquidez: **8**
-  - ➖ Retiros de liquidez: **1**
-
-#### 🏊 Pool: `0xb2882Cc091b834FBE466c1a16Ffb53C9C815D612`
-- **Par:** `0x0592D92BD2f396F35339C561F0e700e32d9a6ddd` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xF2733D67299DDE2E32A034F1e4e49506f8dB22F6`
-- **Par:** `0x1bd93f2180af48Fb8f15f2BFDa3792FfFaC7F595` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x665E4Ae2A2201b9046753695755902aF5562A2Ff`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x54C13E6Cb025C9C8883c1705F1689cB76de93c45`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x1a1b6CE179012eEbA7a0bAB838289CD65BA34B9b`
-- **Par:** `0x0592D92BD2f396F35339C561F0e700e32d9a6ddd` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `4168751042187760547` | Token1: `600000000000000000`
-- **Total LP Emitido:** `1581138830084189665`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0D77225dcf05B8345C33210e169dfEA35Bb001Ee`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x59ea06d9725b2dc69561C7Ac1AE36867B94e508c`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xe1a3d6cFe17Dc7C5FDde249118008D4C32AAfA39`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0x59ea06d9725b2dc69561C7Ac1AE36867B94e508c`
-- **Reservas actuales:** Token0: `5145062169501214807` | Token1: `7000000000000000000`
-- **Total LP Emitido:** `6000000000000000000`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x00E4cd3c3dFe1D0D032450bE92DC9bacf7b106e2`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xAf12B1B8512C586caC71e8e621078DC6fc331103`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xF83Aaf70d2A7Fda316756DEFDc02fAc38776203f`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xB8aAEA24217c8BB49b599d24Dc89671e8bC9EAe2`
-- **Reservas actuales:** Token0: `53393333333333333` | Token1: `4990663575959660124140`
-- **Total LP Emitido:** `16317684169840604660`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **2**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xE4F7086a449F49641E2dB3d7614D0B46d7bA0643`
-- **Par:** `0x0F2DAF399f29CC57E10760a746B04434c9e0466B` / `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x940B854d405A72c58A6dB042D02cBDc54109beDc`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xc38755eF4ffA6d30D5823Ae619D34BA6e8B63fBA`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0xa897009E017F1Bf7Fa72f3C19ad0e7295858F64C`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x2B26dEebbB5d86487Ab18315498aE46C054e29a6`
-- **Par:** `0x0F2DAF399f29CC57E10760a746B04434c9e0466B` / `0xc66e8C8a0d80092B183C7fBF1d6f77d5bF13C611`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x2200b4688f482f7c96c03de405E5bDC50e1A8EdE`
-- **Par:** `0x0F2DAF399f29CC57E10760a746B04434c9e0466B` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `6000050000000000000000` | Token1: `1200010000000000`
-- **Total LP Emitido:** `2683303933679522632`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **3**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x44069BB23f1F3b8388514837e5B31A7DD141B606`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xEBe2A82052958bCb3E5E23f70Fd3214c5B8168c5`
-- **Reservas actuales:** Token0: `500000000000000000` | Token1: `1000000000000000000000`
-- **Total LP Emitido:** `22360679774997896964`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xB2817A062C453F012d23C5C78b0b992fa49e6eA4`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x51529621Ffe1f8FdDdcd00568E2F7E43219367b1`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xC480E78Cd28bE7245f946053F2aaab7a62482b0c`
-- **Par:** `0x51529621Ffe1f8FdDdcd00568E2F7E43219367b1` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xC55fC51605faee203f9Bc1146046C03C0d8F75e2`
-- **Par:** `0x1810b6323D188192e5b51b76FB25112a852dDb65` / `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xCa57Ec18B3ac528682F4061F76176Dd21Aa28604`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xF21Fe83B3BaEF9805f505C56d8Df6394c93a8e20`
-- **Reservas actuales:** Token0: `2000000000000000` | Token1: `500000000000000000000`
-- **Total LP Emitido:** `1000000000000000000`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x9dB2076163d285f1112Ad41883bdbe1118151E4B`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xc66e8C8a0d80092B183C7fBF1d6f77d5bF13C611`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xD566fc675B9E53884a5acA3C48f352E5170E2dAe`
-- **Par:** `0xe7864240cAC19939D4EA68C5EFb4B636A8BbDf02` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x27186cC6dE69A7f3ae76139d7F8b4171b918C794`
-- **Par:** `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19` / `0xe49cCdD0C0b15E8461Cf01ABE488B67A41373D29`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x4A8615b6184010F695a2D1A0B55766238899c9f4`
-- **Par:** `0x000369d31eaba0e27f95500c8Ff06398084159C8` / `0x074367Cd77370D869C0894508E314091960662B2`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x97B8182571CB6D86EBe2276b797a23A6974df9d5`
-- **Par:** `0x384435f6659185FC6a2701C9964409Ff6577a20D` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xd901f3bbb0ee1fd846E1E871A5Cd3cd79189c8be`
-- **Par:** `0x8D1039Ce5d05E71fAaCDC6053F509081B5B1341F` / `0x9264698E11bb73484BA821945b81BcaD13095897`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x6c0545609875976a3Db2a54Fc596412F582e87a2`
-- **Par:** `0x000369d31eaba0e27f95500c8Ff06398084159C8` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x4D1BFf54F176743bEddb44f7B71E710F56eF89C6`
-- **Par:** `0x885E5E5e6E1C492A6bceE71bA563906b293D3E19` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x5b0B4Aaac34d41A7F85d5dc0391855bCD879e820`
-- **Par:** `0x000369d31eaba0e27f95500c8Ff06398084159C8` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `1100000000000000000` | Token1: `5500000000000000`
-- **Total LP Emitido:** `77781745930520227`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0xea8503c73492A6B524F92746CDE45FF04E5f01E7`
-- **Par:** `0x074367Cd77370D869C0894508E314091960662B2` / `0xa58ce92704A45eb95057233F7Ee6957097d5b88d`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x9d746F20e109076d157948fC154A060162Ecc1a1`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xa58ce92704A45eb95057233F7Ee6957097d5b88d`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x02aA0cC330591dF11972C08168F75B4876D3D857`
-- **Par:** `0x1810b6323D188192e5b51b76FB25112a852dDb65` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `9337502084375521093881` | Token1: `671963999999999999`
-- **Total LP Emitido:** `79191716852206203329`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **1**
-  - ➕ Aportes de liquidez: **2**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x7b0D888c1515E0ed5D9D0f69698fD370b73F1e46`
-- **Par:** `0x11E0327F22e33cD07B7b87248D9e085a4bEF68C6` / `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x13D9504dD3D4Bd6045f9CC80dA926148a12d0ADE`
-- **Par:** `0x000369d31eaba0e27f95500c8Ff06398084159C8` / `0x9264698E11bb73484BA821945b81BcaD13095897`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x8A19e4B60071C7B658188465f842e3B0fB87e195`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0xB7D67cb855630686347081f20F379E3B2e346AB0`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x0FFF02008dC29B4063b61Ed6bb59F27Dc1097Eae`
-- **Par:** `0x59ea06d9725b2dc69561C7Ac1AE36867B94e508c` / `0xF41E16256f8d383a9BDDA38a99B899146448C23b`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x37198F46E72266398d0A421d233Ad1Df4bC13f9C`
-- **Par:** `0x0F2DAF399f29CC57E10760a746B04434c9e0466B` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x1de9963F7877b42823ac1757ec1C7e0a748A93Cd`
-- **Par:** `0x0F2DAF399f29CC57E10760a746B04434c9e0466B` / `0x3d0FDfC08B1484AE8499aF03cD744B8c7c3c6d15`
-- **Reservas actuales:** Token0: `100000000000000000000` | Token1: `17000000000000000000`
-- **Total LP Emitido:** `41231056256176605498`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **1**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x333802c05083850f73FB49b653e92F3020793E84`
-- **Par:** `0x1D2ac77A7b8243A6e29EB7E781Ce6B3E295EFe65` / `0xa58ce92704A45eb95057233F7Ee6957097d5b88d`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x79d41d0F124a0825535733a43Db3954C900156f5`
-- **Par:** `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` / `0x813Bbc2c125dfA5ED616F2908b8149ED75774a1C`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
-
-#### 🏊 Pool: `0x01F32Eaa8059e9F98345c4D6253C8dAe904F8317`
-- **Par:** `0x813Bbc2c125dfA5ED616F2908b8149ED75774a1C` / `0xF02fb0D52Fc59549eE5fDC19bb70426D0879bbf6`
-- **Reservas actuales:** Token0: `0` | Token1: `0`
-- **Total LP Emitido:** `0`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **0**
-  - ➕ Aportes de liquidez: **0**
-  - ➖ Retiros de liquidez: **0**
+| Piscina (Pool Address) | Par de Tokens | Reserva Token0 | Reserva Token1 | LP Emitido | Swaps | Aportes (+) | Retiros (-) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `0xbef9a0E94968Db74E4539a319955f2188cbeedd2` | **WETH / PESO** | 3.0346 **WETH** | 23026769.1615 **PESO** | `8349.634376` | **15** | **21** | **2** |
+| `0x110B01dC90968091DD3b97f36f7a381dA1b12275` | **UTP / WETH** | 0 **UTP** | 0 **WETH** | `0` | **0** | **0** | **0** |
+| `0xC5E85eA6C8C4D89695d978563b773a2DC59D45c2` | **WETH / MACONDO** | 1.4124 **WETH** | 32041.0851 **MACONDO** | `212.40145` | **11** | **11** | **1** |
+| `0x7Dffcf389F9DD9e74Bae656580D8FABc4055E6F4` | **MPCH / TKGIO** | 10 **MPCH** | 10 **TKGIO** | `10` | **0** | **1** | **0** |
+| `0xe4971777B481EDc4Dc3367A5C665076041A62bcc` | **TKGIO / MACONDO** | 0 **TKGIO** | 0 **MACONDO** | `0` | **0** | **0** | **0** |
+| `0xC4d6F9bDb47416883D587301556c038448fc1BdA` | **WETH / TKGIO** | 0.2681 **WETH** | 985.2206 **TKGIO** | `16.205216` | **15** | **14** | **0** |
+| `0x80865F5e57C0f520B90d577D85959f26591414D4` | **WETH / MPCH** | 2.5989 **WETH** | 3112.4194 **MPCH** | `89.880926` | **9** | **6** | **1** |
+| `0xB856f1B6074A83C86437DE58c421237b5ba030e4` | **MPCH / MACONDO** | 0 **MPCH** | 0 **MACONDO** | `0` | **0** | **0** | **0** |
+| `0xeE1E2f35c55184024B6F27E60AD243be2C823f3F` | **UTP / MPCH** | 0 **UTP** | 0 **MPCH** | `0` | **0** | **0** | **0** |
+| `0xE60D72A4101dfCb5419842B456904eC16419BF37` | **MPCH / PESO** | 0 **MPCH** | 0 **PESO** | `0` | **0** | **0** | **0** |
+| `0x08FeE1d134aa6f526f3469072eC7A85877bAd360` | **WETH / UTT** | 0.2113 **WETH** | 0.0000 **UTT** | `0.001383` | **4** | **1** | **0** |
+| `0x4f8bb066005038D28A8EF09Cda9fB2e942c6D7d4` | **WETH / TM** | 2.4784 **WETH** | 366.0162 **TM** | `30.101727` | **15** | **12** | **1** |
+| `0x2005166EAcA7C268E348642A8ee0c1760D3c2eCf` | **WETH / VTK** | 0 **WETH** | 0 **VTK** | `0` | **0** | **0** | **0** |
+| `0x0Ad7772681Ec55695bba0F3b8fcE3CEeF6181679` | **FIRE / WETH** | 13532797055.1330 **FIRE** | 7.8464 **WETH** | `325410.278056` | **9** | **21** | **2** |
+| `0x4c30c588a578D333aA30B53e5F4e76fAE7268000` | **ITA / TKGIO** | 0 **ITA** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
+| `0x6BC1947B3b9F62A18Eb49C1bd3AF09BEA60351F4` | **WETH / ITA** | 0.0507 **WETH** | 0.4009 **ITA** | `0.142116` | **8** | **4** | **0** |
+| `0x92073b07AE5AEFbf11FE0Cb886bF8174776D8F63` | **TOKENCIT / WETH** | 48783.9628 **TOKENCIT** | 0.5390 **WETH** | `162.140059` | **7** | **5** | **1** |
+| `0xfc22BCF856AAE09a9C9241a84AbCc093ebFBF6F9` | **WETH / MGT** | 0.2056 **WETH** | 29.2553 **MGT** | `2.448008` | **9** | **9** | **0** |
+| `0xA4Fe6881De397b788CD355Bf8098d095e5E852cB` | **PUNTOS / MGT** | 0 **PUNTOS** | 0 **MGT** | `0` | **0** | **0** | **0** |
+| `0xE2dCC5495694A1414a3bebafCBa67F4ccfeA4164` | **WETH / TPC** | 0.0332 **WETH** | 7.4753 **TPC** | `0.497352` | **5** | **2** | **0** |
+| `0x31114610bFD8821D3f7dfC8eBE9e1c5cC407e124` | **MGT / TM** | 0 **MGT** | 0 **TM** | `0` | **0** | **0** | **0** |
+| `0x9C3b0b7C34FC20436B7A3004039d3878e1E4477D` | **WETH / EDU** | 0 **WETH** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0xD56815eDd0E17eA5c89999a9144b753A12a7B266` | **TKND / EDU** | 0 **TKND** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0x7c4351cD7607fbcD53cBc7231EBcAca2b6C66E18` | **ITA / TKND** | 0 **ITA** | 0 **TKND** | `0` | **0** | **0** | **0** |
+| `0x303eEef65A55997532f84E3340069A4Af4177348` | **MGT / TKND** | 0 **MGT** | 0 **TKND** | `0` | **0** | **0** | **0** |
+| `0x56de6e5a5a903a788174931CDc834a00aAb19EdB` | **TKC / JALI** | 0 **TKC** | 0 **JALI** | `0` | **0** | **0** | **0** |
+| `0xa88c0F0b474911Da1220aE5F0489A8B899EDe26e` | **EDU / TKND** | 0 **EDU** | 0 **TKND** | `0` | **0** | **0** | **0** |
+| `0x890F6553476010A2dBEbB1D72B7795F616dDe7f4` | **EDU / EDU** | 0 **EDU** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0x0f3Dd809c75355E8DE0d49961187123874eF74cb` | **WETH / ACT1** | 0.2007 **WETH** | 1098.2974 **ACT1** | `14.778777` | **12** | **12** | **0** |
+| `0x78Af01Bde08D5b16E072ED56c364B5E4F02E8Ae8` | **EDU / ACT1** | 0 **EDU** | 0 **ACT1** | `0` | **0** | **0** | **0** |
+| `0x7828A38A805ca9F3a41eF20e6865e3d5C64E57C3` | **MPCH / JALI** | 34.1954 **MPCH** | 0.0500 **JALI** | `1.307582` | **0** | **1** | **0** |
+| `0x0fb253700da402aEBB1ea2B642A85925fb24Ba43` | **WETH / EDU** | 0 **WETH** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0x2A1fA062BaAa194F616c4f3f6eb2fe517b5421BB` | **TKGIO / JALI** | 0.0037 **TKGIO** | 0.1349 **JALI** | `0.022361` | **1** | **2** | **0** |
+| `0xA366e25F758c6f9953C6eeb8302803F40f08f1e1` | **PUNTOS / JALI** | 0 **PUNTOS** | 0 **JALI** | `0` | **1** | **1** | **1** |
+| `0xd11b93a61bBCE8d99dC513B19e9Bd30dBCC5B971` | **WETH / VTC** | 9.5288 **WETH** | 14660.7351 **VTC** | `373.471869` | **4** | **24** | **1** |
+| `0xda7a193659eE454A6E610582B5ca63D0094A37A4` | **ACT1 / 5TOK** | 0 **ACT1** | 0 **5TOK** | `0` | **0** | **0** | **0** |
+| `0x0C6c2F4f0Bcaaa14795470FAd4182b83b9447783` | **WETH / JALI** | 0.4496 **WETH** | 0.0351 **JALI** | `0.125374` | **2** | **2** | **0** |
+| `0xADA9866A38B5E8526Ba744045DEe9db8fd054e9C` | **WETH / VTC2** | 0.2000 **WETH** | 0.0000 **VTC2** | `0.0002` | **1** | **2** | **0** |
+| `0xcBEA3f7946e8A405232Fb60087dc1fF6e1d73261` | **WETH / CBCH** | 0.3994 **WETH** | 1000 **CBCH** | `19.97` | **1** | **2** | **0** |
+| `0x7C52de65448623104e2CA949cC9C8487cD8879Ae` | **CBCH / PESO** | 0 **CBCH** | 0 **PESO** | `0` | **0** | **0** | **0** |
+| `0xbB4A3536FDd00f8250229187CDfFE3e42C526314` | **JCH / CBCH** | 0 **JCH** | 0 **CBCH** | `0` | **0** | **0** | **0** |
+| `0x23e05FE714e990cBFD8fCa086413FbeF5257Da50` | **ING / WETH** | 0 **ING** | 0 **WETH** | `0` | **0** | **0** | **0** |
+| `0xf42004CaEb641C28F21C0ad8c795F4186243734e` | **WETH / TK2** | 0.0274 **WETH** | 483.6525 **TK2** | `3.637868` | **3** | **4** | **0** |
+| `0x40A44B8C5d93F8866F5294f55E748D6beC231109` | **VTC / EDU** | 0 **VTC** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0x06A4A0f41c80E1d10006f632a5B16DAB0aC8495c` | **VTC / EDU** | 0 **VTC** | 0 **EDU** | `0` | **0** | **0** | **0** |
+| `0xB9Cae63B049e9fA3e56Bf6F71c569708EE37D516` | **EDU / VTC** | 0 **EDU** | 0 **VTC** | `0` | **0** | **0** | **0** |
+| `0xEa5c6A67209D8Dc02d0f224596Ee02F105CF3221` | **VTC / VTK** | 0 **VTC** | 0 **VTK** | `0` | **0** | **0** | **0** |
+| `0x9D6c72817d2eEf324785d58365D5D037Df16933E` | **VTC / PESO** | 1 **VTC** | 0.1000 **PESO** | `0.316228` | **0** | **1** | **0** |
+| `0x4dF39945BF6CE8b86Db22064C2B60a9a032046E8` | **WETH / JCH** | 0.0012 **WETH** | 3.0085 **JCH** | `0.06008` | **1** | **3** | **0** |
+| `0x74851956CE90EC5DFbeFc3Af4A6e166Ef79c9986` | **PUNTOS / WETH** | 1.0001 **PUNTOS** | 0.0000 **WETH** | `0.000305` | **2** | **5** | **0** |
+| `0x89A0111D0491ad7279E9E9396266E6cb81E6e3d7` | **TKC / CLT** | 0 **TKC** | 0 **CLT** | `0` | **0** | **0** | **0** |
+| `0x294aF235ffFf363630574C9d34906649078F386a` | **WETH / CLT** | 1.3073 **WETH** | 0.0000 **CLT** | `0.00384` | **1** | **3** | **1** |
+| `0x960F7e83124BDC9eA9ac7D9d92b3d016B9465d1D` | **VTC2 / VTC5** | 0 **VTC2** | 0 **VTC5** | `0` | **0** | **0** | **0** |
+| `0x99F1D2C77c0AFDF0C27Fa0b9A8A9a5Ff2b1db2B6` | **CLT / MACONDO** | 0 **CLT** | 0 **MACONDO** | `0` | **0** | **0** | **0** |
+| `0xC06E78AF27Fc5732FE9487c8DAC7Ed4Edd07ffc2` | **WETH / DEI** | 0 **WETH** | 0 **DEI** | `0` | **0** | **0** | **0** |
+| `0x1aDE7B55eAbBb80AFfFc3D429306eAD443A4e7Ab` | **WETH / ICE** | 0.4878 **WETH** | 99861.5944 **ICE** | `220.678377` | **4** | **6** | **0** |
+| `0x867aE5cFE679Ded95dE2874D561537d43f5E4037` | **MPCH3 / WETH** | 0 **MPCH3** | 0 **WETH** | `0` | **0** | **0** | **0** |
+| `0x012109eEC9a606d30360f978ba265c1b1aCa2A44` | **TPC / MPCH** | 0 **TPC** | 0 **MPCH** | `0` | **0** | **0** | **0** |
+| `0xF475d6612b5849f70f9E5861577e86D7F2BB7836` | **WETH / pltk** | 0.2117 **WETH** | 19.0749 **pltk** | `2.002954` | **4** | **8** | **1** |
+| `0xb2882Cc091b834FBE466c1a16Ffb53C9C815D612` | **MTT / TKND** | 0 **MTT** | 0 **TKND** | `0` | **0** | **0** | **0** |
+| `0xF2733D67299DDE2E32A034F1e4e49506f8dB22F6` | **pltk / TKND** | 0 **pltk** | 0 **TKND** | `0` | **0** | **0** | **0** |
+| `0x665E4Ae2A2201b9046753695755902aF5562A2Ff` | **WETH / TR** | 0 **WETH** | 0 **TR** | `0` | **0** | **0** | **0** |
+| `0x1a1b6CE179012eEbA7a0bAB838289CD65BA34B9b` | **MTT / WETH** | 4.1688 **MTT** | 0.6000 **WETH** | `1.581139` | **1** | **1** | **0** |
+| `0x0D77225dcf05B8345C33210e169dfEA35Bb001Ee` | **WETH / Nkc** | 0 **WETH** | 0 **Nkc** | `0` | **0** | **0** | **0** |
+| `0xe1a3d6cFe17Dc7C5FDde249118008D4C32AAfA39` | **PUNTOS / Nkc** | 5.1451 **PUNTOS** | 7 **Nkc** | `6` | **1** | **1** | **0** |
+| `0x00E4cd3c3dFe1D0D032450bE92DC9bacf7b106e2` | **WETH / pltk2** | 0 **WETH** | 0 **pltk2** | `0` | **0** | **0** | **0** |
+| `0xF83Aaf70d2A7Fda316756DEFDc02fAc38776203f` | **WETH / TKND** | 0.0534 **WETH** | 4990.6636 **TKND** | `16.317684` | **2** | **2** | **0** |
+| `0xE4F7086a449F49641E2dB3d7614D0B46d7bA0643` | **SAD / PUNTOS** | 0 **SAD** | 0 **PUNTOS** | `0` | **0** | **0** | **0** |
+| `0x940B854d405A72c58A6dB042D02cBDc54109beDc` | **PUNTOS / PESO** | 0 **PUNTOS** | 0 **PESO** | `0` | **0** | **0** | **0** |
+| `0xc38755eF4ffA6d30D5823Ae619D34BA6e8B63fBA` | **PUNTOS / VTK** | 0 **PUNTOS** | 0 **VTK** | `0` | **0** | **0** | **0** |
+| `0x2B26dEebbB5d86487Ab18315498aE46C054e29a6` | **SAD / PC** | 0 **SAD** | 0 **PC** | `0` | **0** | **0** | **0** |
+| `0x2200b4688f482f7c96c03de405E5bDC50e1A8EdE` | **SAD / WETH** | 6000.0500 **SAD** | 0.0012 **WETH** | `2.683304` | **0** | **3** | **0** |
+| `0x44069BB23f1F3b8388514837e5B31A7DD141B606` | **WETH / MT** | 0.5000 **WETH** | 1000 **MT** | `22.36068` | **0** | **1** | **0** |
+| `0xB2817A062C453F012d23C5C78b0b992fa49e6eA4` | **WETH / TKGIO2** | 0 **WETH** | 0 **TKGIO2** | `0` | **0** | **0** | **0** |
+| `0xC480E78Cd28bE7245f946053F2aaab7a62482b0c` | **TKGIO2 / TKGIO** | 0 **TKGIO2** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
+| `0xC55fC51605faee203f9Bc1146046C03C0d8F75e2` | **CHC / PESO** | 0 **CHC** | 0 **PESO** | `0` | **0** | **0** | **0** |
+| `0xCa57Ec18B3ac528682F4061F76176Dd21Aa28604` | **WETH / TKND1** | 0.0020 **WETH** | 500 **TKND1** | `1` | **0** | **1** | **0** |
+| `0x9dB2076163d285f1112Ad41883bdbe1118151E4B` | **WETH / PC** | 0 **WETH** | 0 **PC** | `0` | **0** | **0** | **0** |
+| `0xD566fc675B9E53884a5acA3C48f352E5170E2dAe` | **PESO / TKGIO** | 0 **PESO** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
+| `0x27186cC6dE69A7f3ae76139d7F8b4171b918C794` | **MGT / CBCH** | 0 **MGT** | 0 **CBCH** | `0` | **0** | **0** | **0** |
+| `0x4A8615b6184010F695a2D1A0B55766238899c9f4` | **JFER / UTP** | 0 **JFER** | 0 **UTP** | `0` | **0** | **0** | **0** |
+| `0x97B8182571CB6D86EBe2276b797a23A6974df9d5` | **LUQUITA / WETH** | 0 **LUQUITA** | 0 **WETH** | `0` | **0** | **0** | **0** |
+| `0xd901f3bbb0ee1fd846E1E871A5Cd3cd79189c8be` | **MPCH / ITA** | 0 **MPCH** | 0 **ITA** | `0` | **0** | **0** | **0** |
+| `0x6c0545609875976a3Db2a54Fc596412F582e87a2` | **JFER / MACONDO** | 0 **JFER** | 0 **MACONDO** | `0` | **0** | **0** | **0** |
+| `0x4D1BFf54F176743bEddb44f7B71E710F56eF89C6` | **MGT / TKGIO** | 0 **MGT** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
+| `0x5b0B4Aaac34d41A7F85d5dc0391855bCD879e820` | **JFER / WETH** | 1.1000 **JFER** | 0.0055 **WETH** | `0.077782` | **0** | **2** | **0** |
+| `0xea8503c73492A6B524F92746CDE45FF04E5f01E7` | **UTP / JTK** | 0 **UTP** | 0 **JTK** | `0` | **0** | **0** | **0** |
+| `0x9d746F20e109076d157948fC154A060162Ecc1a1` | **WETH / JTK** | 0 **WETH** | 0 **JTK** | `0` | **0** | **0** | **0** |
+| `0x02aA0cC330591dF11972C08168F75B4876D3D857` | **CHC / WETH** | 9337.5021 **CHC** | 0.6720 **WETH** | `79.191717` | **1** | **2** | **0** |
+| `0x7b0D888c1515E0ed5D9D0f69698fD370b73F1e46` | **sad / WETH** | 0 **sad** | 0 **WETH** | `0` | **0** | **0** | **0** |
+| `0x13D9504dD3D4Bd6045f9CC80dA926148a12d0ADE` | **JFER / ITA** | 0 **JFER** | 0 **ITA** | `0` | **0** | **0** | **0** |
+| `0x8A19e4B60071C7B658188465f842e3B0fB87e195` | **WETH / cclt** | 0 **WETH** | 0 **cclt** | `0` | **0** | **0** | **0** |
+| `0x0FFF02008dC29B4063b61Ed6bb59F27Dc1097Eae` | **Nkc / MACONDO** | 0 **Nkc** | 0 **MACONDO** | `0` | **0** | **0** | **0** |
+| `0x37198F46E72266398d0A421d233Ad1Df4bC13f9C` | **SAD / TKGIO** | 0 **SAD** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
+| `0x1de9963F7877b42823ac1757ec1C7e0a748A93Cd` | **SAD / FIRE** | 100 **SAD** | 17 **FIRE** | `41.231056` | **0** | **1** | **0** |
+| `0x333802c05083850f73FB49b653e92F3020793E84` | **PUNTOS / JTK** | 0 **PUNTOS** | 0 **JTK** | `0` | **0** | **0** | **0** |
+| `0x79d41d0F124a0825535733a43Db3954C900156f5` | **WETH / TKGIO3** | 0 **WETH** | 0 **TKGIO3** | `0` | **0** | **0** | **0** |
+| `0x01F32Eaa8059e9F98345c4D6253C8dAe904F8317` | **TKGIO3 / TKGIO** | 0 **TKGIO3** | 0 **TKGIO** | `0` | **0** | **0** | **0** |
 
 ---
 

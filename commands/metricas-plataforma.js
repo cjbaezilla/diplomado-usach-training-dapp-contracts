@@ -485,6 +485,46 @@ async function main() {
 
 // Generación del contenido del archivo Markdown
 function buildMarkdownReport(data) {
+  // Mapear direcciones a símbolos para mostrar nombres en lugar de hashes
+  const addressToSymbol = {};
+  if (data.contracts && data.contracts.WETH) {
+    addressToSymbol[data.contracts.WETH.address.toLowerCase()] = "WETH";
+  }
+  if (data.tokens) {
+    data.tokens.forEach(tok => {
+      addressToSymbol[tok.address.toLowerCase()] = tok.symbol;
+    });
+  }
+
+  function getSymbol(addr) {
+    if (!addr) return "N/A";
+    const lower = addr.toLowerCase();
+    if (addressToSymbol[lower]) return addressToSymbol[lower];
+    return addr.slice(0, 6) + "..." + addr.slice(-4);
+  }
+
+  function formatReserve(valStr) {
+    try {
+      const val = BigInt(valStr);
+      if (val === 0n) return "0";
+      const formatted = parseFloat(hre.ethers.formatUnits(val, 18));
+      return formatted % 1 === 0 ? formatted.toString() : formatted.toFixed(4);
+    } catch (e) {
+      return valStr;
+    }
+  }
+
+  function formatLP(valStr) {
+    try {
+      const val = BigInt(valStr);
+      if (val === 0n) return "0";
+      const formatted = parseFloat(hre.ethers.formatUnits(val, 18));
+      return formatted.toFixed(6).replace(/\.?0+$/, "");
+    } catch (e) {
+      return valStr;
+    }
+  }
+
   // Calcular acumulados de tokens personalizados
   let totalTokenEvents = 0;
   let totalTokenTxEst = 0;
@@ -495,15 +535,31 @@ function buildMarkdownReport(data) {
     });
   }
 
-  // Calcular acumulados de DEX Pools
+  // Calcular acumulados de DEX Pools y WETH TVL
   let totalPoolEvents = 0;
   let totalPoolTxEst = 0;
+  let totalWethTVL = 0n;
+  let wethPairsCount = 0;
+  const wethAddr = data.contracts.WETH ? data.contracts.WETH.address.toLowerCase() : "";
+
   if (data.pools) {
     data.pools.forEach(pool => {
       totalPoolEvents += pool.totalEvents;
       totalPoolTxEst += pool.estimatedTransactions;
+
+      const isToken0Weth = pool.token0.toLowerCase() === wethAddr;
+      const isToken1Weth = pool.token1.toLowerCase() === wethAddr;
+      if (isToken0Weth) {
+        totalWethTVL += BigInt(pool.reserve0);
+        wethPairsCount++;
+      } else if (isToken1Weth) {
+        totalWethTVL += BigInt(pool.reserve1);
+        wethPairsCount++;
+      }
     });
   }
+
+  const formattedWethTVL = parseFloat(hre.ethers.formatUnits(totalWethTVL, 18)).toFixed(4);
 
   let md = `# 📈 Reporte de Uso de la Plataforma y Métricas On-chain
 
@@ -546,6 +602,12 @@ Generado automáticamente a partir del historial de la cadena de bloques.
   // Agregar fila final de totales generales
   md += `| 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **${grandTotalTx}** | 🏆 **${grandTotalEvents}** |\n`;
 
+  // Agregar vistazo de liquidez de WETH justo abajo de la tabla general
+  md += `\n### 💧 Liquidez de la Plataforma (Vista Rápida)
+- **Valor Total Bloqueado (WETH TVL):** \`${formattedWethTVL} WETH\`
+- **Cantidad de Pares con WETH:** \`${wethPairsCount} pares\`
+`;
+
   md += `\n---
 
 ## 👥 1. Identidad Estudiantil (StudentIdentity)
@@ -558,7 +620,7 @@ Generado automáticamente a partir del historial de la cadena de bloques.
     md += `- **Estudiantes Únicos Registrados:** \`${reg}\`
 - **Actualizaciones de Perfil Realizadas:** \`${upd}\`
 - **Usuarios Únicos Interactuando:** \`${stdId.activeUsers}\`
-
+ 
 ### Detalle de Estudiantes Registrados:
 `;
     if (stdId.events.ProfileRegistered && stdId.events.ProfileRegistered.list.length > 0) {
@@ -585,7 +647,7 @@ Generado automáticamente a partir del historial de la cadena de bloques.
     const totalClaims = minter && minter.events.ChallengeClaimed ? minter.events.ChallengeClaimed.count : 0;
     md += `- **Desafíos Reclamados Exitosamente (vía ChallengeMinter):** \`${totalClaims}\`
 - **Total de Acuñaciones de Insignias (vía BaseERC1155):** \`${erc1155.events.TransferSingle ? erc1155.events.TransferSingle.count : 0}\`
-
+ 
 ### Distribución de Insignias Reclamadas (Por ID de Reliquia):
 `;
     const badgeCounts = {};
@@ -637,24 +699,24 @@ Generado automáticamente a partir del historial de la cadena de bloques.
   if (dexFactory) {
     const poolsCount = data.pools ? data.pools.length : 0;
     md += `- **Piscinas de Liquidez Desplegadas:** \`${poolsCount}\`
+- **Valor Total Bloqueado (WETH TVL):** \`${formattedWethTVL} WETH\`
+- **Pares de Liquidez con WETH:** \`${wethPairsCount} de ${poolsCount} pools totales\`
 
 ### Detalle de Piscinas e Intercambios:
 `;
     if (data.pools && data.pools.length > 0) {
+      md += `\n| Piscina (Pool Address) | Par de Tokens | Reserva Token0 | Reserva Token1 | LP Emitido | Swaps | Aportes (+) | Retiros (-) |\n| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n`;
       data.pools.forEach(pool => {
+        const symbol0 = getSymbol(pool.token0);
+        const symbol1 = getSymbol(pool.token1);
         const swaps = pool.events.Swap ? pool.events.Swap.count : 0;
         const addLiq = pool.events.LiquidezAgregada ? pool.events.LiquidezAgregada.count : 0;
         const remLiq = pool.events.LiquidezRemovida ? pool.events.LiquidezRemovida.count : 0;
+
+        const res0Str = `${formatReserve(pool.reserve0)} **${symbol0}**`;
+        const res1Str = `${formatReserve(pool.reserve1)} **${symbol1}**`;
         
-        md += `\n#### 🏊 Pool: \`${pool.address}\`
-- **Par:** \`${pool.token0}\` / \`${pool.token1}\`
-- **Reservas actuales:** Token0: \`${pool.reserve0}\` \| Token1: \`${pool.reserve1}\`
-- **Total LP Emitido:** \`${pool.totalSupplyLP}\`
-- **Operaciones:**
-  - 🔄 Swaps realizados: **${swaps}**
-  - ➕ Aportes de liquidez: **${addLiq}**
-  - ➖ Retiros de liquidez: **${remLiq}**
-`;
+        md += `| \`${pool.address}\` | **${symbol0} / ${symbol1}** | ${res0Str} | ${res1Str} | \`${formatLP(pool.totalSupplyLP)}\` | **${swaps}** | **${addLiq}** | **${remLiq}** |\n`;
       });
     } else {
       md += `\n*No se han creado piscinas de liquidez aún.*`;
