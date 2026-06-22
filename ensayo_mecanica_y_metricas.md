@@ -125,7 +125,9 @@ El portal web de entrenamiento se construye sobre un framework de desarrollo mod
 
 El flujo de registro de la identidad estudiantil comienza cuando el alumno ingresa al panel de identidad en la dApp, la interfaz interactúa con el contrato de identidad de los estudiantes mediante hooks personalizados que leen el estado on-chain de la dirección conectada, si el usuario no posee un registro previo el frontend muestra un formulario detallado donde se solicita ingresar el nombre completo, el correo institucional con el dominio correspondiente y los enlaces de perfiles sociales, al hacer clic en enviar la dApp solicita la aprobación de la transacción mediante la extensión de la billetera, una vez confirmada la transacción los componentes reactivos detectan el evento de registro y actualizan la interfaz mostrando la tarjeta de perfil académico inmutable del estudiante.
 
-[PLACEHOLDER: Captura de pantalla de la interfaz de registro de perfil estudiantil en la dApp con los campos del formulario]
+![Captura de identidad](docs/article_imgs/captura_identidad.png)
+
+![Perfil de usuario](docs/article_imgs/user_profile.jpeg)
 
 ---
 
@@ -133,7 +135,9 @@ El flujo de registro de la identidad estudiantil comienza cuando el alumno ingre
 
 El simulador y portal de tokens personalizados ofrece una interfaz para el despliegue automático de nuevos activos, el estudiante introduce el nombre, el símbolo y el suministro en el panel de creación y confirma la operación firmando la transacción, el contrato de la fábrica despliega el token y emite el evento de creación, el cual es detectado por la interfaz para listar el nuevo activo en la tabla de tokens creados, desde este panel el propietario del token puede acuñar nuevas unidades o realizar transferencias directas a otros compañeros ingresando sus direcciones públicas y el monto, la interfaz oculta automáticamente los activos que no poseen balances positivos para mantener limpia la vista del usuario y muestra un historial de transferencias en tiempo real para auditar las transacciones on-chain.
 
-[PLACEHOLDER: Interfaz de creación de tokens ERC-20 personalizados y panel de gestión de balances]
+![Captura ERC-20](docs/article_imgs/captura_erc20.png)
+
+![Desplegar ERC-20](docs/article_imgs/erc20_desplegar.png)
 
 ---
 
@@ -141,11 +145,11 @@ El simulador y portal de tokens personalizados ofrece una interfaz para el despl
 
 El mercado descentralizado integrado en la dApp permite a los estudiantes comprender de forma práctica el funcionamiento de las finanzas descentralizadas, el flujo comienza con la envoltura de Ether nativo a través de una pestaña dedicada donde el usuario deposita Ether y recibe el token Wrapped Ether necesario para comerciar, en el panel del mercado de intercambio el estudiante selecciona el par de tokens que desea intercambiar y visualiza las reservas de la piscina de liquidez junto con la tasa de conversión dinámica calculada en base al modelo de producto constante sin alterar la proporción geométrica, si la piscina no existe la interfaz permite desplegarla a través de la fábrica del mercado de intercambio.
 
-[PLACEHOLDER: Vista de la pestaña de intercambio de tokens y la calculadora de precios del AMM en el DEX]
+![Captura swap](docs/article_imgs/captura_swap.png)
 
 Para proveer liquidez el estudiante accede a la sección de aportes e ingresa la cantidad deseada del token base, la dApp calcula automáticamente la cantidad simétrica requerida del segundo token según la relación de precios de las reservas del pool, requiere que el usuario apruebe el uso de ambos tokens mediante transacciones previas y posteriormente envía la transacción de depósito que acuña los tokens LP de participación en el pool, el panel muestra la participación porcentual del estudiante sobre las reservas totales de la piscina y permite retirar la liquidez en cualquier momento devolviendo los tokens base y quemando los activos de participación.
 
-[PLACEHOLDER: Interfaz de aprovisionamiento de liquidez simétrica y visualización de balances de tokens LP]
+![Captura liquidez](docs/article_imgs/captura_liquidez.png)
 
 ---
 
