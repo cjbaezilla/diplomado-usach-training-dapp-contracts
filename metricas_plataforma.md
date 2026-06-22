@@ -12,12 +12,12 @@ Generado automáticamente a partir del historial de la cadena de bloques.
 
 | Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
 | :--- | :--- | :---: | :---: |
-| **StudentIdentity** | `0x652b7718F130329F3eC865f418FE2a2634fb5E29` | **33** (Etherscan) | **61** |
-| **TokenFactory** | `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB` | **115** (Etherscan) | **115** |
-| **BaseERC1155** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | **2** (Etherscan) | **245** |
-| **DEXFactory** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | **99** (Etherscan) | **98** |
-| **WETH** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | **615** (Etherscan) | **960** |
-| **BatchTransfer** | `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860` | **3** (Etherscan) | **2** |
+| **StudentIdentity** | [`0x652b7718F130329F3eC865f418FE2a2634fb5E29`](https://sepolia.etherscan.io/address/0x652b7718F130329F3eC865f418FE2a2634fb5E29) | **33** (Etherscan) | **61** |
+| **TokenFactory** | [`0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB`](https://sepolia.etherscan.io/address/0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB) | **115** (Etherscan) | **115** |
+| **BaseERC1155** | [`0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E`](https://sepolia.etherscan.io/address/0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E) | **2** (Etherscan) | **245** |
+| **DEXFactory** | [`0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4`](https://sepolia.etherscan.io/address/0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4) | **99** (Etherscan) | **98** |
+| **WETH** | [`0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317) | **615** (Etherscan) | **960** |
+| **BatchTransfer** | [`0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860`](https://sepolia.etherscan.io/address/0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860) | **3** (Etherscan) | **2** |
 | **DEX Pools (Agregado - 98 pools)** | *(Múltiples direcciones)* | **358** (Est. por logs) | **567** |
 | **Tokens Personalizados (Agregado - 115 tokens)** | *(Múltiples direcciones)* | **1235** (Est. por logs) | **1283** |
 | 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **2460** | 🏆 **3331** |

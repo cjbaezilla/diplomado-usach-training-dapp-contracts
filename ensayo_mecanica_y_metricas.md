@@ -6,12 +6,12 @@
 
 | Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
 | :--- | :--- | :---: | :---: |
-| **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | `0x652b7718F130329F3eC865f418FE2a2634fb5E29` | **33** (Etherscan) | **61** |
-| **[TokenFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/TokenFactory.sol)** | `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB` | **115** (Etherscan) | **115** |
-| **[BaseERC1155.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BaseERC1155.sol)** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | **2** (Etherscan) | **245** |
-| **[DEXFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/DEXFactory.sol)** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | **99** (Etherscan) | **98** |
-| **[WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | **615** (Etherscan) | **960** |
-| **[BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol)** | `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860` | **3** (Etherscan) | **2** |
+| **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | [`0x652b7718F130329F3eC865f418FE2a2634fb5E29`](https://sepolia.etherscan.io/address/0x652b7718F130329F3eC865f418FE2a2634fb5E29) | **33** (Etherscan) | **61** |
+| **[TokenFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/TokenFactory.sol)** | [`0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB`](https://sepolia.etherscan.io/address/0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB) | **115** (Etherscan) | **115** |
+| **[BaseERC1155.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BaseERC1155.sol)** | [`0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E`](https://sepolia.etherscan.io/address/0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E) | **2** (Etherscan) | **245** |
+| **[DEXFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/DEXFactory.sol)** | [`0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4`](https://sepolia.etherscan.io/address/0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4) | **99** (Etherscan) | **98** |
+| **[WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)** | [`0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317) | **615** (Etherscan) | **960** |
+| **[BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol)** | [`0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860`](https://sepolia.etherscan.io/address/0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860) | **3** (Etherscan) | **2** |
 | **DEX Pools (Agregado - 98 pools)** | *(Múltiples direcciones)* | **358** (Est. por logs) | **567** |
 | **Tokens Personalizados (Agregado - 115 tokens)** | *(Múltiples direcciones)* | **1235** (Est. por logs) | **1283** |
 | 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **2460** | 🏆 **3331** |
@@ -91,15 +91,13 @@ Para ejecutar un intercambio el usuario llama a la función de intercambio espec
 
 ---
 
-### Envoltura de Ether y Transferencias Masivas ([WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol) y [BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol))
+### Envoltura de Ether ([WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol))
 
 La paridad entre el Ether nativo y los tokens basados en el estándar ERC-20 se resuelve mediante un contrato de envoltura que permite transformar la criptomoneda nativa de la red en un activo compatible con los contratos de las piscinas de intercambio, la envoltura se ejecuta enviando Ether al contrato que mantiene un balance exacto de uno a uno y acuña tokens de Wrapped Ether en favor del depositante, para recuperar el Ether nativo el proceso se invierte llamando a la función de retiro que quema los tokens de envoltura del usuario y transfiere el monto equivalente de Ether nativo de regreso a la billetera, esto permite que los estudiantes utilicen el activo nativo de la red de pruebas dentro del DEX.
 
-[PLACEHOLDER: Diagrama de flujo del depósito y envoltura de Ether (WETH) y su paridad uno a uno]
+![Envoltura de Ether](docs/article_imgs/weth_contract.png)
 
-Por otro lado, la distribución masiva de activos y la simplificación de tareas administrativas académicas se gestionan mediante un contrato de transferencias por lotes, este componente optimiza el consumo de gas de la red al empaquetar múltiples transferencias de tokens en una sola transacción, permitiendo a los profesores o administradores distribuir tokens de pruebas a múltiples direcciones de estudiantes de manera simultánea, el contrato itera sobre los arreglos de direcciones y montos y realiza las llamadas de transferencia, reduciendo los costos de transacción fijos asociados con la inicialización de múltiples transacciones individuales en la blockchain.
-
-[PLACEHOLDER: Diagrama del flujo de optimización de gas en transferencias masivas con BatchTransfer.sol]
+![Infografía de WETH](docs/article_imgs/weth_infografia.png)
 
 ---
 
@@ -107,20 +105,15 @@ Por otro lado, la distribución masiva de activos y la simplificación de tareas
 
 La certificación del progreso académico de los estudiantes se gestiona a través de un sistema de insignias en formato ERC-1155 que se acuñan de forma descentralizada mediante una verificación criptográfica de firmas digitales, el contrato validador de desafíos delega la comprobación del cumplimiento de los requisitos a un backend centralizado que posee una llave privada autorizada bajo un rol específico, cuando un estudiante completa un desafío el backend valida la información on-chain utilizando un cliente ligero y genera un hash de mensaje con la dirección de la billetera del estudiante, el identificador numérico del desafío, un valor único de un solo uso para prevenir ataques de repetición y la dirección del propio contrato para evitar la reutilización de firmas en contratos paralelos.
 
-```solidity
-bytes32 messageHash = keccak256(
-    abi.encodePacked(msg.sender, id, salt, address(this))
-);
-bytes32 ethSignedMessageHash = MessageHashUtils.toEthSignedMessageHash(messageHash);
-address signer = ethSignedMessageHash.recover(signature);
-require(hasRole(SIGNER_ROLE, signer), "Firma invalida o no autorizada");
-```
+![Contrato ERC-1155](docs/article_imgs/erc1155_contract.png)
 
 Una vez que el usuario recibe la firma y el valor de sal del servidor interactúa con la función de reclamo en el contrato del validador de desafíos, el contrato reconstruye el hash del mensaje utilizando las variables locales de la transacción y la dirección del remitente, aplica el prefijo estándar de mensajes firmados de Ethereum y recupera la dirección pública del firmante mediante la operación de recuperación de clave de curva elíptica, si la dirección recuperada posee el rol de firmante autorizado y el hash del mensaje no ha sido consumido previamente se marca la firma como utilizada en el mapeo de control de repetición y se ordena al contrato de insignias la acuñación inmutable del NFT correspondiente.
 
-[PLACEHOLDER: Diagrama de secuencia del proceso de firma ECDSA y verificación en ChallengeMinter.sol]
+![Reclamo de Insignias](docs/article_imgs/claim_challenge_function.png)
 
-[PLACEHOLDER: Diagrama de la estructura de permisos y AccessControl de ChallengeMinter.sol]
+![Firma ECDSA](docs/article_imgs/firma_ecdsa.png)
+
+![Permisos ChallengeMinter](docs/article_imgs/permisos_challengeminter.png)
 
 ---
 
@@ -176,12 +169,12 @@ La actividad general de la plataforma se consolida en la siguiente tabla que det
 
 | Contrato / Componente | Dirección | Transacciones Totales (Etherscan / Est. Logs) | Eventos Registrados |
 | :--- | :--- | :---: | :---: |
-| **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | `0x652b7718F130329F3eC865f418FE2a2634fb5E29` | **33** (Etherscan) | **61** |
-| **[TokenFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/TokenFactory.sol)** | `0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB` | **115** (Etherscan) | **115** |
-| **[BaseERC1155.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BaseERC1155.sol)** | `0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E` | **2** (Etherscan) | **245** |
-| **[DEXFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/DEXFactory.sol)** | `0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4` | **99** (Etherscan) | **98** |
-| **[WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)** | `0x3E7B9d0da44D0c4Edb60a2261f89007f05419317` | **615** (Etherscan) | **960** |
-| **[BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol)** | `0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860` | **3** (Etherscan) | **2** |
+| **[StudentIdentity.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/StudentIdentity.sol)** | [`0x652b7718F130329F3eC865f418FE2a2634fb5E29`](https://sepolia.etherscan.io/address/0x652b7718F130329F3eC865f418FE2a2634fb5E29) | **33** (Etherscan) | **61** |
+| **[TokenFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/TokenFactory.sol)** | [`0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB`](https://sepolia.etherscan.io/address/0x30A4CA7ad7947f7Df6fdAf0EC4D9f4540e0149bB) | **115** (Etherscan) | **115** |
+| **[BaseERC1155.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BaseERC1155.sol)** | [`0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E`](https://sepolia.etherscan.io/address/0x6b727bC4560A05AEEB9c353396395B35c6Fdb57E) | **2** (Etherscan) | **245** |
+| **[DEXFactory.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/DEXFactory.sol)** | [`0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4`](https://sepolia.etherscan.io/address/0x2491e5C6d2aC321f0036fF5D561b7c72086Ba5a4) | **99** (Etherscan) | **98** |
+| **[WETH.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/WETH.sol)** | [`0x3E7B9d0da44D0c4Edb60a2261f89007f05419317`](https://sepolia.etherscan.io/address/0x3E7B9d0da44D0c4Edb60a2261f89007f05419317) | **615** (Etherscan) | **960** |
+| **[BatchTransfer.sol](https://github.com/cjbaezilla/diplomado-usach-training-dapp-contracts/blob/main/contracts/BatchTransfer.sol)** | [`0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860`](https://sepolia.etherscan.io/address/0x3c9323F2BaDdDBB1B152feFA33FEC0b748239860) | **3** (Etherscan) | **2** |
 | **DEX Pools (Agregado - 98 pools)** | *(Múltiples direcciones)* | **358** (Est. por logs) | **567** |
 | **Tokens Personalizados (Agregado - 115 tokens)** | *(Múltiples direcciones)* | **1235** (Est. por logs) | **1283** |
 | 📊 **TOTAL GENERAL ACUMULADO** | | 🚀 **2460** | 🏆 **3331** |
