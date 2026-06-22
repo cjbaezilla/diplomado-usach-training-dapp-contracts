@@ -1,4 +1,6 @@
-# Análisis de la Arquitectura de Contratos Inteligentes, Mecánica de Interacción de la dApp y Métricas On-chain del Diplomado USACH
+# Resultados Laboratorio DeFi Web3 USACH: Análisis de Datos On-chain, Métricas de Interacción y Arquitectura de Contratos Inteligentes
+
+![Portada del Artículo](docs/article_imgs/portada_articulo_rrss-2.png)
 
 ![Introducción y Fundamentos Pedagógicos](docs/article_imgs/hero_page.png)
 
@@ -23,6 +25,8 @@
 *   **Fecha y Hora de Generación del Reporte:** `22-06-2026, 8:39:55 a. m.`
 *   **Valor Total Bloqueado de la Plataforma (WETH TVL):** `33.3264 WETH`
 *   **Cantidad de Pares de Intercambio con WETH:** `46 pares`
+
+![Mecánica de Interacción On-chain de la Plataforma DeFi Web3](docs/article_imgs/portada_articulo_rrss.png)
 
 ---
 
@@ -199,6 +203,8 @@ La senda de desafíos académicos consta de diez etapas que evalúan la interacc
 La dApp recibe la firma y abre un modal interactivo donde el usuario confirma la llamada al contrato inteligente del mintero de desafíos, al procesar la transacción en la red el contrato inteligente verifica la firma contra la clave pública del backend y ordena la acuñación de la reliquia no fungible, al confirmarse la transacción la dApp despliega una animación festiva y actualiza la galería de reliquias del estudiante mostrando el logro en formato de tarjeta digital inmutable con sus respectivos metadatos.
 
 ![Modal interactivo de confirmación de reclamo de la reliquia NFT](docs/article_imgs/claiming_relic.png)
+
+![Desafíos Completados](docs/article_imgs/desafios_completados.png)
 
 ---
 
